@@ -1,0 +1,87 @@
+﻿<div class="alagramsay_resim_div">
+    <div id="alagramsay_d1">
+        <div id="alagramsaydiv0">
+            <form action="Yenigrupkursay" class="alagramsay_ic2">
+                @*@if (Model != null)
+                {
+                <input type="hidden" value="@Model.Username" name="username">
+                }*@
+                <input class="alagramsay_ic3" type="submit" value="Yeni Grup Kur">
+            </form>
+            <form action="gruplarimsay" class="alagramsay_ic2">
+                @*@if (Model != null)
+                {
+                <input type="hidden" value="@Model.Username" name="username">
+                }*@
+                <input class="alagramsay_ic3" type="submit" value="Gruplarım">
+            </form>
+        </div>
+
+        <div id="alagramsaydiv1">
+            <form action="/gruplardaara" id="alagramsayform1">
+
+                <input class="input" type="text" placeholder="Arama" name="gruparamaveri">
+                <input class="button" type="submit" value="Grup Ara" href="arama_sonuc">
+            </form>
+        </div>
+        <div id="alagramsaydiv2">
+            @if (Model.AlagramGroups != null)
+            {
+                @foreach (AlagramGroup group in Model.AlagramGroups)
+                {
+                    <div class="alagramsaykonudivs">
+                        @if (group.Members.Contains(Model.User))
+                        {
+                            <form action="grupsay" class="alagramsaykonuforms0" >
+
+                                <input type="hidden" value="@group.Id" name="groupId">
+
+                                <input class="alagramsaykonubutons0" type="submit" value="@group.Name">
+                            </form>
+                        }
+                        @if (!group.Members.Contains(Model.User) && !group.BannedUsers.Contains(Model.User))
+                        {
+                        <form action="" class="alagramsaykonuforms0"  disabled>
+
+                            <input class="alagramsaykonubutons0" type="submit" value="@group.Name" disabled>
+                        </form>
+                        }
+                        @if (group.Members.Contains(Model.User) && group.Owner!=Model.User)
+                        {
+                            <form action="gruptancik" class="alagramsaykonuforms1" >
+
+                                <input type="hidden" value="@group.Id" name="groupId">
+
+                                <input class="alagramsaykonubutons1" type="submit" value="Gruptan Çık">
+                            </form>
+                        }
+
+                        @if (group.Owner == Model.User)
+                        {
+                            <form action="grubusil" class="alagramsaykonuforms1" method="post">
+
+                                <input type="hidden" value="@group.Id" name="groupId">
+
+                                <input class="alagramsaykonubutons1" type="submit" value="Grubu Sil">
+                            </form>
+                        }
+                        @if (!group.Members.Contains(Model.User) && group.Owner != Model.User && !group.BannedUsers.Contains(Model.User))
+                        {
+                            <form action="grubauyeol" class="alagramsaykonuforms1" method="post">
+                                <input type="hidden" value="@group.Id" name="groupId">
+                                <input class="alagramsaykonubutons1" type="submit" value="Gruba Üye Ol">
+                            </form>
+                        }
+                    </div>
+                }
+            }
+        </div>
+
+    </div>
+</div>
+<script>
+
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, "alagram");
+    }
+</script>

@@ -1,0 +1,67 @@
+﻿#grupuyelerisay_d1 {
+    width: 600px;
+    margin-top: 100px;
+}
+
+    #grupuyelerisay_d1 table {
+        color: black;
+        background-color: white;
+        
+    }
+   
+
+      /*  #grupuyelerisay_d1 table th {
+            color: black !important;
+            font-size: 1rem;
+            background-color: #908787;
+            text-align: center;
+        }*/
+.grupuyelerisay_d2{
+    text-align:center;
+    color:white;
+    margin-bottom:20px;
+}
+
+.grupuyelerisay_d3{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.grupuyelerisaykonuforms01 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    min-width: 100px;
+    width: 120px;
+    height: 20%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    margin-bottom: 10px;
+    border: none;
+    background-color: none;
+    
+}
+
+    .grupuyelerisaykonuforms01:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }
+
+.grupuyelerisaykonubutons01 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    text-align: center;
+}
+
+    .grupuyelerisaykonubutons01:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }

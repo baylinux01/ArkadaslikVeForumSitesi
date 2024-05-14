@@ -1,0 +1,57 @@
+﻿@{
+    //ViewData["Title"] = "Giriş -";
+    ViewBag.Title = "Şifre -";
+}
+
+<div class="resim_div">
+    <div class="sifredegistirsaydiv0">
+        @if (ViewBag.passwordchangeresult == 1)
+        {
+            <div class="alert alert-success sifredegistirsaydiv1" role="alert">Şifre başarıyla değiştirilmiştir</div>
+        }
+        @if (ViewBag.passwordchangeresult == 2)
+        {
+            <div class="alert alert-danger sifredegistirsaydiv1" role="alert">Şifre değiştirme başarısız<br>İki yeni şifre aynı değil</div>
+        }
+        @if (ViewBag.passwordchangeresult == 3)
+        {
+            <div class="alert alert-danger sifredegistirsaydiv1" role="alert">Şifre değiştirme başarısız<br>Girilen değer formata uygun değil</div>
+        }
+        @if (ViewBag.passwordchangeresult == 4)
+        {
+            <div class="alert alert-danger sifredegistirsaydiv1" role="alert">Şifre değiştirme başarısız<br>Mevcut şifre hatalı</div>
+        }
+        
+
+        <form action="changepassword" method=POST id="my_form" class="sifredegistirsayform">
+
+            <div class="mb-3">
+                <label for="e1" class="form-label">Mevcut şifrenizi giriniz</label>
+                <input type="password" class="form-control" id="e1" name=oldpassword>
+
+            </div>
+            <div class="mb-3">
+                <label for="e1" class="form-label">Yeni şifrenizi giriniz</label>
+                <input type="password" class="form-control" id="e1" name=newpassword>
+
+            </div>
+            <div class="mb-3">
+                <label for="e2" class="form-label">Yeni şifrenizi tekrar giriniz</label>
+                <input type="password" class="form-control" id="e2" name=newpassword2>
+            </div>
+
+            <div id="g0">
+                <div id="f0">
+                    <button type="submit" class="btn btn-primary" id="b0">Şifre Değiştir</button>
+                </div>
+            </div>
+
+        </form>
+        <div id="g1">
+            <a class="btn btn-primary mt-3" href="/" id="b1">Ana Sayfa</a>
+            <a class="btn btn-primary mt-3" href="Bilgilerimsay" id="b2">Bilgilerim </a>
+        </div>
+
+
+    </div>
+</div>

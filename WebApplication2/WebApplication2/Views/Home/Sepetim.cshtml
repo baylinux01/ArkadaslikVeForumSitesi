@@ -1,0 +1,67 @@
+﻿<div class="resim_div">
+    <div id="arson_d1">
+        <table class="table table-bordered">
+            <thead>
+            <th>Ürün Adı</th>
+            <th>Ürünün Fiyatı</th>
+            <th>Ürünün Menşei</th>
+            <th>Ürünün Adedi</th>
+            <th>#</th>
+            
+
+            </thead>
+            <tbody>
+                @if (Model.Products2 != null)
+                {
+                    int total = 0;
+                    @foreach (Product2 p in Model.Products2)
+                    {
+                        total += p.Price*p.Number;
+                        <tr>
+                            <td>@p.Name</td>
+                            <td>@p.Price</td>
+                            <td>@p.Origin</td>
+                            <td>@p.Number</td>
+                            <td>@(p.Price*p.Number)</td>
+                            <td>
+                                <form action="sepettencikar">
+                                    
+                                        <input type="hidden" value="@p.Id" name="pid">
+                                    
+                                    <input class="btn btn-danger" type="submit" value="Sepetten Çıkar">
+                                </form>
+                            </td>
+                            
+                        </tr>
+                        
+                        
+                        
+                    }
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>@total</td>
+                        <td>
+                            <form action="satinal">
+                                @foreach (Product2 p in Model.Products2)
+                                {
+                                    <input type="hidden" value="@p.Name" name="total">
+                                }
+                                    <input type="hidden" value="@total" name="total">
+                                
+                                <input class="btn btn-success" type="submit" value="Satın Al">
+                            </form>
+                        </td>
+                        
+                    </tr>
+
+                }
+
+
+            </tbody>
+
+        </table>
+    </div>
+</div>

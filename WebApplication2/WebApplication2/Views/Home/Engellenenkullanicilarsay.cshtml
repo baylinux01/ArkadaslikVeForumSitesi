@@ -1,0 +1,40 @@
+﻿
+<div class="kullanicilarsay_resim_div">
+    <div id="arson_d1">
+      
+        <table class="table table-bordered">
+
+            <thead>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th></th>
+            </thead>
+            <tbody>
+
+                @if (Model.Users != null && Model.User != null)
+                {
+
+                    @foreach (User user in Model.Users)
+                    {
+                        @if (Model.User.BannedUsers.Contains(user))
+                        {
+                            <tr>
+                                <td>@user.Name</td>
+                                <td>@user.Surname</td>
+                                <td>
+                                    <form action="engelikaldir">
+
+
+                                        <input type="hidden" value="@user.Username" name="usernametobeunbanned">
+
+                                        <input class="btn btn-danger" type="submit" value="Engeli Kaldır">
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+                </tbody>
+                </table>
+                </div>
+                </div>

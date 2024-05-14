@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Bilgilerim -";
+
+}
+
+<div class="resim_div">
+    <div id="arson_d1">
+        <table class="table table-bordered">
+            <thead>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th>Kullanıcı Adı</th>
+            <th>Telefon Numarası</th>
+            <th>#</th>
+
+            </thead>
+            <tbody>
+
+
+               
+                @if(Model.User!=null)
+                {
+                    <tr>
+                        <td>@Model.User.Name</td>
+                        <td>@Model.User.Surname</td>
+                        <td>@Model.User.Username</td>
+                        <td>@Model.User.Phonenumber</td>
+                        <td><a class="btn btn-success" href="bilgileriguncellesay">Bilgileri Güncelle</a></td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+</div>

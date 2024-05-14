@@ -1,0 +1,338 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+.karsilama {
+    text-align: center;
+    font-family: font-family: 'Fira Sans', sans-serif;
+    color:white;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+.ilk {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(194, 189, 189);
+}
+
+.menu {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12%;
+    background-color: rgb(194, 189, 189);
+    border: 1px solid rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    margin-left: 1%;
+}
+
+    .menu:hover {
+        background-color: white;
+    }
+
+        .menu:hover .menu_elements {
+            background-color: rgb(194, 189, 189);
+        }
+
+.menu_elements {
+    width: 70%;
+    height: 4px;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.orta {
+    display: flex;
+    column-gap: 1%;
+    width: 397px;
+    margin-left: 310px !important;
+    height: 100%;
+    align-items: center;
+    box-sizing:border-box;
+}
+    .orta form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 396px;
+        box-sizing:border-box;
+    }
+    .orta input:focus {
+        border: 2px solid rgba(146, 104, 26, 0.815);
+    }
+
+.input {
+    width: 85%;
+    height: 35px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+    .input:focus {
+        border-color: rgba(146, 104, 26, 0.815);
+    }
+
+.button {
+    width: 20%;
+    height: 35px;
+    background-color: rgba(190, 190, 196, 0.842);
+    border-radius: 15%;
+}
+
+    .button:hover {
+        background-color: white;
+    }
+
+.giris_kayit {
+    width: 20%;
+    display: flex;
+    justify-content: right;
+    column-gap: 10%;
+    margin-right: 2%;
+}
+
+.giris, .kayit {
+    border: 1px solid white;
+    border-radius: 25%;
+    padding: 2% 4%;
+    padding-bottom: 3%;
+    color: white;
+    font-size: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+.cikis {
+    border: 1px solid white;
+    border-radius: 25%;
+    padding: 2% 4%;
+    padding-bottom: 3%;
+    color: white;
+    font-size: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cikis:hover{
+    color:rgba(146, 104, 26, 0.815);
+    background-color:white;
+}
+
+    .giris:hover, .kayit:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }
+
+
+
+.resim_div {
+    width: 100%;
+    min-height: 800px;
+    height: auto;
+    border: 1px solid black;
+    background-image: url("https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resim_ic_div {
+    width: 30%;
+    height: 10%;
+    border: 1px solid rgb(194, 189, 189);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 150%;
+    font-weight: 1200;
+    letter-spacing: 12px;
+    text-align: center;
+}
+
+.absolute {
+    position: absolute;
+    width: 250px;
+    height: 300px;
+    display: none;
+    flex-direction:column;
+    z-index: 3;
+}
+
+.absolute_ic {
+    width: 100%;
+    height: 20%;
+    border: 1px solid black;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .absolute_ic:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }
+
+.absolute_ic2 {
+    display:block;
+    width: 100%;
+    height: 20%;
+    box-sizing:border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    display: block;
+}
+
+.absolute_ic2:hover {
+    background-color: white;
+    color: rgb(194, 189, 189);
+}
+.absolute_ic3 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    display: block;
+}
+
+.absolute_ic3:hover {
+    background-color: white;
+    color: rgb(194, 189, 189);
+}
+.footer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background-color: rgb(194, 189, 189);
+}
+
+.footer_alt_1, .footer_alt_3 {
+    width: 30px;
+    height: 80%;
+    background-image: url("bird.png");
+    background-repeat: no-repeat;
+    background-size: content;
+}
+
+.footer_alt_3 {
+    display: flex;
+}
+
+.footer_alt_2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    letter-spacing: 10px;
+    text-align: center;
+}
+
+@media screen and (min-width:1150px) and (max-width: 1300px) {
+    .resim_ic_div {
+        font-size: 20px;
+    }
+
+    .footer_alt_2 {
+        font-size: 18px;
+    }
+   
+}
+
+@media screen and (min-width:975px) and (max-width: 1149px) {
+    .resim_ic_div {
+        font-size: 15px;
+    }
+
+    .footer_alt_2 {
+        font-size: 15px;
+    }
+   
+}
+
+@media screen and (min-width:600px) and (max-width: 974px) {
+    .resim_ic_div {
+        font-size: 10px;
+        line-height: 20px;
+        letter-spacing: 4px;
+    }
+
+    .footer_alt_2 {
+        font-size: 10px;
+        letter-spacing: 4px;
+    }
+    .orta {
+        margin-right:90px;
+    }
+   
+}
+
+@media screen and (max-width:600px) {
+    .resim_ic_div {
+        font-size: 10px;
+        line-height: 20px;
+        letter-spacing: 4px;
+    }
+
+    .footer_alt_2 {
+        font-size: 10px;
+        letter-spacing: 4px;
+    }
+
+    .ilk {
+        flex-direction: column-reverse;
+        height: 150px;
+        justify-content:center;
+        align-items: center;
+        column-gap: 10px;
+    }
+    .orta
+    {
+        display:flex;
+        justify-content:start;
+        width:300px;
+        margin-right:200px;
+        
+
+    }
+   
+
+    .menu {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        height: 220px;
+        margin-right:160px;
+    }
+
+    
+
+    .giris_kayit {
+        width: 50%;
+        justify-content: space-evenly;
+        margin-top: 1rem;
+        margin-bottom: 10px;
+        
+    }
+}

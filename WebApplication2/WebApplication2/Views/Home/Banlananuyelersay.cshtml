@@ -1,0 +1,64 @@
+﻿<div class="forumsay_resim_div">
+    <div id="grupuyelerisay_d1">
+        @if (Model != null)
+        {
+            @if (Model.AlagramGroup != null)
+            {
+                @if (Model.AlagramGroup.BannedUsers != null)
+                {
+                    <div class="grupuyelerisay_d2"><h3>@Model.AlagramGroup.Name Grubundan Banlananlar</h3></div>
+                    <table class="table table-striped">
+                        @foreach (User banned in Model.AlagramGroup.BannedUsers)
+                        {
+                            <tr>
+                                <td>
+                                    @banned.Username
+                                </td>
+                                @if (Model.User == Model.AlagramGroup.Owner && banned != Model.User)
+                                {
+                                    <td>
+                                        <form action="banikaldir" method="post">
+
+                                            <input type="hidden" value="@Model.AlagramGroup.Id" name="groupId">
+                                            <input type="hidden" value="@banned.Username" name="usernametobeunbanned">
+
+                                            <input class="btn btn-danger" type="submit" value="Banı Kaldır">
+                                        </form>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </table>
+                }
+                <div class="grupuyelerisay_d3">
+                    <form action="grupsay" class="grupuyelerisaykonuforms01">
+                        <input type="hidden" value="@Model.AlagramGroup.Id" name="groupId">
+                        <input class="grupuyelerisaykonubutons01" type="submit" value="Gruba Geri Dön">
+                    </form>
+                    <form action="/" class="grupuyelerisaykonuforms01">
+
+                        <input class="grupuyelerisaykonubutons01" type="submit" value="Anasayfa">
+                    </form>
+                    <form action="alagram" class="grupuyelerisaykonuforms01">
+
+                        <input class="grupuyelerisaykonubutons01" type="submit" value="Alagram">
+                    </form>
+                </div>
+            }
+        }
+
+    </div>
+</div>
+
+@{
+    TempData["groupId"] = Model.AlagramGroup.Id.ToString();
+}
+
+
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, "banlananuyelersay");
+
+    }
+</script>
+

@@ -1,0 +1,61 @@
+﻿.gruplarimsay_resim_div {
+    width: 100%;
+    min-height: 800px;
+    height: auto;
+    border: 1px solid black;
+    background-image: url("https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+#gruplarimsay_d1 {
+    width: 800px;
+    margin-top: 100px;
+}
+
+#gruplarimsay_d1 table{
+    background-color:white;
+    color:black;
+}
+
+.gruplarimsaykonuforms01 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    min-width: 100px;
+    width: 100px;
+    height: 20%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    margin-bottom: 10px;
+    border: none;
+    background-color: none;
+}
+
+    .gruplarimsaykonuforms01:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }
+
+
+.gruplarimsaykonubutons01 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    text-align: center;
+}
+
+    .gruplarimsaykonubutons01:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }
+.gruplarimsay_d2{
+    display:flex;
+    justify-content:space-between;
+}

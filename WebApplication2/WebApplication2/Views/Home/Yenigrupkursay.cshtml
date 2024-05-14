@@ -1,0 +1,21 @@
+﻿<div class="forumsay_resim_div">
+    <div id="arson_d1">
+        <div id="forumsaydiv0">
+        </div>
+        @if(ViewBag.samegroupname==true)
+        {
+            <div class="alert alert-danger">Grup Adı Başka Grubun Adıyla Aynı Olamaz<br />Tekrar Deneyin</div>
+        }
+        <div id="forumsaydiv1">
+            <p style="color:white">Yeni Grup Adı Giriniz</p>
+            <form action="/grubukur" id="forumsayform1" method="post">
+
+                <input class="input" type="text" placeholder="Grup Adı" name="newgroupname">
+                <input class="button" type="submit" value="Yeni Grup Kur" href="arama_sonuc">
+            </form>
+        </div>
+        <div id="forumsaydiv2">
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "Grup -";
+
+}
+<div class="grupsay_resim_div">
+    <div class="grupsay_d1">
+        <div class="grupsaybaslikdisdiv">
+            <div class="grupsaybaslikicdiv">@Model.AlagramGroup.Name</div>
+            
+        </div>
+        <hr />
+            <div>
+                <form action="grupuyelerisay" class="grupsaykonuforms01">
+                    <input type="hidden" value="@Model.AlagramGroup.Id" name="groupId">
+                    <input class="grupsaykonubutons0" type="submit" value="Grup Üyeleri">
+                </form>
+            </div>
+            @if(Model.User == Model.AlagramGroup.Owner)
+            {
+            <div>
+                <form action="banlananuyelersay" class="grupsaykonuforms01">
+                    <input type="hidden" value="@Model.AlagramGroup.Id" name="groupId">
+                    <input class="grupsaykonubutons0" type="submit" value="Banlanan Üyeler">
+                </form>
+            </div>
+            }
+        
+           
+            <hr />
+        <div id="grupsaydiv0">
+            @foreach (AlagramComment comment in Model.AlagramComments)
+            {
+                <div class="grupsaydiv1">
+                    @if(comment.Group==Model.AlagramGroup)
+                    {
+                        @if (comment.QuotedComment != null)
+                        {
+                            <div class="grupsayalintilananyorumdiv">
+                                <div>Alıntılanan yorum: @comment.QuotedComment.Content</div>
+                                <div> Alıntılanan yorumun sahibi: @comment.QuotedComment.Owner.Username</div>
+                            </div>
+                        }
+                        <div class="grupsayyorumdiv">
+                            <div>Yorum: @comment.Content</div>
+                            <div>Yorum sahibi: @comment.Owner.Username</div>
+                        </div>
+                        <div class="grupsaybutondiv">
+                            @if (!comment.Owner.BannedUsers.Contains(Model.User))
+                            {
+                                <form action="gruptaalintilasay" class="grupsaykonuforms0" method="post">
+
+                                    <input type="hidden" value="@Model.AlagramGroup.Id" name="groupId">
+                                    <input type="hidden" value="@comment.Id" name="CommentIdtobeQuoted">
+
+                                    <input class="grupsaykonubutons0" type="submit" value="Alıntıla">
+                                </form>
+                            }
+                            @if ((comment.Owner == Model.User || Model.User.IsOwner == true)
+                           || (Model.User.IsAdmin == true && comment.Owner.IsAdmin == false && comment.Owner.IsOwner == false))
+                            {
+                                @if(comment.Owner == Model.User)
+                                {
+                                    <form action="gruptayorumuduzenlesay" class="grupsaykonuforms0" method="post">
+
+                                        <input type="hidden" value="@Model.AlagramGroup.Id" name="groupId">
+                                        <input type="hidden" value="@comment.Id" name="CommentIdtobeEdited">
+
+                                        <input class="grupsaykonubutons0" type="submit" value="Yorumu Düzenle">
+                                    </form>
+                                }
+                                
+                                
+                                <form action="gruptayorumusil" class="grupsaykonuforms0" method="post">
+
+                                    <input type="hidden" value="@Model.AlagramGroup.Id" name="groupId">
+                                    <input type="hidden" value="@comment.Id" name="CommentIdtobeDeleted">
+
+                                    <input class="grupsaykonubutons0" type="submit" value="Yorumu Sil">
+                                </form>
+                            }
+                            
+                        </div>
+                        <hr />
+                    }
+                </div>
+                    
+            }
+        </div>
+
+
+        <div id="grupsaydiv1">
+            <form action="gruptayorumyap" method="post" id="grupsayform0">
+                <input type="hidden" value="@Model.AlagramGroup.Id" name="groupId">
+                <input class="input" type="text" placeholder="Mesajınız" name="commentContent">
+
+                <input class="button" type="submit" value="Yorum Yap" href="arama_sonuc">
+            </form>
+        </div>
+        <div id="grupsay_form-button-div">
+            <div>
+                <form action="alagram" class="grupsaykonuforms01">
+                    <input type="hidden" value="@Model.AlagramGroup.Id" name="groupId">
+                    <input class="grupsaykonubutons01" type="submit" value="Alagram">
+                </form>
+            </div>
+            <div>
+                <form action="/" class="grupsaykonuforms01">
+                    <input type="hidden" value="@Model.AlagramGroup.Id" name="groupId">
+                    <input class="grupsaykonubutons01" type="submit" value="Anasayfa">
+                </form>
+            </div>
+            @*<a class="btn btn-primary" id="buton1" href="alagram">Alagram</a>
+            <a class="btn btn-primary" id="buton1" href="/">Ana Sayfa</a>*@
+            <div>
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+@{
+    TempData["groupId"] = Model.AlagramGroup.Id;
+}
+<script>
+   
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, "Grupsay");
+    }
+</script>

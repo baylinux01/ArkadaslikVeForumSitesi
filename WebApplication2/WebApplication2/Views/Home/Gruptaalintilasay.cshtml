@@ -1,0 +1,23 @@
+﻿<div class="forumsay_resim_div">
+    <div id="arson_d1">
+        <div id="forumsaydiv0">
+        </div>
+
+        <div id="forumsaydiv1">
+            <div style="background-color:white">
+                <p>Alıntılanacak mesaj: @Model.AlagramComment.Content</p>
+                <p>Alıntılanacak mesaj sahibi: @Model.AlagramComment.Owner.Username</p>
+            </div>
+            <hr />
+            <form action="gruptaalintila" id="forumsayform1" method="post">
+                <input type="hidden" value="@Model.AlagramGroup.Id" name="groupId">
+                <input type="hidden" value="@Model.AlagramComment.Id" name="CommentIdtobeQuoted">
+                <input class="input" type="text" placeholder="Mesajınız" name="commentContent">
+                <input class="button" type="submit" value="Alıntıla" href="arama_sonuc">
+            </form>
+        </div>
+        <div id="forumsaydiv2">
+        </div>
+
+    </div>
+</div>

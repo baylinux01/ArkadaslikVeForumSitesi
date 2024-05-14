@@ -1,0 +1,52 @@
+﻿#form-button-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+#buton0, #buton1, #buton2 {
+    width: 94px !important;
+}
+
+#buton1 {
+    font-size: 14px;
+    height: 38px;
+}
+
+
+label {
+    color: white !important;
+}
+
+#kayitsaydiv0 {
+    display: flex;
+    flex-direction: column;
+    column-gap: 10px;
+    
+}
+
+.kayitsaydiv1 {
+    height: auto;
+    max-height: 120px;
+    margin-bottom: 3px;
+    margin-top: 20px;
+    width: 320px;
+    text-align: center;
+    margin-left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#kayitsaydiv2 {
+    width: 360px;
+    margin-right: 58px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: end;
+    
+}
+
+#kayitsayform {
+    width: 318px;
+}

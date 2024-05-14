@@ -1,0 +1,33 @@
+﻿
+<header class="ilk">
+    <div id="menu" class="menu">
+        <div class="menu_elements"></div>
+        <div class="menu_elements"></div>
+        <div class="menu_elements"></div>
+    </div>
+    <div class="orta">
+
+        @* <form action="/kullaniciaramasonuc">
+            
+            <input class="input" type="text" placeholder="Arama" name="kullaniciaramaveri">
+            <input class="button" type="submit" value="Ara" href="arama_sonuc">
+        </form> *@
+    </div>
+    <div class="giris_kayit">
+        @if (Model.User != null)
+        {
+            <div class="karsilama">
+                Hoşgeldiniz <br> @Model.User.Name @Model.User.Surname
+            </div>
+            <a href="Cikis" class="cikis">Çıkış Yap</a>
+
+
+        }
+        else
+        {
+            <a href="Girissayfasi" class="giris">Giriş Yap</a>
+            <a href="Kayitsayfasi" class="kayit">Kayıt Ol</a>
+        }
+    </div>
+
+</header>

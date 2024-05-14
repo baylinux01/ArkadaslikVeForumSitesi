@@ -1,0 +1,17 @@
+﻿#g0 {
+    display: flex;
+    justify-content: start;
+}
+
+#g1 {
+    display: flex;
+    justify-content:space-between !important;
+}
+
+label {
+    color: white;
+}
+#b1 {
+      width:88px;
+      font-size:14.4px;
+}

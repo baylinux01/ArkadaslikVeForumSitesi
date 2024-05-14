@@ -1,0 +1,40 @@
+﻿@model WebApplication2.Models.ViewModel
+<!DOCTYPE html>
+<html lang="tr">
+@{
+    await Html.RenderPartialAsync("_Head");
+}
+
+<body>
+   
+        
+            @if(Model.User !=null)
+            {
+            TempData["veri"] = Model.User.Username;
+            }
+
+        
+    
+    @{
+        await Html.RenderPartialAsync("_Header");
+    }
+   
+
+    @{
+        await Html.RenderPartialAsync("_Absolute");
+    }
+    <main>
+
+        @RenderBody()
+    </main>
+        
+    
+
+    @{
+        await Html.RenderPartialAsync("_Footer");
+    }
+
+    @*@Html.Partial("_Footer")*@
+
+</body>
+</html>

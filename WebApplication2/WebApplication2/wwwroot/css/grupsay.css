@@ -1,0 +1,156 @@
+﻿#grupsaydiv0 {
+    width: 600px;
+    min-height: 400px;
+    height: auto;
+    background-color: white;
+    margin-top: 30px;
+}
+
+#grupsaydiv1 {
+    display: flex;
+    margin-bottom: 30px;
+    margin-top: 50px;
+    justify-content: center;
+    width: 600px;
+}
+
+#grupsayform0 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#grupsayform1 {
+}
+
+.grupsay_resim_div {
+    width: 100%;
+    min-height: 800px;
+    height: auto;
+    border: 1px solid black;
+    background-image: url("https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+#grupsay_form-button-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#grupsay_d1 {
+    width: 600px;
+    margin-top: 100px;
+}
+
+.grupsaybaslikdisdiv {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.grupsaybaslikicdiv {
+    color: white;
+    font-size: 2rem;
+}
+
+.grupsaykonuforms0 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    min-width: 100px;
+    width: auto;
+    height: 20%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    margin-bottom: 10px;
+    border: none;
+    background-color: none;
+    
+}
+.grupsaydiv1{
+    margin-left:10px;
+}
+
+    .grupsaykonuforms0:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }
+
+.grupsaykonuforms01 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    min-width: 100px;
+    width: 100px;
+    height: 20%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    margin-bottom: 10px;
+    border: none;
+    background-color: none;
+}
+
+    .grupsaykonuforms01:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }
+
+
+.grupsaykonubutons0 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    text-align: start;
+    
+}
+
+    .grupsaykonubutons0:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }
+
+
+
+.grupsaykonubutons01 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    text-align:center;
+}
+
+    .grupsaykonubutons01:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }
+
+.grupsayalintilananyorumdiv {
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.grupsayyorumdiv {
+    box-sizing: border-box;
+}
+
+.grupsaybutondiv {
+    display: flex;
+    justify-content: start;
+    column-gap: 10px;
+    margin-top: 5px;
+}

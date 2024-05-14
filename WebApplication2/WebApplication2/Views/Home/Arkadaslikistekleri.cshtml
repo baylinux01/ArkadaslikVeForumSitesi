@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "İstekler -";
+
+}
+
+<div class="kullanicilarsay_resim_div">
+    <div id="arson_d1">
+        <table class="table table-bordered">
+            <thead>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th></th>
+
+
+            </thead>
+            <tbody>
+                <div id="kullanicilarsaydiv0">
+                    <form action="/kullaniciaramasonuc" id="kullanicilarsayform0">
+
+                        <input class="input" type="text" placeholder="Arama" name="kullaniciaramaveri">
+                        <input class="button" type="submit" value="Kullanıcı Ara" href="arama_sonuc">
+                    </form>
+                </div>
+                @if ( Model.User != null && Model.FriendRequests!=null)
+                {
+
+                    @foreach (FriendRequest req in Model.FriendRequests)
+                    { 
+                        if(req.Receiver==Model.User)
+                        {
+                            <tr>
+                                <td>@req.Sender.Name</td>
+                                <td>@req.Sender.Surname</td>
+                                <td>
+                                    <form action="arkadaslikisteginikabulet">
+
+
+                                        <input type="hidden" value="@req.Sender.Username" name="friendrequestsender">
+
+                                        <input class="btn btn-success" type="submit" value="İsteği Kabul Et">
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="arkadaslikisteginireddet1">
+
+
+                                        <input type="hidden" value="@req.Sender.Username" name="friendrequestsender">
+
+                                        <input class="btn btn-danger" type="submit" value="İsteği Reddet">
+                                    </form>
+                                </td>
+                            </tr>
+
+                        }
+
+
+                    }
+
+                }
+                @if (Model.User == null)
+                {
+                    <div style="color:white;">Diğer kullanıcıları görmek için giriş yapınız</div>
+
+                }
+
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
+

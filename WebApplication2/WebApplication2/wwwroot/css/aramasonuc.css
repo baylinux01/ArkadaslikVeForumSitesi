@@ -1,0 +1,30 @@
+﻿.arson_resim_div {
+    width: 100%;
+    min-height: 800px;
+    height: auto;
+    border: 1px solid black;
+    background-image: url("https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#arson_d1{
+    width:600px;
+    margin-top:100px;
+
+}
+
+#arson_d1 table{
+    color:white;
+    background-color: #908787;
+    
+}
+    #arson_d1 table th{
+        color: black !important;
+        font-size:1rem;
+        background-color: #908787;
+        text-align:center;
+    }
+

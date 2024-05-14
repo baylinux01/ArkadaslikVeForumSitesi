@@ -1,0 +1,73 @@
+﻿<div class="forumsay_resim_div">
+    <div id="forumsay_d1">
+<div id="forumsaydiv0">
+    <form action="konuacsay" class="forumsay_ic2">
+        @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+        <input class="forumsay_ic3" type="submit" value="Yeni Konu Aç">
+    </form>
+</div>
+
+<div id="forumsaydiv1">
+    <form action="/konulardaara" id="forumsayform1">
+
+        <input class="input" type="text" placeholder="Arama" name="konuaramaveri">
+        <input class="button" type="submit" value="Konu Ara" href="arama_sonuc">
+    </form>
+</div>
+<div id="forumsaydiv2">
+            @if (Model.Topics != null)
+            {
+                @foreach (Topic topic in Model.Topics)
+                {
+                    <div class="forumsaykonudivs">
+
+
+                        <form action="konusay" class="forumsaykonuforms0" method="post">
+
+                            <input type="hidden" value="@topic.Id" name="Id">
+
+                            <input class="forumsaykonubutons0" type="submit" value="@topic.Title">
+                        </form>
+
+                        @*<form action="" class="forumsaykonuforms01">
+
+                            <input type="hidden" value="@topic.Id" name="Id">
+
+                            <input class="forumsaykonubutons01" type="submit" value="Konuyu açan: @topic.Owner.Username" disabled>
+                        </form>*@
+
+                        @if (topic.Owner == Model.User || Model.User.IsOwner==true 
+                        || (Model.User.IsAdmin==true && topic.Owner.IsAdmin==false && topic.Owner.IsOwner==false))
+                        {
+                            <form action="konusil" class="forumsaykonuforms1">
+
+                                <input type="hidden" value="@topic.Id" name="Id">
+
+                                <input class="forumsaykonubutons1" type="submit" value="Konuyu Sil">
+                            </form>
+                        }
+                        else
+                        {
+                            <form action="konusay" class="forumsaykonuforms1" method="post">
+
+                                <input type="hidden" value="@topic.Id" name="Id">
+
+                                <input class="forumsaykonubutons1" type="submit" value="Konuya Git">
+                            </form>
+                        }
+                    </div>
+                }
+            }
+        </div>
+
+</div>
+</div>
+<script>
+
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, "forum");
+    }
+</script>

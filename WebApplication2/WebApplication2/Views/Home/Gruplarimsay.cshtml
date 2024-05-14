@@ -1,0 +1,37 @@
+﻿<div class="gruplarimsay_resim_div">
+    <div id="gruplarimsay_d1">
+@if (Model != null)
+{
+    @if (Model.AlagramGroups != null)
+    {
+       
+        
+       <table class="table table-striped">
+         @foreach(AlagramGroup group in Model.AlagramGroups)
+        {
+            @if(group.Members.Contains(Model.User))
+            {
+                <tr>
+                    <td>
+                        @group.Name
+                    </td>
+                </tr>
+            }
+        }
+       </table>
+
+      
+        <div class="gruplarimsay_d2">
+                    <form action="/" class="gruplarimsaykonuforms01">
+
+                        <input class="gruplarimsaykonubutons01" type="submit" value="Anasayfa">
+                    </form>
+                    <form action="alagram" class="gruplarimsaykonuforms01">
+
+                        <input class="gruplarimsaykonubutons01" type="submit" value="Alagram">
+                    </form>
+        </div>
+    }
+}
+</div>
+</div>

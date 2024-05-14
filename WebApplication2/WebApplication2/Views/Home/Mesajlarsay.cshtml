@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Arkadaşlar -";
+
+}
+
+<div class="resim_div">
+    <div id="arson_d1">
+        <table class="table table-bordered">
+            <thead>
+            <th>Adı</th>
+            <th>Soyadı</th>
+            <th></th>
+            <th></th>
+
+            </thead>
+            <tbody>
+
+                @if (Model.Friendships != null && Model.User != null)
+                {
+
+                    @foreach (Friendship f in Model.Friendships)
+                    {
+                        if (f.Friend1 == Model.User)
+                        {
+                            Context c = new Context();
+                            User user = Model.User;
+                            User us = f.Friend2;
+                            int count = c.Messages.Count(p => p.MessageReceiver == user
+                            && p.MessageSender == us && p.IsRead == false);
+                            <tr>
+                                <td>@f.Friend2.Name</td>
+                                <td>@f.Friend2.Surname</td>
+
+                                <td>
+                                    <form action="mesaj" method="post">
+
+
+                                        <input type="hidden" value="@f.Friend2.Username" name="friendtosendmessage">
+
+                                        <input class="btn btn-success" type="submit" value="Mesaj(@count Okunmamış)">
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="arkadasliktancikar">
+
+
+                                        <input type="hidden" value="@f.Friend2.Username" name="friendtodefriend">
+
+                                        <input class="btn btn-danger" type="submit" value="Arkadaşlıktan Çıkar">
+                                    </form>
+                                </td>
+
+                            </tr>
+                        }
+                        @if (f.Friend2 == Model.User)
+                        {
+                            Context c = new Context();
+                            User user = Model.User;
+                            User us1 = f.Friend1;
+                            int count1 = c.Messages.Count(p => p.MessageReceiver == user
+                            && p.MessageSender == us1 && p.IsRead == false);
+                            <tr>
+                                <td>@f.Friend1.Name</td>
+                                <td>@f.Friend1.Surname</td>
+
+                                <td>
+                                    <form action="mesaj" method="post">
+
+
+                                        <input type="hidden" value="@f.Friend1.Username" name="friendtosendmessage">
+
+                                        <input class="btn btn-success" type="submit" value="Mesaj(@count1 Okunmamış)">
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="arkadasliktancikar">
+
+
+                                        <input type="hidden" value="@f.Friend1.Username" name="friendtodefriend">
+
+                                        <input class="btn btn-danger" type="submit" value="Arkadaşlıktan Çıkar">
+                                    </form>
+                                </td>
+
+                            </tr>
+                        }
+
+                    }
+
+                }
+                @if (Model.Friendships == null)
+                {
+                    <div style="color:white;">Arkadaşları görmek için giriş yapınız</div>
+
+                }
+
+
+            </tbody>
+
+        </table>
+    </div>
+</div>

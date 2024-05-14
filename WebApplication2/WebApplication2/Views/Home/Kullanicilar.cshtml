@@ -1,0 +1,225 @@
+﻿@{
+    ViewBag.Title = "Kullanıcılar -";
+
+}
+
+<div class="kullanicilarsay_resim_div">
+    <div id="arson_d1">
+        @{
+            int a = 0; int b = 0; int ks = 0; int at= 0; int bt = 0;
+        }
+        <table class="table table-bordered">
+            
+            <tbody>
+                <div id="kullanicilarsaydiv0">
+                    <form action="/kullaniciaramasonuc" id="kullanicilarsayform0">
+
+                        <input class="input" type="text" placeholder="Arama" name="kullaniciaramaveri">
+                        <input class="button" type="submit" value="Kullanıcı Ara" href="arama_sonuc">
+                    </form>
+                </div>
+                @if (Model.Users != null && Model.User != null)
+                {
+
+                    @foreach (User u in Model.Users)
+                    {
+                        @if(!Model.User.BannedUsers.Contains(u)&& !u.BannedUsers.Contains(Model.User))
+                        {
+                            <tr>
+                                <td>@u.Name</td>
+                                <td>@u.Surname</td>
+
+                                @if (Model.FriendRequests != null)
+                                {
+
+                                    @foreach (FriendRequest req in Model.FriendRequests)
+                                    {
+                                        @if (req.Sender == Model.User && req.Receiver == u)
+                                        {
+                                            a++;
+                                            at++;
+                                            <td>
+                                                <form action="arkadaslikisteginigericek">
+
+
+                                                    <input type="hidden" value="@u.Username" name="friendrequestreceiver">
+
+                                                    <input class="btn btn-success" type="submit" value="İsteği Geri Çek">
+                                                </form>
+                                            </td>
+                                            <td></td>
+
+                                        }
+                                        @if (req.Sender == u && req.Receiver == Model.User)
+                                        {
+                                            a++;
+                                            at++;
+                                            <td>
+                                                <form action="arkadaslikisteginikabulet2">
+
+
+                                                    <input type="hidden" value="@u.Username" name="friendrequestsender">
+
+                                                    <input class="btn btn-success" type="submit" value="İsteği Kabul Et">
+                                                </form>
+                                            </td>
+                                            <td>
+                                                <form action="arkadaslikisteginireddet2">
+
+
+                                                    <input type="hidden" value="@u.Username" name="friendrequestsender">
+
+                                                    <input class="btn btn-danger" type="submit" value="İsteği Reddet">
+                                                </form>
+                                            </td>
+
+                                        }
+
+
+                                    }
+
+                                    @if (a == 0)
+                                    {
+
+                                        @foreach (Friendship f in Model.Friendships)
+                                        {
+                                            @if ((f.Friend1 == Model.User && f.Friend2 == u)
+                                           || (f.Friend2 == Model.User && f.Friend1 == u))
+
+                                            {
+                                                b++;
+                                                bt++;
+                                                Context c = new Context();
+                                                User user = Model.User;
+                                                User us = u;
+                                                int count = c.Messages.Count(p => p.MessageReceiver == user
+                                                && p.MessageSender == us && p.IsRead == false);
+                                                <td>
+                                                    <form action="mesaj" method="post">
+
+
+                                                        <input type="hidden" value="@u.Username" name="friendtosendmessage">
+
+                                                        <input class="btn btn-success" type="submit" value="Mesaj (@count Okunmamış)">
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <form action="arkadasliktancikar2">
+
+
+                                                        <input type="hidden" value="@u.Username" name="friendtodefriend">
+
+                                                        <input class="btn btn-danger" type="submit" value="Arkadaşlıktan Çıkar">
+                                                    </form>
+                                                </td>
+
+                                            }
+
+                                        }
+                                        @if (b == 0)
+                                        {
+                                            <td>
+                                                <form action="arkadasekle">
+
+
+                                                    <input type="hidden" value="@u.Username" name="friendrequestreceiver">
+
+                                                    <input class="btn btn-success" type="submit" value="Arkadaş Ekle">
+                                                </form>
+                                            </td>
+                                            <td></td>
+                                            
+
+
+                                        }
+                                        @if (b != 0) b = 0;
+                                    }
+                                    @if (a != 0) a = 0;
+
+
+                                }
+
+
+
+                                @if (Model.FriendRequests == null)
+                                {
+                                    <td>
+                                        <form action="arkadasekle">
+
+
+                                            <input type="hidden" value="@u.Username" name="friendrequestreceiver">
+
+                                            <input class="btn btn-success" type="submit" value="Arkadaş Ekle">
+                                        </form>
+                                    </td>
+                                }
+                                @if ((Model.User.IsAdmin == true && u.IsAdmin == false && u.IsOwner == false)
+                               || Model.User.IsOwner == true)
+                                {
+                                    ks++;
+                                    <td>
+                                        <form action="kullaniciyisil" method="post">
+
+
+                                            <input type="hidden" value="@u.Username" name="usernametobedeleted">
+
+                                            <input class="btn btn-success" type="submit" value="Kullanıcıyı Sil">
+                                        </form>
+                                    </td>
+
+                                }
+                                @if(at==0 && bt==0 )
+                                {
+                                    <td></td>
+                                }
+                                <td>
+                                    <form action="kullaniciyiengelle" method="post">
+
+
+                                        <input type="hidden" value="@u.Username" name="usernametobebanned">
+
+                                        <input class="btn btn-danger" type="submit" value="Kullanıcıyı Engelle">
+                                    </form>
+                                </td>
+                                
+
+
+
+
+                            </tr>
+                        }
+
+                    }
+
+                }
+                @if (Model.User == null)
+                {
+                    <div style="color:white;">Diğer kullanıcıları görmek için giriş yapınız</div>
+
+                }
+
+
+            </tbody>
+            <thead>
+            <th>Adı</th>
+            <th>Soyadı</th>
+             <th></th>
+             <th></th>
+             @if(at>0 || bt>0)
+             {
+              <th></th>
+             }
+              @if(ks>0)
+             {
+              <th></th>
+             }
+            </thead>
+        </table>
+    </div>
+</div>
+<script>
+
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, "Kullanicilar");
+    }
+</script>

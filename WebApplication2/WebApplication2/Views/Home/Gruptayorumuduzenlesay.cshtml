@@ -1,0 +1,24 @@
+﻿
+<div class="forumsay_resim_div">
+    <div id="arson_d1">
+        <div id="forumsaydiv0">
+        </div>
+
+        <div id="forumsaydiv1">
+            <div style="background-color:white">
+                <p>Düzenlenecek mesaj: @Model.AlagramComment.Content</p>
+                <p>Düzenlenecek mesaj sahibi: @Model.AlagramComment.Owner.Username</p>
+            </div>
+            <hr />
+            <form action="gruptayorumuduzenle" id="forumsayform1" method="post">
+                <input type="hidden" value="@Model.AlagramGroup.Id" name="groupId">
+                <input type="hidden" value="@Model.AlagramComment.Id" name="CommentIdToBeEdited">
+                <input class="input" type="text" placeholder="Mesajınız" name="newcommentContent">
+                <input class="button" type="submit" value="Yorumu Değiştir" href="arama_sonuc">
+            </form>
+        </div>
+        <div id="forumsaydiv2">
+        </div>
+
+    </div>
+</div>

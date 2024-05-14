@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Konu -";
+
+}
+<div class="konusay_resim_div">
+    <div class="konusay_d1">
+        <div class="konusaybaslikdisdiv">
+            <div class="konusaybaslikicdiv">@Model.Topic.Title</div>
+            
+        </div>
+        <div id="konusaydiv0">
+            @foreach (Comment comment in Model.Comments)
+            {
+                @if (comment.QuotedComment!=null)
+                {
+                    <div class="konusayalintilananyorumdiv">
+                        <div>Alıntılanan yorum: @comment.QuotedComment.Content</div>
+                        <div> Alıntılanan yorumun sahibi: @comment.QuotedComment.Owner.Username</div>
+                    </div>
+                }
+                    <div class="konusayyorumdiv">
+                    <div>Yorum: @comment.Content</div>
+                    <div>Yorum sahibi: @comment.Owner.Username</div>
+                    </div>
+                <div class="konusaybutondiv">
+                    @if (!comment.Owner.BannedUsers.Contains(Model.User))
+                    {
+                        <form action="alintilasay" class="konusaykonuforms0" method="post">
+
+                            <input type="hidden" value="@Model.Topic.Id" name="TopicId">
+                            <input type="hidden" value="@comment.Id" name="CommentId">
+
+                            <input class="konusaykonubutons0" type="submit" value="Alıntıla">
+                        </form>
+
+                    }
+
+                        @if (comment.Owner == Model.User|| Model.User.IsOwner==true 
+                        ||(Model.User.IsAdmin==true&& comment.Owner.IsAdmin==false && comment.Owner.IsOwner==false))
+                        {
+                            @if(comment.Owner==Model.User)
+                            {
+                                <form action="yorumuduzenlesay" class="konusaykonuforms0" method="post">
+
+                                    <input type="hidden" value="@Model.Topic.Id" name="TopicId">
+                                    <input type="hidden" value="@comment.Id" name="CommentId">
+
+                                    <input class="konusaykonubutons0" type="submit" value="Yorumu Düzenle">
+                                </form>
+                            }
+                        
+                            <form action="yorumsil" class="konusaykonuforms0" method="post">
+
+                                <input type="hidden" value="@Model.Topic.Id" name="TopicId">
+                                <input type="hidden" value="@comment.Id" name="CommentId">
+
+                                <input class="konusaykonubutons0" type="submit" value="Yorumu Sil">
+                            </form>
+                        }
+                    
+                   </div>
+                    <hr/>
+            }
+        </div>
+
+
+        <div id="konusaydiv1">
+            <form action="yorumyap" method="post" id="konusayform0">
+                <input type="hidden" value="@Model.Topic.Id" name="TopicId">
+                <input class="input" type="text" placeholder="Mesajınız" name="content">
+
+                <input class="button" type="submit" value="Yorum Yap" href="arama_sonuc">
+            </form>
+        </div>
+        <div id="konusay_form-button-div">
+            <a class="btn btn-primary" id="buton1" href="forum">Forum</a>
+            <a class="btn btn-primary" id="buton1" href="/">Ana Sayfa</a>
+            <div>
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+@{
+    TempData["topicId"] = Model.Topic.Id;
+}
+<script>
+   
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, "konusay2");
+    }
+</script>

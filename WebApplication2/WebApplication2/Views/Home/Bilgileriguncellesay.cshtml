@@ -1,0 +1,94 @@
+﻿@{
+    //ViewData["Title"] = "Kayıt -";
+    ViewBag.Title = "Güncelle -";
+}
+
+<div class="resim_div">
+    <div id="kayitsaydiv0">
+        @if (ViewBag.guncellemesonucu == 2)
+        {
+
+                <div class="alert alert-secondary guncellesaydiv1" role="alert">Güncelleme Başarısız<br> Kullanıcı adı başka bir kullanıcının kullanıcı adıyla aynı olamaz<br>Tekrar deneyin</div>
+
+        }
+        @if (ViewBag.guncellemesonucu == 3)
+        {
+
+            <div class="alert alert-secondary guncellesaydiv1" role="alert">Güncelleme Başarısız<br> Telefon numarası başka bir kullanıcının telefon numarasıyla aynı olamaz.<br>Tekrar deneyin</div>
+
+        }
+        
+        @if (ViewBag.guncellemesonucu == 5)
+        {
+
+            <div class="alert alert-secondary guncellesaydiv1" role="alert">Güncelleme Başarısız<br> İsim formata uygun değil<br>Tekrar deneyin</div>
+
+        }
+
+        @if (ViewBag.guncellemesonucu == 6)
+        {
+
+            <div class="alert alert-secondary guncellesaydiv1" role="alert">Güncelleme Başarısız<br> Soyisim formata uygun değil<br>Tekrar deneyin</div>
+
+        }
+        @if (ViewBag.guncellemesonucu == 7)
+        {
+
+            <div class="alert alert-secondary guncellesaydiv1" role="alert">Güncelleme Başarısız<br> Kullanıcı adı formata uygun değil<br>Tekrar deneyin</div>
+
+        }
+        @if (ViewBag.guncellemesonucu == 8)
+        {
+
+            <div class="alert alert-secondary guncellesaydiv1" role="alert">Güncelleme Başarısız<br> Telefon numarası formata uygun değil<br>Tekrar deneyin</div>
+
+        }
+        
+        @if (ViewBag.guncellemesonucu == 100)
+        {
+
+            <div class="alert alert-secondary guncellesaydiv1" role="alert" id="kayitsaydiv1">Güncelleme Başarısız<br>Tekrar deneyin</div>
+
+        }
+        <div id="guncellesaydiv2">
+
+            <form action="updateuser" method="post" id="guncellesayform">
+
+                <div class="mb-2">
+                    <label for="e3" class="form-label">İsim</label>
+                    <input type="text" class="form-control" id="e3" name=name value="@Model.User.Name" required onkeyup="this.value = this.value.toLocaleUpperCase('tr-TR');" oninvalid="this.setCustomValidity('İsim boş bırakılamaz')" oninput="this.setCustomValidity('')" autocomplete="off">
+
+                </div>
+                <div class="mb-2">
+                    <label for="e4" class="form-label">Soyisim</label>
+                    <input type="text" class="form-control" id="e4" name=surname value="@Model.User.Surname" required onkeyup="this.value = this.value.toLocaleUpperCase('tr-TR');" oninvalid="this.setCustomValidity('Soyisim boş bırakılamaz')" oninput="this.setCustomValidity('')" autocomplete="off">
+                </div>
+                <div class="mb-2">
+                    <label for="e5" class="form-label">Kullanıcı Adı</label>
+                    <input type="text" class="form-control" id="e5" name=username value="@Model.User.Username" required oninvalid="this.setCustomValidity('Kullanıcı adı boş bırakılamaz')" oninput="this.setCustomValidity('')" autocomplete="off">
+                </div>
+                <div class="mb-2">
+                    <label for="e6" class="form-label">Telefon Numarası</label>
+                    <input type="tel" class="form-control" id="e6" name=phonenumber value="@Model.User.Phonenumber" required oninvalid="this.setCustomValidity('Telefon numarası boş bırakılamaz')" oninput="this.setCustomValidity('')" autocomplete="off">
+                </div>
+                @*<div class="mb-2">
+                    <label for="e7" class="form-label">Şifre</label>
+                    <input type="password" class="form-control" id="e7" name=password required>
+                </div>
+                <div class="mb-2">
+                    <label for="e8" class="form-label">Şifre Doğrulama</label>
+                    <input type="password" class="form-control" id="e8" name=password2 required>
+                </div>*@
+
+                <button type="submit" class="btn btn-primary mt-3" id="buton0">Bilgileri Güncelle</button>
+                <div id="form-button-div">
+
+                    <a class="btn btn-primary mt-3" id="buton1" href="/">Ana Sayfa</a>
+                    <a class="btn btn-primary mt-3" id="buton2" href="Bilgilerimsay">Bilgilerim</a>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>

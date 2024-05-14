@@ -1,0 +1,165 @@
+﻿
+#forumsaysaydiv0 {
+    display: flex;
+    margin-bottom: 30px;
+    margin-top: 50px;
+    justify-content: center;
+    width: 600px;
+}
+#forumsaydiv1 {
+   
+}
+#forumsaydiv2 {
+    margin-top:50px;
+    width: 800px;
+    min-height:400px;
+    height:auto;
+}
+.forumsay_resim_div {
+    width: 100%;
+    min-height: 800px;
+    height: auto;
+    border: 1px solid black;
+    background-image: url("https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+.forumsay_ic2 {
+    display: block;
+    width: 200px;
+    height: 20%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    display: block;
+    margin-bottom:10px;
+}
+.forumsay_ic2:hover {
+    background-color: white;
+    color: rgb(194, 189, 189);
+}
+.forumsay_ic3 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    display: block;
+}
+
+    .forumsay_ic3:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }
+#forumsay_d1 {
+    width: 800px;
+    margin-top: 100px;
+}
+#forumsayform1{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.forumsaykonudivs {
+    display: flex;
+    justify-content: start;
+    column-gap:88px;
+    margin-top: 10px;
+    min-height:30px;
+    height:auto;
+}
+.forumsaykonuforms0 {
+    display: flex;
+    justify-content:space-between;
+    flex-direction:row;
+    width: 400px;
+    
+    height: 20%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    margin-bottom: 10px;
+    
+}
+
+    .forumsaykonuforms0:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }
+.forumsaykonuforms0 {
+    border:none;
+    background-color:none;
+}
+
+
+.forumsaykonubutons0 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    text-align: start;
+}
+
+    .forumsaykonubutons0:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }
+.forumsaykonuforms01 {
+    display: block;
+    width: 300px;
+    height: 20%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+.forumsaykonubutons01 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    display: block;
+    border-radius: 15px;
+}
+.forumsaykonuforms1 {
+    display: block;
+    width: 150px;
+    height: 20%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+    .forumsaykonuforms1:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }
+
+.forumsaykonubutons1 {
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgb(194, 189, 189);
+    color: white;
+    display: block;
+    border-radius: 15px;
+}
+
+    .forumsaykonubutons1:hover {
+        background-color: white;
+        color: rgb(194, 189, 189);
+    }

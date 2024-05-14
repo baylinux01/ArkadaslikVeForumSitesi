@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Mesaj -";
+
+}
+<div class="mesajlasmasay_resim_div">
+<div class="arson_d1">
+        <div id="mesajlasmasaydiv0">
+            @foreach (Message m in Model.Messages)
+            {
+                @if ((m.MessageSender == Model.User && m.MessageReceiver == Model.Message.MessageReceiver)
+               || (m.MessageSender == Model.Message.MessageReceiver && m.MessageReceiver == Model.User))
+                {
+                    <div>@m.MessageSender.Name @m.MessageSender.Surname: @m.MessageContent</div>
+                    @if (m.MessageSender == Model.Message.MessageReceiver && m.MessageReceiver == Model.User)
+                    {
+
+                        Context c = new Context();
+                        m.IsRead = true;
+                        c.Messages.Update(m);
+                        c.SaveChanges();
+
+                    }
+                }
+                 
+               
+            }
+        </div>
+    
+
+        <div id="mesajlasmasaydiv1">
+            <form action="mesajgonder" method="post" id="mesajlasmasayform0">
+                <input type="hidden" value="@Model.Message.MessageReceiver.Username" name="friendtosendmessage">
+                <input class="input" type="text" placeholder="Mesajınız" name="sendedmessage" autofocus>
+                
+                <input class="button" type="submit" value="Gönder" href="arama_sonuc">
+            </form>
+        </div>
+        @{
+            TempData["friendtosendmessage"] = Model.Message.MessageReceiver.Username;
+        }
+        <script>
+            
+            if ( window.history.replaceState ) {
+            window.history.replaceState(null,null, "mesajgonder2");
+            }
+        </script>
+        <div id="mesajlasmasay_form-button-div">
+
+            <a class="btn btn-primary mt-3" id="buton1" href="/">Ana Sayfa</a>
+            <div>
+                <form action="mesajlasmagecmisinisil" method="post" id="mesajlasmasayform1">
+                    <input type="hidden" value="@Model.Message.MessageReceiver.Username" name="friendtosendmessage">
+                    
+                    <input class="btn btn-primary" type="submit" value="Mesaj Geçmişini Sil" href="arama_sonuc">
+                </form>
+            </div>
+        </div>
+
+</div>
+</div>

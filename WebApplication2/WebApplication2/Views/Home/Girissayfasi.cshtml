@@ -1,0 +1,64 @@
+﻿
+
+
+
+    
+@{
+    //ViewData["Title"] = "Giriş -";
+    ViewBag.Title = "Giriş -";
+}
+
+        <div class="resim_div">
+    <div>
+        @if (ViewBag.kayitsonucu == 1)
+        {
+            <div class="alert alert-success" role="alert">Kayıt Başarılı.Giriş yapabilirsiniz</div>
+        }
+        @if (ViewBag.enterresult == 2)
+        {
+            <div class="alert alert-danger" role="alert">Kullanıcı adı veya telefon numarası hatalı<br>Şifre hatalı<br>Tekrar Deneyin</div>
+        }
+        @if (ViewBag.enterresult == 3)
+        {
+            <div class="alert alert-danger" role="alert">Kullanıcı adı veya telefon numarası hatalı<br>Tekrar Deneyin</div>
+        }
+        @if (ViewBag.enterresult == 4)
+        {
+            <div class="alert alert-danger" role="alert">Şifre hatalı<br>Tekrar Deneyin</div>
+        }
+        
+
+        <form action="enteruser" method=POST id="my_form">
+
+            <div class="mb-3">
+                <label for="e1" class="form-label">Kullanıcı adınız veya telefon numaranızı giriniz</label>
+                <input type="text" class="form-control" id="e1" name=usernameorphonenumber>
+
+            </div>
+            <div class="mb-3">
+                <label for="e2" class="form-label">Şifrenizi giriniz</label>
+                <input type="password" class="form-control" id="e2" name=password>
+            </div>
+
+            <div id="g0">
+                <div id="f0">
+                    <button type="submit" class="btn btn-primary" id="b0">Giriş Yap</button>
+                </div>
+            </div>
+
+        </form>
+        <div id="g1">
+            <a class="btn btn-primary mt-3" href="/" id="b1">Ana Sayfa</a>
+            <a class="btn btn-primary mt-3" href="Kayitsayfasi" id="b2">Kayıt Ol </a>
+        </div>
+
+
+    </div>
+        </div>
+
+   
+       
+        
+        
+    
+    

@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Bulgu -";
+
+}
+
+<div class="resim_div">
+    <div id="arson_d1">
+        <table class="table table-bordered">
+            <thead>
+            <th>Ürün Adı</th>
+            <th>Ürünün Fiyatı</th>
+            <th>Ürünün Menşei</th>
+            <th>#</th>
+            
+            </thead>
+            <tbody>
+                @if (Model.Products != null && Model.User!=null)
+                {
+                    @foreach (Product p in Model.Products)
+                    {
+                        <tr>
+                            <td>@p.Name</td>
+                            <td>@p.Price</td>
+                            <td>@p.Origin</td>
+                            <td>
+                                <form action="sepeteekle">
+                                    @if (Model != null)
+                                    {
+                                    <input type="hidden" value="@p.Id" name="pid">
+                                    }
+                                    <input class="btn btn-success" type="submit" value="Sepete Ekle">
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                
+                }
+                @if (Model.Products != null && Model.User == null)
+                {
+                    @foreach (Product p in Model.Products)
+                    {
+                        <tr>
+                            <td>@p.Name</td>
+                            <td>@p.Price</td>
+                            <td>@p.Origin</td>
+                            <td>
+                                <form action="">
+                                    @if (Model != null)
+                                    {
+                                        <input type="hidden" value="@p.Id" name="pid">
+                                    }
+                                    <input class="btn btn-success" type="submit" value="Görüntüle">
+                                </form>
+                            </td>
+                        </tr>
+                    }
+
+                }
+
+                
+            </tbody>
+
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,155 @@
+﻿@*<div id="absolute" class="absolute">
+    <div class="absolute_ic">HAKKIMIZDA</div>
+    <div class="absolute_ic">VİZYONUMUZ</div>
+    <div class="absolute_ic">MİSYONUMUZ</div>
+    <div class="absolute_ic">BİLGİLER</div>
+    <div class="absolute_ic">İLETİŞİM</div>
+</div>*@
+
+<div id="absolute" class="absolute">
+    @if(Model.User==null)
+    {
+        <form action="/" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Anasayfa">
+        </form>
+        <form action="hakkimizda" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Hakkımızda">
+        </form>
+        <form action="vizyonumuz" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Vizyonumuz">
+        </form>
+        <form action="misyonumuz" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Misyonumuz">
+        </form>
+        <form action="urunler" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Ürünler">
+        </form>
+        <form action="iletisim" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="İletişim">
+        </form>
+        <form action="sikcasorulan" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Sıkça Sorulan Sorular">
+        </form>
+    }
+    
+    @if (Model.User != null)
+    {
+        <form action="/" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Anasayfa">
+        </form>
+        <form action="bilgilerimsay" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Bilgilerim">
+        </form>
+        @*<form action="Sepetim" class="absolute_ic2">
+        
+            <input class="absolute_ic3" type="submit" value="Sepetim">
+        </form>*@
+        @*<form action="urunler" class="absolute_ic2">
+            
+            <input class="absolute_ic3" type="submit" value="Ürünler">
+        </form>*@
+        <form action="kullanicilar" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Kullanıcılar">
+        </form>
+        <form action="arkadaslikistekleri" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Arkadaşlık İstekleri">
+        </form>
+        <form action="arkadaslar" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Arkadaşlar">
+        </form>
+        Context c = new Context();
+        User user = Model.User;
+        int count = c.Messages.Count(p => p.MessageReceiver == user
+        && p.IsRead == false);
+        <form action="mesajlarsay" class="absolute_ic2">
+          
+            <input class="absolute_ic3" type="submit" value="Mesajlar(@count Okunmamış)">
+        </form>
+        <form action="forum" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Forum">
+        </form>
+        <form action="alagram" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Alagram">
+        </form>
+        <form action="sifredegistirsay" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Şifre Değiştir">
+        </form>
+        <form action="engellenenkullanicilarsay" class="absolute_ic2">
+            @*@if (Model != null)
+        {
+        <input type="hidden" value="@Model.Username" name="username">
+        }*@
+            <input class="absolute_ic3" type="submit" value="Engellenen Kullanıcılar">
+        </form>
+
+        <form action="hesabimisil" method="post" class="absolute_ic2">
+        
+       
+        
+            <input class="absolute_ic3" type="submit" value="Hesabımı Sil">
+        </form>
+    
+    }
+
+    
+</div>
