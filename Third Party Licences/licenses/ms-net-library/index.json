@@ -1,0 +1,9 @@
+{
+  "Code": "ms-net-library",
+  "FullName": "MICROSOFT .NET LIBRARY",
+  "RequiresApproval": true,
+  "RequiresThirdPartyNotices": false,
+  "HRef": "https://www.microsoft.com/web/webpi/eula/net_library_eula_enu.htm",
+  "FileName": "license.html",
+  "Dependencies": []
+}

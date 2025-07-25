@@ -815,6 +815,23 @@
           }
         }
       },
+      "MySqlConnector/2.4.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.2",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2"
+        },
+        "compile": {
+          "lib/net9.0/MySqlConnector.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net9.0/MySqlConnector.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Npgsql/9.0.2": {
         "type": "package",
         "dependencies": {
@@ -845,6 +862,23 @@
         },
         "runtime": {
           "lib/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Pomelo.EntityFrameworkCore.MySql/9.0.0-preview.3.efcore.9.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "[9.0.0, 9.0.999]",
+          "MySqlConnector": "2.4.0"
+        },
+        "compile": {
+          "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll": {
             "related": ".xml"
           }
         }
@@ -2992,6 +3026,35 @@
         "mysql.entityframeworkcore.nuspec"
       ]
     },
+    "MySqlConnector/2.4.0": {
+      "sha512": "78M+gVOjbdZEDIyXQqcA7EYlCGS3tpbUELHvn6638A2w0pkPI625ixnzsa5staAd3N9/xFmPJtkKDYwsXpFi/w==",
+      "type": "package",
+      "path": "mysqlconnector/2.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net462/MySqlConnector.dll",
+        "lib/net462/MySqlConnector.xml",
+        "lib/net471/MySqlConnector.dll",
+        "lib/net471/MySqlConnector.xml",
+        "lib/net48/MySqlConnector.dll",
+        "lib/net48/MySqlConnector.xml",
+        "lib/net6.0/MySqlConnector.dll",
+        "lib/net6.0/MySqlConnector.xml",
+        "lib/net8.0/MySqlConnector.dll",
+        "lib/net8.0/MySqlConnector.xml",
+        "lib/net9.0/MySqlConnector.dll",
+        "lib/net9.0/MySqlConnector.xml",
+        "lib/netstandard2.0/MySqlConnector.dll",
+        "lib/netstandard2.0/MySqlConnector.xml",
+        "lib/netstandard2.1/MySqlConnector.dll",
+        "lib/netstandard2.1/MySqlConnector.xml",
+        "logo.png",
+        "mysqlconnector.2.4.0.nupkg.sha512",
+        "mysqlconnector.nuspec"
+      ]
+    },
     "Npgsql/9.0.2": {
       "sha512": "hCbO8box7i/XXiTFqCJ3GoowyLqx3JXxyrbOJ6om7dr+eAknvBNhhUHeJVGAQo44sySZTfdVffp4BrtPeLZOAA==",
       "type": "package",
@@ -3022,6 +3085,21 @@
         "npgsql.entityframeworkcore.postgresql.9.0.2.nupkg.sha512",
         "npgsql.entityframeworkcore.postgresql.nuspec",
         "postgresql.png"
+      ]
+    },
+    "Pomelo.EntityFrameworkCore.MySql/9.0.0-preview.3.efcore.9.0.0": {
+      "sha512": "jNC/DLeRfFpgklIoSYkX3VoQy+ILY0wIZRtiYZrWknSv3u7BERM1XJcGDY9gt+RliPI07eUHE8utc315cH35hw==",
+      "type": "package",
+      "path": "pomelo.entityframeworkcore.mysql/9.0.0-preview.3.efcore.9.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.dll",
+        "lib/net8.0/Pomelo.EntityFrameworkCore.MySql.xml",
+        "pomelo.entityframeworkcore.mysql.9.0.0-preview.3.efcore.9.0.0.nupkg.sha512",
+        "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
     "System.Buffers/4.5.1": {
@@ -4220,24 +4298,24 @@
       "Microsoft.EntityFrameworkCore.Relational >= 9.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.0",
       "MySql.EntityFrameworkCore >= 9.0.0-preview",
-      "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.2"
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 9.0.2",
+      "Pomelo.EntityFrameworkCore.MySql >= 9.0.0-preview.3.efcore.9.0.0"
     ]
   },
   "packageFolders": {
-    "/home/kodcu/.nuget/packages/": {}
+    "/home/baylinux/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/kodcu/RiderProjects/WebApplication2/WebApplication2/WebApplication2.csproj",
+      "projectUniqueName": "/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/WebApplication2.csproj",
       "projectName": "WebApplication2",
-      "projectPath": "/home/kodcu/RiderProjects/WebApplication2/WebApplication2/WebApplication2.csproj",
-      "packagesPath": "/home/kodcu/.nuget/packages/",
-      "outputPath": "/home/kodcu/RiderProjects/WebApplication2/WebApplication2/obj/",
+      "projectPath": "/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/WebApplication2.csproj",
+      "packagesPath": "/home/baylinux/.nuget/packages/",
+      "outputPath": "/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/obj/",
       "projectStyle": "PackageReference",
-      "UsingMicrosoftNETSdk": false,
       "configFilePaths": [
-        "/home/kodcu/.nuget/NuGet/NuGet.Config"
+        "/home/baylinux/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -4259,8 +4337,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "all"
-      }
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -4301,6 +4380,10 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
             "version": "[9.0.2, )"
+          },
+          "Pomelo.EntityFrameworkCore.MySql": {
+            "target": "Package",
+            "version": "[9.0.0-preview.3.efcore.9.0.0, )"
           }
         },
         "imports": [
@@ -4322,7 +4405,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/kodcu/.dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/home/baylinux/.dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

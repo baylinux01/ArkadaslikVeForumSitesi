@@ -1,0 +1,33 @@
+{
+  "Source": "https://api.nuget.org/v3/index.json",
+  "License": {
+    "Code": "MIT",
+    "Status": "HasToBeApproved"
+  },
+  "UsedBy": [
+    {
+      "Name": "WebApplication2",
+      "InternalOnly": false,
+      "TargetFrameworks": [
+        "net9.0"
+      ]
+    }
+  ],
+  "Licenses": [
+    {
+      "Subject": "package",
+      "Code": "MIT",
+      "HRef": "https://raw.githubusercontent.com/MiloszKrajewski/K4os.Hash.xxHash/master/LICENSE"
+    },
+    {
+      "Subject": "repository",
+      "Code": "MIT",
+      "HRef": "https://github.com/MiloszKrajewski/K4os.Hash.xxHash"
+    },
+    {
+      "Subject": "project",
+      "Code": "MIT",
+      "HRef": "https://github.com/MiloszKrajewski/K4os.Hash.xxHash"
+    }
+  ]
+}

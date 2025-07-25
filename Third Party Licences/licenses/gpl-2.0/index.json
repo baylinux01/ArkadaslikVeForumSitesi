@@ -1,0 +1,9 @@
+{
+  "Code": "GPL-2.0",
+  "FullName": "GNU General Public License v2.0 only",
+  "RequiresApproval": true,
+  "RequiresThirdPartyNotices": false,
+  "HRef": "https://spdx.org/licenses/GPL-2.0",
+  "FileName": "license.txt",
+  "Dependencies": []
+}

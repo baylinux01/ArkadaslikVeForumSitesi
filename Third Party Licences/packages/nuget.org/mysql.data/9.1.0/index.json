@@ -1,0 +1,73 @@
+{
+  "Source": "https://api.nuget.org/v3/index.json",
+  "License": {
+    "Code": "GPL-2.0-only WITH Universal-FOSS-exception-1.0",
+    "Status": "HasToBeApproved"
+  },
+  "UsedBy": [
+    {
+      "Name": "WebApplication2",
+      "InternalOnly": false,
+      "TargetFrameworks": [
+        "net9.0"
+      ],
+      "Dependencies": [
+        {
+          "Name": "BouncyCastle.Cryptography",
+          "Version": "2.3.1"
+        },
+        {
+          "Name": "Google.Protobuf",
+          "Version": "3.26.1"
+        },
+        {
+          "Name": "K4os.Compression.LZ4.Streams",
+          "Version": "1.3.8"
+        },
+        {
+          "Name": "System.Configuration.ConfigurationManager",
+          "Version": "8.0.0"
+        },
+        {
+          "Name": "System.Diagnostics.DiagnosticSource",
+          "Version": "8.0.1"
+        },
+        {
+          "Name": "System.Runtime.CompilerServices.Unsafe",
+          "Version": "6.0.0"
+        },
+        {
+          "Name": "System.Runtime.Loader",
+          "Version": "4.3.0"
+        },
+        {
+          "Name": "System.Security.Permissions",
+          "Version": "8.0.0"
+        },
+        {
+          "Name": "System.Text.Encoding.CodePages",
+          "Version": "8.0.0"
+        },
+        {
+          "Name": "System.Text.Json",
+          "Version": "9.0.0"
+        },
+        {
+          "Name": "ZstdSharp.Port",
+          "Version": "0.8.0"
+        }
+      ]
+    }
+  ],
+  "Licenses": [
+    {
+      "Subject": "package",
+      "Code": "GPL-2.0-only WITH Universal-FOSS-exception-1.0",
+      "HRef": "https://licenses.nuget.org/GPL-2.0-only%20WITH%20Universal-FOSS-exception-1.0"
+    },
+    {
+      "Subject": "project",
+      "HRef": "https://dev.mysql.com/downloads/"
+    }
+  ]
+}

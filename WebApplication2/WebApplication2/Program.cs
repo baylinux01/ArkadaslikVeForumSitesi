@@ -11,8 +11,9 @@ public class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
         
-        builder.Services.AddDbContext<Context>(options => options.UseNpgsql(
-            builder.Configuration.GetConnectionString("MyPostgreConnection")));
+        builder.Services.AddDbContext<Context>(options => options.UseMySql(
+            builder.Configuration.GetConnectionString("MyMySqlCon"),
+            new MySqlServerVersion(new Version(8, 0, 39))));
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.

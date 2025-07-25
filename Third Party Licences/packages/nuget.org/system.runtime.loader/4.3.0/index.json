@@ -1,0 +1,27 @@
+{
+  "Source": "https://api.nuget.org/v3/index.json",
+  "License": {
+    "Code": "ms-net-library",
+    "Status": "HasToBeApproved"
+  },
+  "UsedBy": [
+    {
+      "Name": "WebApplication2",
+      "InternalOnly": false,
+      "TargetFrameworks": [
+        "net9.0"
+      ]
+    }
+  ],
+  "Licenses": [
+    {
+      "Subject": "package",
+      "Code": "ms-net-library",
+      "HRef": "http://go.microsoft.com/fwlink/?LinkId=329770"
+    },
+    {
+      "Subject": "project",
+      "HRef": "https://dot.net/"
+    }
+  ]
+}

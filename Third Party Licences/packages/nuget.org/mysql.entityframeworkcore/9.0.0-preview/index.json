@@ -1,0 +1,42 @@
+{
+  "Source": "https://api.nuget.org/v3/index.json",
+  "License": {
+    "Code": "GPL-2.0-only WITH Universal-FOSS-exception-1.0",
+    "Status": "HasToBeApproved"
+  },
+  "UsedBy": [
+    {
+      "Name": "WebApplication2",
+      "InternalOnly": false,
+      "TargetFrameworks": [
+        "net9.0"
+      ],
+      "Dependencies": [
+        {
+          "Name": "Microsoft.EntityFrameworkCore",
+          "Version": "9.0.0"
+        },
+        {
+          "Name": "Microsoft.EntityFrameworkCore.Relational",
+          "Version": "9.0.0"
+        },
+        {
+          "Name": "MySql.Data",
+          "Version": "9.1.0"
+        }
+      ]
+    }
+  ],
+  "Licenses": [
+    {
+      "Subject": "package",
+      "Code": "GPL-2.0-only WITH Universal-FOSS-exception-1.0",
+      "HRef": "https://licenses.nuget.org/GPL-2.0-only%20WITH%20Universal-FOSS-exception-1.0"
+    },
+    {
+      "Subject": "project",
+      "HRef": "https://github.com/mysql/mysql-connector-net",
+      "Description": "License code NOASSERTION"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "Source": "https://api.nuget.org/v3/index.json",
+  "License": {
+    "Code": "MIT",
+    "Status": "HasToBeApproved"
+  },
+  "UsedBy": [
+    {
+      "Name": "WebApplication2",
+      "InternalOnly": false,
+      "TargetFrameworks": [
+        "net9.0"
+      ],
+      "Dependencies": [
+        {
+          "Name": "System.CodeDom",
+          "Version": "6.0.0"
+        }
+      ]
+    }
+  ],
+  "Licenses": [
+    {
+      "Subject": "package",
+      "Code": "MIT",
+      "HRef": "https://licenses.nuget.org/MIT"
+    },
+    {
+      "Subject": "repository",
+      "HRef": "https://github.com/mono/t4",
+      "Description": "License code NOASSERTION"
+    },
+    {
+      "Subject": "project",
+      "HRef": "https://github.com/mono/t4",
+      "Description": "License code NOASSERTION"
+    }
+  ]
+}

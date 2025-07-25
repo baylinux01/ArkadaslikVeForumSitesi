@@ -1,0 +1,9 @@
+{
+  "Code": "BSD-3-Clause",
+  "FullName": "BSD 3-Clause \u0022New\u0022 or \u0022Revised\u0022 License",
+  "RequiresApproval": true,
+  "RequiresThirdPartyNotices": false,
+  "HRef": "https://spdx.org/licenses/BSD-3-Clause",
+  "FileName": "license.txt",
+  "Dependencies": []
+}

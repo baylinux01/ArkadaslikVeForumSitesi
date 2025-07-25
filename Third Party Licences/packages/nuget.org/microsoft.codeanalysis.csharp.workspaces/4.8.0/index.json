@@ -1,0 +1,51 @@
+{
+  "Source": "https://api.nuget.org/v3/index.json",
+  "License": {
+    "Code": "MIT",
+    "Status": "HasToBeApproved"
+  },
+  "UsedBy": [
+    {
+      "Name": "WebApplication2",
+      "InternalOnly": false,
+      "TargetFrameworks": [
+        "net9.0"
+      ],
+      "Dependencies": [
+        {
+          "Name": "Humanizer.Core",
+          "Version": "2.14.1"
+        },
+        {
+          "Name": "Microsoft.CodeAnalysis.CSharp",
+          "Version": "4.8.0"
+        },
+        {
+          "Name": "Microsoft.CodeAnalysis.Common",
+          "Version": "4.8.0"
+        },
+        {
+          "Name": "Microsoft.CodeAnalysis.Workspaces.Common",
+          "Version": "4.8.0"
+        }
+      ]
+    }
+  ],
+  "Licenses": [
+    {
+      "Subject": "package",
+      "Code": "MIT",
+      "HRef": "https://licenses.nuget.org/MIT"
+    },
+    {
+      "Subject": "repository",
+      "Code": "MIT",
+      "HRef": "https://github.com/dotnet/roslyn"
+    },
+    {
+      "Subject": "project",
+      "Code": "MIT",
+      "HRef": "https://github.com/dotnet/roslyn"
+    }
+  ]
+}

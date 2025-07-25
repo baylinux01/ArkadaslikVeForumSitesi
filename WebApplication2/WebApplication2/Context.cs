@@ -13,12 +13,10 @@ namespace WebApplication2
         public Context(DbContextOptions options) : base(options)
         {
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql("Host=localhost; Port=5432; Database=postgres; Username=postgres;Password=root");
-            //String mysqlconstring = "server=localhost:3306;user id=root;database=sys;allowuservariables=True;password=mypassword;persistsecurityinfo=True;";
-            //optionsBuilder.UseMySql(mysqlconstring);
-        }
+        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        // {
+        //    optionsBuilder.UseMySql("MyMySqlCon");
+        // } //Bu metoda gerek yokmuş
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AlagramGroup>()
