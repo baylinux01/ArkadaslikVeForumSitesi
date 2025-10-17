@@ -19,11 +19,6 @@ A shared package used by the .NET Compiler Platform ("Roslyn") including support
       More details at https://aka.ms/roslyn-packages
       This package was built from the source at https://github.com/dotnet/roslyn/commit/e091728607ca0fc9efca55ccfb3e59259c6b5a0a.
 
-Remarks
------------
-no remarks
-
-
 Dependencies 5
 -----------
 

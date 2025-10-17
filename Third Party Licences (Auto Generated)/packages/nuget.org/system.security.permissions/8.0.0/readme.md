@@ -15,11 +15,6 @@ Description
 -----------
 Provides types supporting Code Access Security (CAS).
 
-Remarks
------------
-no remarks
-
-
 Dependencies 1
 -----------
 

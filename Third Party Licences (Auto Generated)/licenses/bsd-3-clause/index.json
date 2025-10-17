@@ -1,4 +1,5 @@
 {
+  "$schema": "https://raw.githubusercontent.com/max-ieremenko/ThirdPartyLibraries/refs/heads/master/Docs/schema.license-index.json",
   "Code": "BSD-3-Clause",
   "FullName": "BSD 3-Clause \u0022New\u0022 or \u0022Revised\u0022 License",
   "RequiresApproval": true,

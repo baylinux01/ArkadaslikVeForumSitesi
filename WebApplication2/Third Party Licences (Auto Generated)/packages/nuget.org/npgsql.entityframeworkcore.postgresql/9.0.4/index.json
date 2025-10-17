@@ -1,0 +1,48 @@
+{
+  "$schema": "https://raw.githubusercontent.com/max-ieremenko/ThirdPartyLibraries/refs/heads/master/Docs/schema.package-index.json",
+  "Source": "https://api.nuget.org/v3/index.json",
+  "License": {
+    "Code": "PostgreSQL",
+    "Status": "HasToBeApproved"
+  },
+  "UsedBy": [
+    {
+      "Name": "WebApplication2",
+      "InternalOnly": false,
+      "TargetFrameworks": [
+        "net9.0"
+      ],
+      "Dependencies": [
+        {
+          "Name": "Microsoft.EntityFrameworkCore",
+          "Version": "9.0.10"
+        },
+        {
+          "Name": "Microsoft.EntityFrameworkCore.Relational",
+          "Version": "9.0.10"
+        },
+        {
+          "Name": "Npgsql",
+          "Version": "9.0.3"
+        }
+      ]
+    }
+  ],
+  "Licenses": [
+    {
+      "Subject": "package",
+      "Code": "PostgreSQL",
+      "HRef": "https://licenses.nuget.org/PostgreSQL"
+    },
+    {
+      "Subject": "repository",
+      "Code": "PostgreSQL",
+      "HRef": "https://github.com/npgsql/efcore.pg"
+    },
+    {
+      "Subject": "project",
+      "Code": "PostgreSQL",
+      "HRef": "https://github.com/npgsql/efcore.pg"
+    }
+  ]
+}

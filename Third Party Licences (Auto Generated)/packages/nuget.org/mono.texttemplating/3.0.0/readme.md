@@ -15,11 +15,6 @@ Description
 -----------
 Embeddable engine for the T4 templating language, a general-purpose way to generate text or code files using C#
 
-Remarks
------------
-no remarks
-
-
 Dependencies 1
 -----------
 

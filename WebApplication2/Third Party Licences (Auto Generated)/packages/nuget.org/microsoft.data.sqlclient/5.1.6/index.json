@@ -1,0 +1,83 @@
+{
+  "$schema": "https://raw.githubusercontent.com/max-ieremenko/ThirdPartyLibraries/refs/heads/master/Docs/schema.package-index.json",
+  "Source": "https://api.nuget.org/v3/index.json",
+  "License": {
+    "Code": "MIT",
+    "Status": "HasToBeApproved"
+  },
+  "UsedBy": [
+    {
+      "Name": "WebApplication2",
+      "InternalOnly": false,
+      "TargetFrameworks": [
+        "net9.0"
+      ],
+      "Dependencies": [
+        {
+          "Name": "Azure.Identity",
+          "Version": "1.11.4"
+        },
+        {
+          "Name": "Microsoft.Identity.Client",
+          "Version": "4.61.3"
+        },
+        {
+          "Name": "Microsoft.IdentityModel.JsonWebTokens",
+          "Version": "6.35.0"
+        },
+        {
+          "Name": "Microsoft.IdentityModel.Protocols.OpenIdConnect",
+          "Version": "6.35.0"
+        },
+        {
+          "Name": "Microsoft.SqlServer.Server",
+          "Version": "1.0.0"
+        },
+        {
+          "Name": "System.Configuration.ConfigurationManager",
+          "Version": "8.0.0"
+        },
+        {
+          "Name": "System.Diagnostics.DiagnosticSource",
+          "Version": "8.0.1"
+        },
+        {
+          "Name": "System.Runtime.Caching",
+          "Version": "6.0.0"
+        },
+        {
+          "Name": "System.Security.Cryptography.Cng",
+          "Version": "5.0.0"
+        },
+        {
+          "Name": "System.Security.Principal.Windows",
+          "Version": "5.0.0"
+        },
+        {
+          "Name": "System.Text.Encoding.CodePages",
+          "Version": "8.0.0"
+        },
+        {
+          "Name": "System.Text.Encodings.Web",
+          "Version": "6.0.0"
+        }
+      ]
+    }
+  ],
+  "Licenses": [
+    {
+      "Subject": "package",
+      "Code": "MIT",
+      "HRef": "https://licenses.nuget.org/MIT"
+    },
+    {
+      "Subject": "repository",
+      "Code": "MIT",
+      "HRef": "https://github.com/dotnet/sqlclient"
+    },
+    {
+      "Subject": "project",
+      "HRef": "https://aka.ms/sqlclientproject"
+    }
+  ]
+}

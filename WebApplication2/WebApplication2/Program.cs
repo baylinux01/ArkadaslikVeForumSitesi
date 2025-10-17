@@ -11,9 +11,18 @@ public class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
         
-        builder.Services.AddDbContext<Context>(options => options.UseMySql(
-            builder.Configuration.GetConnectionString("MyMySqlCon"),
-            new MySqlServerVersion(new Version(8, 0, 39))));
+        builder.Services.AddDbContext<Context>(options => options.UseSqlServer(
+            builder.Configuration.GetConnectionString("Server=localhost; database=arfosit; user id=sa; password=Deneme.01; TrustServerCertificate=True;")));
+        builder.Services.AddDistributedMemoryCache();
+        builder.Services.AddSession(options =>
+        {
+            options.IdleTimeout = TimeSpan.FromMinutes(30);
+            options.Cookie.HttpOnly = true;
+            options.Cookie.IsEssential = true;
+        });
+
+// MVC veya ControllersWithViews ekle
+        builder.Services.AddControllersWithViews();
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -23,7 +32,7 @@ public class Program
             // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
-
+        app.UseSession();
         app.UseHttpsRedirection();
         app.UseRouting();
 

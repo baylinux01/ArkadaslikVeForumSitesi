@@ -1,0 +1,56 @@
+{
+  "$schema": "https://raw.githubusercontent.com/max-ieremenko/ThirdPartyLibraries/refs/heads/master/Docs/schema.package-index.json",
+  "Source": "https://api.nuget.org/v3/index.json",
+  "License": {
+    "Code": "MIT",
+    "Status": "HasToBeApproved"
+  },
+  "UsedBy": [
+    {
+      "Name": "WebApplication2",
+      "InternalOnly": false,
+      "TargetFrameworks": [
+        "net9.0"
+      ],
+      "Dependencies": [
+        {
+          "Name": "Azure.Core",
+          "Version": "1.38.0"
+        },
+        {
+          "Name": "Microsoft.Identity.Client",
+          "Version": "4.61.3"
+        },
+        {
+          "Name": "Microsoft.Identity.Client.Extensions.Msal",
+          "Version": "4.61.3"
+        },
+        {
+          "Name": "System.Security.Cryptography.ProtectedData",
+          "Version": "8.0.0"
+        },
+        {
+          "Name": "System.Text.Json",
+          "Version": "9.0.10"
+        }
+      ]
+    }
+  ],
+  "Licenses": [
+    {
+      "Subject": "package",
+      "Code": "MIT",
+      "HRef": "https://licenses.nuget.org/MIT"
+    },
+    {
+      "Subject": "repository",
+      "Code": "MIT",
+      "HRef": "https://github.com/Azure/azure-sdk-for-net"
+    },
+    {
+      "Subject": "project",
+      "Code": "MIT",
+      "HRef": "https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.11.4/sdk/identity/Azure.Identity/README.md"
+    }
+  ]
+}

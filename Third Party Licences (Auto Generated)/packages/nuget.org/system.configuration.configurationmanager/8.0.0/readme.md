@@ -15,11 +15,6 @@ Description
 -----------
 Provides types that support using XML configuration files (app.config). This package exists only to support migrating existing .NET Framework code that already uses System.Configuration. When writing new code, use another configuration system instead, such as Microsoft.Extensions.Configuration.
 
-Remarks
------------
-no remarks
-
-
 Dependencies 2
 -----------
 

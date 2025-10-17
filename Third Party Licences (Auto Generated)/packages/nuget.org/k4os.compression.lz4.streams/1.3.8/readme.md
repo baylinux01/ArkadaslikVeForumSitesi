@@ -15,11 +15,6 @@ Description
 -----------
 Port of LZ4 compression algorithm for .NET
 
-Remarks
------------
-no remarks
-
-
 Dependencies 3
 -----------
 

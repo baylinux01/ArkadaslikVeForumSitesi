@@ -1417,7 +1417,7 @@ namespace WebApplication2.Controllers
             User user = new User();
             string username = (string)TempData["veri"];
 
-            user = c.MyUsers.Find(username);
+            user = c.MyUsers.Where(u => u.Username == username).FirstOrDefault();//.Find(username);
             List<Product> products;
             if (aramaveri != null)
             {
@@ -1719,7 +1719,7 @@ namespace WebApplication2.Controllers
             
             User user = new User();
             string username = (string)TempData["veri"];
-            user = c.MyUsers.Find(username);
+            user = c.MyUsers.Where(u => u.Username == username).FirstOrDefault();//.Find(username);
             Product product = new Product();
             product = c.MyProducts.Find(Convert.ToInt32(pid));
             List<Product2> pro = c.MyProducts2.Where(p => p.Name == product.Name
@@ -1767,7 +1767,7 @@ namespace WebApplication2.Controllers
             Dao dao = new Dao();
             User user = new User();
             string username = (string)TempData["veri"];
-            user = c.MyUsers.Find(username);
+            user = c.MyUsers.Where(u => u.Username == username).FirstOrDefault();//.Find(username);
             List<Product2> products2 = c.MyProducts2.Where(u => u.User == user).OrderBy(x => x.Name).ToList();
             ViewModel vm = new ViewModel();
             vm.User = user;
@@ -1782,7 +1782,7 @@ namespace WebApplication2.Controllers
 
             User user = new User();
             string username = (string)TempData["veri"];
-            user = c.MyUsers.Find(username);
+            user = c.MyUsers.Where(u => u.Username == username).FirstOrDefault();//.Find(username);
             Product2 product2 = new Product2();
             product2 = c.MyProducts2.Find(Convert.ToInt32(pid));
 
@@ -1808,10 +1808,12 @@ namespace WebApplication2.Controllers
 
             User user = new User();
             string username = (string)TempData["veri"];
-            user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
+            user = c.MyUsers.Include(e => e.MemberedGroups)
+                .Include(e => e.BannedUsers)
+                .Where(e => e.Username == username).FirstOrDefault();
             
             User receiver = new User();
-            receiver = c.MyUsers.Find(friendrequestreceiver);
+            receiver = c.MyUsers.Where(u => u.Username == friendrequestreceiver).FirstOrDefault();//.Find(friendrequestreceiver);
             List<FriendRequest> friendrequests = c.FriendRequests.Where(p => p.Sender == user
             && p.Receiver==receiver).ToList();
             List<FriendRequest> friendrequests1 = c.FriendRequests.Where(p => p.Sender == receiver
@@ -1851,7 +1853,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User receiver = new User();
-            receiver = c.MyUsers.Find(friendrequestreceiver);
+            receiver = c.MyUsers.Where(u => u.Username == friendrequestreceiver).FirstOrDefault();//.Find(friendrequestreceiver);
             List<User> users;
 
             users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).OrderBy(x => x.Name).ToList();
@@ -1883,7 +1885,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User sender = new User();
-            sender = c.MyUsers.Find(friendrequestsender);
+            sender = c.MyUsers.Where(u => u.Username == friendrequestsender).FirstOrDefault();//.Find(friendrequestsender);
             List<User> users;
 
             users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).OrderBy(x => x.Name).ToList();
@@ -1915,7 +1917,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault(); 
 
             User sender = new User();
-            sender = c.MyUsers.Find(friendrequestsender);
+            sender = c.MyUsers.Where(u => u.Username == friendrequestsender).FirstOrDefault();//.Find(friendrequestsender);
             List<User> users;
 
             users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).OrderBy(x => x.Name).ToList();
@@ -1944,7 +1946,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault(); 
 
             User sender = new User();
-            sender = c.MyUsers.Find(friendrequestsender);
+            sender = c.MyUsers.Where(u => u.Username == friendrequestsender).FirstOrDefault();//.Find(friendrequestsender);
             List<User> users;
 
             users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).OrderBy(x => x.Name).ToList();
@@ -1988,7 +1990,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User sender = new User();
-            sender = c.MyUsers.Find(friendrequestsender);
+            sender = c.MyUsers.Where(u => u.Username == friendrequestsender).FirstOrDefault();//.Find(friendrequestsender);
             List<User> users;
 
             users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).OrderBy(x => x.Name).ToList();
@@ -2032,7 +2034,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User ftd = new User();
-            ftd = c.MyUsers.Find(friendtodefriend);
+            ftd = c.MyUsers.Where(u => u.Username == friendtodefriend).FirstOrDefault();//.Find(friendtodefriend);
             List<User> users;
 
             users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).OrderBy(x => x.Name).ToList();
@@ -2076,7 +2078,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User ftd = new User();
-            ftd = c.MyUsers.Find(friendtodefriend);
+            ftd = c.MyUsers.Where(u => u.Username == friendtodefriend).FirstOrDefault();//.Find(friendtodefriend);
             List<User> users;
 
             users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).OrderBy(x => x.Name).ToList();
@@ -2120,7 +2122,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User sender = new User();
-            sender = c.MyUsers.Find(friendrequestsender);
+            sender = c.MyUsers.Where(u => u.Username == friendrequestsender).FirstOrDefault();//.Find(friendrequestsender);
             List<User> users;
 
             users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).OrderBy(x => x.Name).ToList();
@@ -2172,7 +2174,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User messagereceiver = new User();
-            messagereceiver = c.MyUsers.Find(friendtosendmessage);
+            messagereceiver = c.MyUsers.Where(u => u.Username == friendtosendmessage).FirstOrDefault();//.Find(friendtosendmessage);
 
             List<Message> messages;
             messages = c.Messages.ToList();
@@ -2200,7 +2202,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User messagereceiver = new User();
-            messagereceiver = c.MyUsers.Find(friendtosendmessage);
+            messagereceiver = c.MyUsers.Where(u => u.Username == friendtosendmessage).FirstOrDefault();//.Find(friendtosendmessage);
 
             
 
@@ -2235,7 +2237,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
             string friendtosendmessage = (string)TempData["friendtosendmessage"];
             User messagereceiver = new User();
-            messagereceiver = c.MyUsers.Find(friendtosendmessage);
+            messagereceiver = c.MyUsers.Where(u => u.Username == friendtosendmessage).FirstOrDefault();//.Find(friendtosendmessage);
             Message m = new Message();
             m.MessageSender = user;
             m.MessageReceiver = messagereceiver;
@@ -2262,7 +2264,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User messagereceiver = new User();
-            messagereceiver = c.MyUsers.Find(friendtosendmessage);
+            messagereceiver = c.MyUsers.Where(u => u.Username == friendtosendmessage).FirstOrDefault();//.Find(friendtosendmessage);
 
 
 
