@@ -17,181 +17,181 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WebApplication2
 build_property.RootNamespace = WebApplication2
-build_property.ProjectDir = /home/baylinux/RiderProjects/WebApplication2/WebApplication2/
+build_property.ProjectDir = /home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /home/baylinux/RiderProjects/WebApplication2/WebApplication2
+build_property.MSBuildProjectDirectory = /home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Alagram.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Alagram.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BbGFncmFtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Alintilasay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Alintilasay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BbGludGlsYXNheS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Aramasonuc.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Aramasonuc.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BcmFtYXNvbnVjLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Arkadaslar.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Arkadaslar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BcmthZGFzbGFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Arkadaslikistekleri.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Arkadaslikistekleri.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BcmthZGFzbGlraXN0ZWtsZXJpLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Banlananuyelersay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Banlananuyelersay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9CYW5sYW5hbnV5ZWxlcnNheS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Bilgileriguncellesay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Bilgileriguncellesay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9CaWxnaWxlcmlndW5jZWxsZXNheS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Bilgilerimsay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Bilgilerimsay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9CaWxnaWxlcmltc2F5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Engellenenkullanicilarsay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Engellenenkullanicilarsay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9FbmdlbGxlbmVua3VsbGFuaWNpbGFyc2F5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Forum.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Forum.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Gb3J1bS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Girissayfasi.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Girissayfasi.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HaXJpc3NheWZhc2kuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Gruplarimsay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Gruplarimsay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HcnVwbGFyaW1zYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Grupsay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Grupsay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HcnVwc2F5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Gruptaalintilasay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Gruptaalintilasay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HcnVwdGFhbGludGlsYXNheS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Gruptayorumuduzenlesay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Gruptayorumuduzenlesay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HcnVwdGF5b3J1bXVkdXplbmxlc2F5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Grupuyelerisay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Grupuyelerisay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HcnVwdXllbGVyaXNheS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Hakkimizda.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Hakkimizda.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9IYWtraW1pemRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Iletisim.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Iletisim.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbGV0aXNpbS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Index.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Kayitsayfasi.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Kayitsayfasi.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9LYXlpdHNheWZhc2kuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Konuacsay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Konuacsay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Lb251YWNzYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Konusay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Konusay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Lb251c2F5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Kullanicilar.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Kullanicilar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9LdWxsYW5pY2lsYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Mesajlarsay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Mesajlarsay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9NZXNhamxhcnNheS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Mesajlasma.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Mesajlasma.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9NZXNhamxhc21hLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Misyonumuz.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Misyonumuz.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9NaXN5b251bXV6LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Sepetim.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Sepetim.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9TZXBldGltLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Sifredegistirsay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Sifredegistirsay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9TaWZyZWRlZ2lzdGlyc2F5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Sikcasorulan.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Sikcasorulan.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9TaWtjYXNvcnVsYW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Urunler.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Urunler.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9VcnVubGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Vizyonumuz.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Vizyonumuz.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9WaXp5b251bXV6LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Yenigrupkursay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Yenigrupkursay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9ZZW5pZ3J1cGt1cnNheS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Home/Yorumuduzenlesay.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Home/Yorumuduzenlesay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Zb3J1bXVkdXplbmxlc2F5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Shared/Error.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Shared/_Absolute.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Shared/_Absolute.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19BYnNvbHV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Shared/_Footer.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Shared/_Footer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Gb290ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Shared/_Head.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Shared/_Head.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19IZWFkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Shared/_Header.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Shared/_Header.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19IZWFkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Shared/_ValidationScriptsPartial.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/_ViewImports.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/_ViewStart.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/baylinux/RiderProjects/WebApplication2/WebApplication2/Views/Shared/_Layout.cshtml]
+[/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-vyp160c36u

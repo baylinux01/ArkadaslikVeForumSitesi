@@ -77,7 +77,8 @@ namespace WebApplication2.Controllers
                     }
                 }
             }
-            List<AlagramGroup> groups = c.AlagramGroups.Include(p => p.Members).Include(e=>e.BannedUsers).ToList();
+            List<AlagramGroup> groups = c.AlagramGroups.Include(p => p.Members)
+            .Include(e=>e.BannedUsers).ToList();
             int i = 0;
             while (i < groups.Count)
             {
@@ -95,6 +96,7 @@ namespace WebApplication2.Controllers
                 }
                 if (groups[i].Owner == usertobedeleted)
                 {
+                    c.AlagramGroups.Remove(groups[i]);
                     groups.Remove(groups[i]);
                 }
                 i++;

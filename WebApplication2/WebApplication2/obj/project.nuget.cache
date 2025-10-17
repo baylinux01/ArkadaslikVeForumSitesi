@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/Hh4Dy7Qw8I=",
+  "dgSpecHash": "1ZCVGPfKSyE=",
   "success": true,
-  "projectFilePath": "/home/baylinux/RiderProjects/WebApplication2/WebApplication2/WebApplication2.csproj",
+  "projectFilePath": "/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/WebApplication2.csproj",
   "expectedPackageFiles": [
     "/home/baylinux/.nuget/packages/azure.core/1.38.0/azure.core.1.38.0.nupkg.sha512",
     "/home/baylinux/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",

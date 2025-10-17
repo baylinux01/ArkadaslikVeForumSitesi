@@ -100,6 +100,8 @@ namespace WebApplication2
                 .HasOne(fr => fr.QuotedComment)
                 .WithMany()
                 .OnDelete(DeleteBehavior.NoAction); // veya .NoAction();
+
+            
         }
 
         public DbSet<User> MyUsers { get; set; }

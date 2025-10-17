@@ -11,7 +11,7 @@ using WebApplication2;
 namespace WebApplication2.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20251016115758_mymig")]
+    [Migration("20251017172733_mymig")]
     partial class mymig
     {
         /// <inheritdoc />

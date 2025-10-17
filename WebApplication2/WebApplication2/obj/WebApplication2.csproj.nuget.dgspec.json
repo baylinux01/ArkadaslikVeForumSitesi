@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/baylinux/RiderProjects/WebApplication2/WebApplication2/WebApplication2.csproj": {}
+    "/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/WebApplication2.csproj": {}
   },
   "projects": {
-    "/home/baylinux/RiderProjects/WebApplication2/WebApplication2/WebApplication2.csproj": {
+    "/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/WebApplication2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/baylinux/RiderProjects/WebApplication2/WebApplication2/WebApplication2.csproj",
+        "projectUniqueName": "/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/WebApplication2.csproj",
         "projectName": "WebApplication2",
-        "projectPath": "/home/baylinux/RiderProjects/WebApplication2/WebApplication2/WebApplication2.csproj",
+        "projectPath": "/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/WebApplication2.csproj",
         "packagesPath": "/home/baylinux/.nuget/packages/",
-        "outputPath": "/home/baylinux/RiderProjects/WebApplication2/WebApplication2/obj/",
+        "outputPath": "/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/baylinux/.nuget/NuGet/NuGet.Config"
