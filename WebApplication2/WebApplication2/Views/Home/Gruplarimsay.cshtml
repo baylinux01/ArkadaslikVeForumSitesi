@@ -7,7 +7,7 @@
        
         
        <table class="table table-striped">
-         @foreach(AlagramGroup group in Model.AlagramGroups)
+         @foreach(AlagramGroupDTO group in Model.AlagramGroups)
         {
             @if(group.Members.Contains(Model.User))
             {

@@ -6,16 +6,27 @@ namespace WebApplication2
 {
     public class Context : DbContext
     {
+        private static String SQL_SERVER_CONNECTION_STRING=
+                        $"Server=localhost; database=arfosit; user id=sa; password="
+                        +$"{Environment.GetEnvironmentVariable("SQL_SERVER_PASSWORD")};"
+                        +$" TrustServerCertificate=True;";
+        private static String MYSQL_CONNECTION_STRING=
+                        $"Server=localhost; database=arfosit; user id=root; password="
+                        +$"{Environment.GetEnvironmentVariable("MYSQL_PASSWORD")};";
+        private static String POSTGRESQL_CONNECTION_STRING=
+                        $"Server=localhost; database=postgres; user id=root; password="
+                        +$"{Environment.GetEnvironmentVariable("POSTGRESQL_PASSWORD")};";
         public Context()
         {
         }
 
-        public Context(DbContextOptions options) : base(options)
+        public Context(DbContextOptions<Context> options) : base(options)
         {
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           optionsBuilder.UseSqlServer("Server=localhost; database=arfosit; user id=sa; password=Deneme.01; TrustServerCertificate=True;");
+           optionsBuilder.UseMySql(MYSQL_CONNECTION_STRING
+                                ,ServerVersion.AutoDetect(MYSQL_CONNECTION_STRING));
         } 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

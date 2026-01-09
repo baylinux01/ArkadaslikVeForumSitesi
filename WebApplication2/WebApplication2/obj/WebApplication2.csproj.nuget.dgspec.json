@@ -1,30 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/WebApplication2.csproj": {}
+    "/home/baylinux/Desktop/WebApplication2/WebApplication2/WebApplication2.csproj": {}
   },
   "projects": {
-    "/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/WebApplication2.csproj": {
+    "/home/baylinux/Desktop/WebApplication2/WebApplication2/WebApplication2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/WebApplication2.csproj",
+        "projectUniqueName": "/home/baylinux/Desktop/WebApplication2/WebApplication2/WebApplication2.csproj",
         "projectName": "WebApplication2",
-        "projectPath": "/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/WebApplication2.csproj",
+        "projectPath": "/home/baylinux/Desktop/WebApplication2/WebApplication2/WebApplication2.csproj",
         "packagesPath": "/home/baylinux/.nuget/packages/",
-        "outputPath": "/home/baylinux/Desktop/ArkadaslikVeForumSitesi/WebApplication2/WebApplication2/obj/",
+        "outputPath": "/home/baylinux/Desktop/WebApplication2/WebApplication2/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/baylinux/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net9.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net9.0": {
-            "targetAlias": "net9.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -37,13 +37,16 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
-        "net9.0": {
-          "targetAlias": "net9.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.10, )"
@@ -108,7 +111,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/baylinux/dotnet/sdk/8.0.416/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

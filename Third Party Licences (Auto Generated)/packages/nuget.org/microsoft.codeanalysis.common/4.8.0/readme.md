@@ -3,7 +3,7 @@ Microsoft.CodeAnalysis.Common [4.8.0](https://www.nuget.org/packages/Microsoft.C
 
 Used by: WebApplication2
 
-Target frameworks: net9.0
+Target frameworks: net8.0
 
 License: [MIT](../../../../licenses/mit) , has to be approved
 

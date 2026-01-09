@@ -3,7 +3,7 @@ MySql.Data [9.1.0](https://www.nuget.org/packages/MySql.Data/9.1.0)
 
 Used by: WebApplication2
 
-Target frameworks: net9.0
+Target frameworks: net8.0
 
 License: [GPL-2.0](../../../../licenses/gpl-2.0)-only WITH [Universal-FOSS-exception-1.0](../../../../licenses/universal-foss-exception-1.0) , has to be approved
 
@@ -23,7 +23,7 @@ Dependencies 11
 |[Google.Protobuf](../../../../packages/nuget.org/google.protobuf/3.26.1)|3.26.1|
 |[K4os.Compression.LZ4.Streams](../../../../packages/nuget.org/k4os.compression.lz4.streams/1.3.8)|1.3.8|
 |[System.Configuration.ConfigurationManager](../../../../packages/nuget.org/system.configuration.configurationmanager/8.0.0)|8.0.0|
-|[System.Diagnostics.DiagnosticSource](../../../../packages/nuget.org/system.diagnostics.diagnosticsource/8.0.1)|8.0.1|
+|[System.Diagnostics.DiagnosticSource](../../../../packages/nuget.org/system.diagnostics.diagnosticsource/9.0.10)|9.0.10|
 |[System.Runtime.CompilerServices.Unsafe](../../../../packages/nuget.org/system.runtime.compilerservices.unsafe/6.0.0)|6.0.0|
 |[System.Runtime.Loader](../../../../packages/nuget.org/system.runtime.loader/4.3.0)|4.3.0|
 |[System.Security.Permissions](../../../../packages/nuget.org/system.security.permissions/8.0.0)|8.0.0|

@@ -32,7 +32,7 @@ namespace WebApplication2.Models
 
         public List<User>? BanningUsers { get; set; }
 
-        public List<AlagramGroup> BanningGroups { get; set; }
+        public List<AlagramGroup>? BanningGroups { get; set; }
 
         public bool IsAdmin { get; set; } = false;
 

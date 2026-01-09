@@ -9,7 +9,7 @@
             
         </div>
         <div id="konusaydiv0">
-            @foreach (Comment comment in Model.Comments)
+            @foreach (CommentDTO comment in Model.Comments)
             {
                 @if (comment.QuotedComment!=null)
                 {
@@ -35,10 +35,10 @@
 
                     }
 
-                        @if (comment.Owner == Model.User|| Model.User.IsOwner==true 
+                        @if (comment.Owner.Username == Model.User.Username|| Model.User.IsOwner==true 
                         ||(Model.User.IsAdmin==true&& comment.Owner.IsAdmin==false && comment.Owner.IsOwner==false))
                         {
-                            @if(comment.Owner==Model.User)
+                            @if(comment.Owner.Username==Model.User.Username)
                             {
                                 <form action="yorumuduzenlesay" class="konusaykonuforms0" method="post">
 

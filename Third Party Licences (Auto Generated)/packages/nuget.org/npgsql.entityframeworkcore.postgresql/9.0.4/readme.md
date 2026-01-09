@@ -3,7 +3,7 @@ Npgsql.EntityFrameworkCore.PostgreSQL [9.0.4](https://www.nuget.org/packages/Npg
 
 Used by: WebApplication2
 
-Target frameworks: net9.0
+Target frameworks: net8.0
 
 License: [PostgreSQL](../../../../licenses/postgresql) , has to be approved
 

@@ -3,7 +3,7 @@ MySql.EntityFrameworkCore [9.0.0-preview](https://www.nuget.org/packages/MySql.E
 
 Used by: WebApplication2
 
-Target frameworks: net9.0
+Target frameworks: net8.0
 
 License: [GPL-2.0](../../../../licenses/gpl-2.0)-only WITH [Universal-FOSS-exception-1.0](../../../../licenses/universal-foss-exception-1.0) , has to be approved
 

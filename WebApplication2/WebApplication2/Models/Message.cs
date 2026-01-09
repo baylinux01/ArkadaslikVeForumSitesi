@@ -8,9 +8,9 @@ namespace WebApplication2.Models
         [Key]
         public int Id { get; set; }
 
-        public User MessageSender { get; set; }
+        public User? MessageSender { get; set; }
 
-        public User MessageReceiver { get; set; }
+        public User? MessageReceiver { get; set; }
 
         public string MessageContent { get; set; }
 

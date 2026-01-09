@@ -6,7 +6,7 @@ namespace WebApplication2.Models
     {
         [Key]
         public int Id { get; set; }
-        public User Friend1 { get; set; }
-        public User Friend2 { get; set; }
+        public User? Friend1 { get; set; }
+        public User? Friend2 { get; set; }
     }
 }

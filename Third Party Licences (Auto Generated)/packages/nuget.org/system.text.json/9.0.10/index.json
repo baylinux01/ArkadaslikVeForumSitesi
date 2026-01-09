@@ -10,7 +10,17 @@
       "Name": "WebApplication2",
       "InternalOnly": false,
       "TargetFrameworks": [
-        "net9.0"
+        "net8.0"
+      ],
+      "Dependencies": [
+        {
+          "Name": "System.IO.Pipelines",
+          "Version": "9.0.10"
+        },
+        {
+          "Name": "System.Text.Encodings.Web",
+          "Version": "9.0.10"
+        }
       ]
     }
   ],

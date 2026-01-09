@@ -10,7 +10,7 @@
       "Name": "WebApplication2",
       "InternalOnly": false,
       "TargetFrameworks": [
-        "net9.0"
+        "net8.0"
       ],
       "Dependencies": [
         {

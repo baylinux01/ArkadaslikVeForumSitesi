@@ -3,7 +3,7 @@ Npgsql [9.0.3](https://www.nuget.org/packages/Npgsql/9.0.3)
 
 Used by: WebApplication2
 
-Target frameworks: net9.0
+Target frameworks: net8.0
 
 License: [PostgreSQL](../../../../licenses/postgresql) , has to be approved
 

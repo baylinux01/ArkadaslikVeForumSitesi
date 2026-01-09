@@ -106,8 +106,8 @@
             <input class="absolute_ic3" type="submit" value="Arkadaşlar">
         </form>
         Context c = new Context();
-        User user = Model.User;
-        int count = c.Messages.Count(p => p.MessageReceiver == user
+        UserDTO user = Model.User;
+        int count = c.Messages.Count(p => p.MessageReceiver.Username == user.Username
         && p.IsRead == false);
         <form action="mesajlarsay" class="absolute_ic2">
           

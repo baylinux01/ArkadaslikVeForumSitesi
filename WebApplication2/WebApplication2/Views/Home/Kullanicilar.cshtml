@@ -21,7 +21,7 @@
                 @if (Model.Users != null && Model.User != null)
                 {
 
-                    @foreach (User u in Model.Users)
+                    @foreach (UserDTO u in Model.Users)
                     {
                         @if(!Model.User.BannedUsers.Contains(u)&& !u.BannedUsers.Contains(Model.User))
                         {
@@ -32,9 +32,9 @@
                                 @if (Model.FriendRequests != null)
                                 {
 
-                                    @foreach (FriendRequest req in Model.FriendRequests)
+                                    @foreach (FriendRequestDTO req in Model.FriendRequests)
                                     {
-                                        @if (req.Sender == Model.User && req.Receiver == u)
+                                        @if (req.Sender.Username == Model.User.Username && req.Receiver.Username == u.Username)
                                         {
                                             a++;
                                             at++;
@@ -50,7 +50,7 @@
                                             <td></td>
 
                                         }
-                                        @if (req.Sender == u && req.Receiver == Model.User)
+                                        @if (req.Sender.Username == u.Username && req.Receiver.Username == Model.User.Username)
                                         {
                                             a++;
                                             at++;
@@ -81,19 +81,19 @@
                                     @if (a == 0)
                                     {
 
-                                        @foreach (Friendship f in Model.Friendships)
+                                        @foreach (FriendshipDTO f in Model.Friendships)
                                         {
-                                            @if ((f.Friend1 == Model.User && f.Friend2 == u)
-                                           || (f.Friend2 == Model.User && f.Friend1 == u))
+                                            @if ((f.Friend1.Username == Model.User.Username && f.Friend2.Username == u.Username)
+                                           || (f.Friend2.Username == Model.User.Username && f.Friend1.Username == u.Username))
 
                                             {
                                                 b++;
                                                 bt++;
                                                 Context c = new Context();
-                                                User user = Model.User;
-                                                User us = u;
-                                                int count = c.Messages.Count(p => p.MessageReceiver == user
-                                                && p.MessageSender == us && p.IsRead == false);
+                                                UserDTO user = Model.User;
+                                                UserDTO us = u;
+                                                int count = c.Messages.Count(p => p.MessageReceiver.Username == user.Username
+                                                && p.MessageSender.Username == us.Username && p.IsRead == false);
                                                 <td>
                                                     <form action="mesaj" method="post">
 

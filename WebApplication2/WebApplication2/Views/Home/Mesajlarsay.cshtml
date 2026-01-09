@@ -18,15 +18,15 @@
                 @if (Model.Friendships != null && Model.User != null)
                 {
 
-                    @foreach (Friendship f in Model.Friendships)
+                    @foreach (FriendshipDTO f in Model.Friendships)
                     {
                         if (f.Friend1 == Model.User)
                         {
                             Context c = new Context();
-                            User user = Model.User;
-                            User us = f.Friend2;
-                            int count = c.Messages.Count(p => p.MessageReceiver == user
-                            && p.MessageSender == us && p.IsRead == false);
+                            UserDTO user = Model.User;
+                            UserDTO us = f.Friend2;
+                            int count = c.Messages.Count(p => p.MessageReceiver.Username == user.Username
+                            && p.MessageSender.Username == us.Username && p.IsRead == false);
                             <tr>
                                 <td>@f.Friend2.Name</td>
                                 <td>@f.Friend2.Surname</td>
@@ -55,10 +55,10 @@
                         @if (f.Friend2 == Model.User)
                         {
                             Context c = new Context();
-                            User user = Model.User;
-                            User us1 = f.Friend1;
-                            int count1 = c.Messages.Count(p => p.MessageReceiver == user
-                            && p.MessageSender == us1 && p.IsRead == false);
+                            UserDTO user = Model.User;
+                            UserDTO us1 = f.Friend1;
+                            int count1 = c.Messages.Count(p => p.MessageReceiver.Username == user.Username
+                            && p.MessageSender.Username == us1.Username && p.IsRead == false);
                             <tr>
                                 <td>@f.Friend1.Name</td>
                                 <td>@f.Friend1.Surname</td>

@@ -3,7 +3,7 @@ Humanizer.Core [2.14.1](https://www.nuget.org/packages/Humanizer.Core/2.14.1)
 
 Used by: WebApplication2
 
-Target frameworks: net9.0
+Target frameworks: net8.0
 
 License: [MIT](../../../../licenses/mit) , has to be approved
 

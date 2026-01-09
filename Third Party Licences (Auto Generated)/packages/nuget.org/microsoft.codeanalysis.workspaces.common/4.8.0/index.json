@@ -10,7 +10,7 @@
       "Name": "WebApplication2",
       "InternalOnly": false,
       "TargetFrameworks": [
-        "net9.0"
+        "net8.0"
       ],
       "Dependencies": [
         {
@@ -27,7 +27,7 @@
         },
         {
           "Name": "System.IO.Pipelines",
-          "Version": "7.0.0"
+          "Version": "9.0.10"
         },
         {
           "Name": "System.Threading.Channels",

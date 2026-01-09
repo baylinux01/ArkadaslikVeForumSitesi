@@ -3,7 +3,7 @@ K4os.Compression.LZ4 [1.3.8](https://www.nuget.org/packages/K4os.Compression.LZ4
 
 Used by: WebApplication2
 
-Target frameworks: net9.0
+Target frameworks: net8.0
 
 License: [MIT](../../../../licenses/mit) , has to be approved
 

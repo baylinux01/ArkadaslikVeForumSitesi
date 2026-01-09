@@ -13,29 +13,29 @@ namespace WebApplication2.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly Context c;
 
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,Context c)
         {
             _logger = logger;
+            this.c=c;
         }
 
-        //private readonly Context c;
-        //public HomeController(Context context)
-        //{
-        //    this.c = context;
-        //}
-        Context c = new Context();
+        
+        //Context c = new Context();
         public IActionResult Index()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
-            user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
-                    .Where(e => e.Username == username).FirstOrDefault();
+            user = c.MyUsers.Include(p => p.MemberedGroups)
+                                        .Include(e=>e.BannedUsers)
+                                        .Where(e => e.Username == username)
+                                        .FirstOrDefault();
             
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             return View(vm);
         }
 
@@ -43,7 +43,11 @@ namespace WebApplication2.Controllers
         public IActionResult hesabimisil()
         {
             //User user = new User();
-            string usernametobedeleted = (string)TempData["veri"];
+
+            string usernametobedeleted=HttpContext.Session.GetString("username");
+
+            //string usernametobedeleted = (string)TempData["veri"];
+
             //user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User usertobedeleted = c.MyUsers.Include(p => p.MemberedGroups)
@@ -130,7 +134,10 @@ namespace WebApplication2.Controllers
         [Route("engelikaldir")]
         public IActionResult engelikaldir(string usernametobeunbanned)
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+
+            //string username = (string)TempData["veri"];
+
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e => e.BannedUsers)
                 .Where(p => p.Username == username).FirstOrDefault();
@@ -154,9 +161,9 @@ namespace WebApplication2.Controllers
             c.SaveChanges();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.AlagramGroups = groups;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
             return View("engellenenkullanicilarsay", vm);
         }
 
@@ -164,7 +171,8 @@ namespace WebApplication2.Controllers
         public IActionResult Engellenenkullanicilarsay()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(u => u.MemberedGroups).Include(u => u.BannedUsers).Where(p => p.Username == username).FirstOrDefault();
             List<User> users;
@@ -176,17 +184,18 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Friendships = friendships;
-            vm.FriendRequests = friendrequests2;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
             return View(vm);
         }
 
         [Route("banikaldir")]
         public IActionResult banikaldir(string groupId, string usernametobeunbanned)
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e => e.BannedUsers)
                 .Where(p => p.Username == username).FirstOrDefault();
@@ -209,16 +218,17 @@ namespace WebApplication2.Controllers
             c.SaveChanges();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.AlagramGroup = group;
-            vm.AlagramGroups = groups;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
             return View("banlananuyelersay", vm);
         }
 
         [Route("kullaniciyibanla")]
         public IActionResult kullaniciyibanla(string groupId,string usernametobebanned)
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e => e.BannedUsers)
                 .Where(p => p.Username == username).FirstOrDefault();
@@ -248,17 +258,17 @@ namespace WebApplication2.Controllers
             c.SaveChanges();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.AlagramGroup = group;
-            vm.AlagramGroups = groups;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
             return View("grupuyelerisay",vm);
         }
 
         [HttpGet("gruptancik")]
         public IActionResult gruptancik(string groupId)
         {
-            
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username"); 
+            //string username = (string)TempData["veri"];
 
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
@@ -293,19 +303,19 @@ namespace WebApplication2.Controllers
 
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.AlagramComments=allComments;
-            vm.AlagramGroup = group;
-            vm.AlagramGroups = groups;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.AlagramComments=AlagramCommentDTO.ConvertTo(allComments);
+            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
             return View("alagram",vm);
         }
 
         [HttpGet("gruplardaara")]
         public IActionResult gruplardaara(string gruparamaveri)
         {
-            
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
@@ -322,8 +332,8 @@ namespace WebApplication2.Controllers
                     .Where(p => p.Name.Contains(gruparamaveri)).ToList();
             }
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.AlagramGroups = groups;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
             return View("alagram",vm);
         }
 
@@ -332,7 +342,8 @@ namespace WebApplication2.Controllers
         {
             if(groupId==null) groupId = (string)TempData["groupId"];
 
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
                 .Where(p => p.Username == username).FirstOrDefault();
@@ -344,9 +355,9 @@ namespace WebApplication2.Controllers
                 .Where(p => p.Id == Convert.ToInt32(groupId)).FirstOrDefault();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.AlagramGroup = group;
-            vm.AlagramGroups = groups;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
             return View(vm);
         }
         //[Route("grupuyelerisay2")]
@@ -377,7 +388,8 @@ namespace WebApplication2.Controllers
         {
             if (groupId == null) groupId = (string)TempData["groupId"];
 
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e => e.BannedUsers)
                 .Where(p => p.Username == username).FirstOrDefault();
@@ -389,16 +401,17 @@ namespace WebApplication2.Controllers
                 .Where(p => p.Id == Convert.ToInt32(groupId)).FirstOrDefault();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.AlagramGroup = group;
-            vm.AlagramGroups = groups;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
             return View(vm);
         }
 
         [HttpPost("gruptaalintila")]
         public IActionResult gruptaalintila(string groupId, string commentIdtobeQuoted, string commentContent)
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
@@ -429,12 +442,13 @@ namespace WebApplication2.Controllers
             List<AlagramComment> comments = c.AlagramComments.ToList();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.AlagramGroup = group;
-            vm.AlagramGroups = groups;
-            vm.AlagramComment = comment;
-            vm.AlagramComments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.AlagramComment=AlagramCommentDTO.ConvertTo(comment);
+            vm.AlagramComments=AlagramCommentDTO.ConvertTo(comments);
+            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            
 
             return View("grupsay", vm);
         }
@@ -442,7 +456,8 @@ namespace WebApplication2.Controllers
         [HttpPost("gruptaalintilasay")]
         public IActionResult Gruptaalintilasay(string groupId, string commentIdtobeQuoted)
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
@@ -463,12 +478,12 @@ namespace WebApplication2.Controllers
             List<AlagramComment> comments = c.AlagramComments.ToList();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.AlagramGroup = group;
-            vm.AlagramGroups = groups;
-            vm.AlagramComment = comment;
-            vm.AlagramComments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.AlagramComment=AlagramCommentDTO.ConvertTo(comment);
+            vm.AlagramComments=AlagramCommentDTO.ConvertTo(comments);
+            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
 
             return View(vm);
         }
@@ -476,7 +491,8 @@ namespace WebApplication2.Controllers
         [HttpPost("gruptayorumuduzenlesay")]
         public IActionResult Gruptayorumuduzenlesay(string groupId, string commentIdtobeEdited)
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
@@ -497,12 +513,12 @@ namespace WebApplication2.Controllers
             List<AlagramComment> comments = c.AlagramComments.ToList();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.AlagramGroup = group;
-            vm.AlagramGroups = groups;
-            vm.AlagramComment = comment;
-            vm.AlagramComments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.AlagramComment=AlagramCommentDTO.ConvertTo(comment);
+            vm.AlagramComments=AlagramCommentDTO.ConvertTo(comments);
+            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
 
             return View(vm);
         }
@@ -510,7 +526,8 @@ namespace WebApplication2.Controllers
         [HttpPost("gruptayorumuduzenle")]
         public IActionResult gruptayorumuduzenle(string groupId, string commentIdToBeEdited, string newcommentcontent)
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
@@ -547,12 +564,12 @@ namespace WebApplication2.Controllers
 
             List<AlagramComment> comments = c.AlagramComments.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.AlagramGroup = group;
-            vm.AlagramGroups = groups;
-            vm.AlagramComment = comment;
-            vm.AlagramComments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.AlagramComment=AlagramCommentDTO.ConvertTo(comment);
+            vm.AlagramComments=AlagramCommentDTO.ConvertTo(comments);
+            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
 
             return View("grupsay", vm);
         }
@@ -560,7 +577,8 @@ namespace WebApplication2.Controllers
         [HttpPost("gruptayorumusil")]
         public IActionResult gruptayorumusil(string groupId, string commentIdtobeDeleted)
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
@@ -596,12 +614,12 @@ namespace WebApplication2.Controllers
 
             List<AlagramComment> comments = c.AlagramComments.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.AlagramGroup = group;
-            vm.AlagramGroups = groups;
-            vm.AlagramComment = comment;
-            vm.AlagramComments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.AlagramComment=AlagramCommentDTO.ConvertTo(comment);
+            vm.AlagramComments=AlagramCommentDTO.ConvertTo(comments);
+            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
 
             return View("grupsay", vm);
         }
@@ -609,7 +627,8 @@ namespace WebApplication2.Controllers
         [HttpPost("gruptayorumyap")]
         public IActionResult gruptayorumyap(string groupId, string commentContent)
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
@@ -638,12 +657,12 @@ namespace WebApplication2.Controllers
             List<AlagramComment> comments = c.AlagramComments.ToList();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.AlagramGroup = group;
-            vm.AlagramGroups = groups;
-            vm.AlagramComment = comment;
-            vm.AlagramComments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.AlagramComment=AlagramCommentDTO.ConvertTo(comment);
+            vm.AlagramComments=AlagramCommentDTO.ConvertTo(comments);
+            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
 
             return View("grupsay", vm);
 
@@ -653,7 +672,8 @@ namespace WebApplication2.Controllers
         [HttpGet("grupsay")]
         public IActionResult Grupsay(string groupId)
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
@@ -674,11 +694,11 @@ namespace WebApplication2.Controllers
             List<AlagramComment> comments = c.AlagramComments.ToList();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.AlagramGroup = group;
-            vm.AlagramGroups = groups;
-            vm.AlagramComments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.AlagramComments=AlagramCommentDTO.ConvertTo(comments);
+            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
             return View(vm);
         }
 
@@ -717,7 +737,8 @@ namespace WebApplication2.Controllers
         [Route("grubauyeol")]
         public IActionResult grubauyeol(string groupId)
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
                 .Where(p => p.Username == username).FirstOrDefault();
@@ -733,15 +754,16 @@ namespace WebApplication2.Controllers
             //List<AlagramGroup> groups = c.AlagramGroups.ToList();
             List<AlagramGroup> groups = c.AlagramGroups.Include(p => p.Members).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.AlagramGroups = groups;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
             return View("alagram", vm);
         }
 
         [HttpPost("grubusil")]
         public IActionResult grubusil(string groupId)
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
                 .Where(p => p.Username == username).FirstOrDefault();
@@ -755,23 +777,24 @@ namespace WebApplication2.Controllers
             //List<AlagramGroup> groups = c.AlagramGroups.ToList();
             List<AlagramGroup> groups = c.AlagramGroups.Include(p => p.Members).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.AlagramGroups = groups;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
             return View("alagram", vm);
         }
 
         [HttpPost("grubukur")]
         public IActionResult grubukur(string newgroupname)
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
                 .Where(p => p.Username == username).FirstOrDefault();
             //List<AlagramGroup> groups = c.AlagramGroups.ToList();
             List<AlagramGroup> groups = c.AlagramGroups.Include(p => p.Members).Include(e=>e.BannedUsers).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.AlagramGroups = groups;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
 
             ViewBag.samegroupname = false;
             foreach (AlagramGroup group in groups)
@@ -795,12 +818,12 @@ namespace WebApplication2.Controllers
                 user.MemberedGroups.Add(g);
                 c.MyUsers.Update(user);
                 c.SaveChanges();
-                vm.AlagramGroup = g;
+                vm.AlagramGroup = AlagramGroupDTO.ConvertTo(g);
             }
             //List<AlagramGroup> groups1 = c.AlagramGroups.ToList();
             List<AlagramGroup> groups1 = c.AlagramGroups.Include(p => p.Members).Include(e=>e.BannedUsers).ToList();
             
-            vm.AlagramGroups = groups1;
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups1);
 
             return View("alagram", vm);
         }
@@ -808,7 +831,8 @@ namespace WebApplication2.Controllers
         [Route("yenigrupkursay")]
         public IActionResult Yenigrupkursay()
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
                 .Where(p => p.Username == username).FirstOrDefault();
@@ -816,15 +840,16 @@ namespace WebApplication2.Controllers
             //List<AlagramGroup> groups = c.AlagramGroups.ToList();
             List<AlagramGroup> groups = c.AlagramGroups.Include(p => p.Members).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.AlagramGroups = groups;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
             return View(vm);
         }
 
         [Route("gruplarimsay")]
         public IActionResult Gruplarimsay()
         {
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
             //User user = c.Users.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
                 .Where(p => p.Username == username).FirstOrDefault();
@@ -832,16 +857,16 @@ namespace WebApplication2.Controllers
             //List<AlagramGroup> groups = c.AlagramGroups.ToList();
             List<AlagramGroup> groups = c.AlagramGroups.Include(p => p.Members).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.AlagramGroups = groups;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
             return View(vm);
         }
 
         [Route("alagram")]
         public IActionResult Alagram()
         {
-            
-            string username = (string)TempData["veri"];
+            string username=HttpContext.Session.GetString("username");
+            //tring username = (string)TempData["veri"];
             //User user = c.MyUsers.Find(username);
             User user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
                 .Where(p => p.Username == username).FirstOrDefault();
@@ -849,8 +874,8 @@ namespace WebApplication2.Controllers
             //List<AlagramGroup> groups = c.AlagramGroups.ToList();
             List<AlagramGroup> groups = c.AlagramGroups.Include(p => p.Members).Include(e=>e.BannedUsers).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.AlagramGroups = groups;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
             return View(vm);
         }
 
@@ -858,7 +883,10 @@ namespace WebApplication2.Controllers
         public IActionResult Mesajlarsay()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             List<Message> messages = c.Messages.ToList();
@@ -867,10 +895,10 @@ namespace WebApplication2.Controllers
             users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).OrderBy(x => x.Name).ToList();
             users.Remove(user);
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users; 
-            vm.Messages = messages;
-            vm.Friendships = friendships;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Messages = MessageDTO.ConvertTo(messages);
+            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
             return View(vm);
         }
 
@@ -878,7 +906,10 @@ namespace WebApplication2.Controllers
         public IActionResult kullaniciyiengelle(string usernametobebanned)
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
             User userToBeBanned = c.MyUsers.Where(e => e.Username == usernametobebanned).FirstOrDefault();
             user.BannedUsers.Add(userToBeBanned);
@@ -908,10 +939,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Friendships = friendships;
-            vm.FriendRequests = friendrequests2;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
             return View("kullanicilar",vm);
 
         }
@@ -920,7 +951,10 @@ namespace WebApplication2.Controllers
         public IActionResult kullaniciyisil(string usernametobedeleted)
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User usertobedeleted = c.MyUsers.Include(p => p.MemberedGroups)
@@ -1015,10 +1049,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users2;
-            vm.FriendRequests = friendrequests;
-            vm.Friendships = friendships;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users2);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests);
+            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
             return View("Kullanicilar",vm);
         }
 
@@ -1026,7 +1060,9 @@ namespace WebApplication2.Controllers
         public IActionResult alintila(string TopicId, string content,string CommentId)
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers)
                 .Include(e => e.BanningUsers).Where(e => e.Username == username).FirstOrDefault();
@@ -1052,12 +1088,13 @@ namespace WebApplication2.Controllers
 
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Topic = topic;
-            vm.Topics = topics;
-            vm.Comment = comment;
-            vm.Comments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Comment=CommentDTO.ConvertTo(comment);
+            vm.Comments=CommentDTO.ConvertTo(comments);
+            vm.Topic = TopicDTO.ConvertTo(topic);
+            vm.Topics = TopicDTO.ConvertTo(topics);
+            
             return View("konusay", vm);
         }
 
@@ -1065,7 +1102,9 @@ namespace WebApplication2.Controllers
         public IActionResult Alintilasay(string TopicId, string CommentId)
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers)
                 .Include(e => e.BanningUsers).Where(e => e.Username == username).FirstOrDefault();
@@ -1081,12 +1120,12 @@ namespace WebApplication2.Controllers
 
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Topic = topic;
-            vm.Topics = topics;
-            vm.Comment = comment;
-            vm.Comments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Comment=CommentDTO.ConvertTo(comment);
+            vm.Comments=CommentDTO.ConvertTo(comments);
+            vm.Topic = TopicDTO.ConvertTo(topic);
+            vm.Topics = TopicDTO.ConvertTo(topics);
             return View(vm);
         }
 
@@ -1094,7 +1133,9 @@ namespace WebApplication2.Controllers
         public IActionResult Yorumuduzenlesay(string TopicId, string CommentId)
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers)
                 .Include(e => e.BanningUsers).Where(e => e.Username == username).FirstOrDefault();
@@ -1110,12 +1151,12 @@ namespace WebApplication2.Controllers
 
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Topic = topic;
-            vm.Topics = topics;
-            vm.Comment = comment;
-            vm.Comments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Comment=CommentDTO.ConvertTo(comment);
+            vm.Comments=CommentDTO.ConvertTo(comments);
+            vm.Topic = TopicDTO.ConvertTo(topic);
+            vm.Topics = TopicDTO.ConvertTo(topics);
             return View(vm);
         }
 
@@ -1123,7 +1164,9 @@ namespace WebApplication2.Controllers
         public IActionResult yorumuduzenle(string TopicId, string CommentId, string newcontent)
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers)
                 .Include(e => e.BanningUsers).Where(e => e.Username == username).FirstOrDefault();
@@ -1145,12 +1188,12 @@ namespace WebApplication2.Controllers
 
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Topic = topic;
-            vm.Topics = topics;
-            vm.Comment = comment;
-            vm.Comments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Comment=CommentDTO.ConvertTo(comment);
+            vm.Comments=CommentDTO.ConvertTo(comments);
+            vm.Topic = TopicDTO.ConvertTo(topic);
+            vm.Topics = TopicDTO.ConvertTo(topics);
             return View("konusay", vm);
         }
 
@@ -1158,7 +1201,9 @@ namespace WebApplication2.Controllers
         public IActionResult yorumsil(string TopicId, string CommentId)
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers)
                 .Include(e => e.BanningUsers).Where(e => e.Username == username).FirstOrDefault();
@@ -1177,12 +1222,12 @@ namespace WebApplication2.Controllers
 
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Topic = topic;
-            vm.Topics = topics;
-            vm.Comment = comment;
-            vm.Comments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Comment=CommentDTO.ConvertTo(comment);
+            vm.Comments=CommentDTO.ConvertTo(comments);
+            vm.Topic = TopicDTO.ConvertTo(topic);
+            vm.Topics = TopicDTO.ConvertTo(topics);
             return View("konusay", vm);
         }
 
@@ -1190,7 +1235,9 @@ namespace WebApplication2.Controllers
         public IActionResult yorumyap(string TopicId,string content)
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers)
                 .Include(e => e.BanningUsers).Where(e => e.Username == username).FirstOrDefault();
@@ -1214,12 +1261,12 @@ namespace WebApplication2.Controllers
            
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Topic = topic;
-            vm.Topics = topics;
-            vm.Comment = comment;
-            vm.Comments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Comment=CommentDTO.ConvertTo(comment);
+            vm.Comments=CommentDTO.ConvertTo(comments);
+            vm.Topic = TopicDTO.ConvertTo(topic);
+            vm.Topics = TopicDTO.ConvertTo(topics);
             return View("konusay",vm);
         }
 
@@ -1227,7 +1274,9 @@ namespace WebApplication2.Controllers
         public IActionResult konusay(string Id)
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers)
                 .Include(e => e.BanningUsers).Where(e => e.Username == username).FirstOrDefault();
@@ -1238,11 +1287,11 @@ namespace WebApplication2.Controllers
             List<Topic> topics = c.Topics.ToList();
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Topic = topic;
-            vm.Topics = topics;
-            vm.Comments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Comments=CommentDTO.ConvertTo(comments);
+            vm.Topic = TopicDTO.ConvertTo(topic);
+            vm.Topics = TopicDTO.ConvertTo(topics);
             return View(vm);
         }
 
@@ -1250,7 +1299,9 @@ namespace WebApplication2.Controllers
         public IActionResult konusay2()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers)
                 .Include(e=>e.BanningUsers).Where(e => e.Username == username).FirstOrDefault();
@@ -1262,27 +1313,29 @@ namespace WebApplication2.Controllers
             List<Topic> topics = c.Topics.ToList();
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Topic = topic;
-            vm.Topics = topics;
-            vm.Comments = comments;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Comments=CommentDTO.ConvertTo(comments);
+            vm.Topic = TopicDTO.ConvertTo(topic);
+            vm.Topics = TopicDTO.ConvertTo(topics);
             return View("Konusay",vm);
         }
         [Route("forum")]
         public IActionResult Forum()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
             List<User> users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).ToList();
             users.Remove(user);
             List<Topic> topics = c.Topics.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Topics = topics;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Topics = TopicDTO.ConvertTo(topics);
             return View(vm);
         }
 
@@ -1290,12 +1343,14 @@ namespace WebApplication2.Controllers
         public IActionResult Konuacsay()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             return View(vm);
         }
 
@@ -1306,7 +1361,9 @@ namespace WebApplication2.Controllers
             if (konubasligi==null)
             {
                 User user = new User();
-                string username = (string)TempData["veri"];
+
+                string username=HttpContext.Session.GetString("username");
+                //string username = (string)TempData["veri"];
 
                 user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
@@ -1314,15 +1371,15 @@ namespace WebApplication2.Controllers
                 List<User> users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).ToList();
                 users.Remove(user);
                 
-                vm.User = user;
-                vm.Users = users;
-                
-                vm.Topics = topics;
+                vm.User = UserDTO.ConvertTo(user);
+                vm.Users = UserDTO.ConvertTo(users);
+                vm.Topics = TopicDTO.ConvertTo(topics);
             }
             if(konubasligi!=null)
             {
                 User user = new User();
-                string username = (string)TempData["veri"];
+                string username=HttpContext.Session.GetString("username");
+                //string username = (string)TempData["veri"];
 
                 user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
                 Topic topic = new Topic();
@@ -1334,10 +1391,10 @@ namespace WebApplication2.Controllers
                 List<User> users = c.MyUsers.ToList();
                 users.Remove(user);
                 
-                vm.User = user;
-                vm.Users = users;
-                vm.Topic = topic;
-                vm.Topics = topics;
+                vm.User = UserDTO.ConvertTo(user);
+                vm.Users = UserDTO.ConvertTo(users);
+                vm.Topic = TopicDTO.ConvertTo(topic);
+                vm.Topics = TopicDTO.ConvertTo(topics);
                 
             }
 
@@ -1348,7 +1405,9 @@ namespace WebApplication2.Controllers
         public IActionResult konulardaara(string konuaramaveri)
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
@@ -1366,9 +1425,9 @@ namespace WebApplication2.Controllers
             List<User> users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).ToList();
             users.Remove(user);
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Topics = topics;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Topics = TopicDTO.ConvertTo(topics);
             return View("forum", vm);
         }
 
@@ -1376,7 +1435,10 @@ namespace WebApplication2.Controllers
         public IActionResult konusil(string Id)
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             Topic topic = c.Topics.Find(Convert.ToInt32(Id));
@@ -1386,16 +1448,17 @@ namespace WebApplication2.Controllers
             c.SaveChanges();
             List<Topic> topics = c.Topics.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Topic = topic;
-            vm.Topics = topics;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Topic = TopicDTO.ConvertTo(topic);
+            vm.Topics = TopicDTO.ConvertTo(topics);
             return View("forum", vm);
         }
 
         [Route("cikis")]
         public IActionResult Cikis()
         {
-            TempData["veri"] = null;
+            HttpContext.Session.Clear();
+            //TempData["veri"] = null;
             TempData["backright"] = "no";
             
             return RedirectToAction("index");
@@ -1417,7 +1480,9 @@ namespace WebApplication2.Controllers
         public IActionResult Aramasonuc(string aramaveri)
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Where(u => u.Username == username).FirstOrDefault();//.Find(username);
             List<Product> products;
@@ -1434,7 +1499,7 @@ namespace WebApplication2.Controllers
             
             
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             vm.Products = products;
             return View(vm);
         }
@@ -1443,7 +1508,9 @@ namespace WebApplication2.Controllers
         public IActionResult Kullaniciaramasonuc(string kullaniciaramaveri)
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
             List <User> users;
@@ -1463,10 +1530,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Friendships = friendships;
-            vm.FriendRequests = friendrequests2;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
             return View("Kullanicilar",vm);
         }
 
@@ -1474,22 +1541,28 @@ namespace WebApplication2.Controllers
         public IActionResult Kullanicilar()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
 
-            user = c.MyUsers.Include(u => u.MemberedGroups).Include(u => u.BannedUsers).Where(p => p.Username == username).FirstOrDefault();
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
+            user = c.MyUsers.Include(u => u.MemberedGroups)
+            .Include(u => u.BannedUsers).Where(p => p.Username == username)
+            .FirstOrDefault();
+
             List<User> users;
 
-            users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).OrderBy(x => x.Name).ToList();
+            users = c.MyUsers.Include(e => e.MemberedGroups)
+            .Include(e => e.BannedUsers).OrderBy(x => x.Name).ToList();
             users.Remove(user);
 
             
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Friendships = friendships;
-            vm.FriendRequests = friendrequests2;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
             return View(vm);
         }
 
@@ -1497,13 +1570,15 @@ namespace WebApplication2.Controllers
         public IActionResult Urunler()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
             List<Product> products;
             products = c.MyProducts.OrderBy(x => x.Name).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             vm.Products = products;
             return View(vm);
         }
@@ -1517,13 +1592,14 @@ namespace WebApplication2.Controllers
             if (enterresult == 1)
             {
                 
-                User user = c.MyUsers.Include(e => e.MemberedGroups).Include(e=>e.BannedUsers)
+                User user = c.MyUsers.Include(e => e.MemberedGroups)
+                .Include(e=>e.BannedUsers)
                     .Where(p => (p.Username == usernameorphonenumber 
-                    || p.Phonenumber == usernameorphonenumber)
-                    && p.Password == password).FirstOrDefault();
+                    || p.Phonenumber == usernameorphonenumber)).FirstOrDefault();
                 ViewBag.enterresult = enterresult;
                 ViewModel vm = new ViewModel();
-                vm.User = user;
+                vm.User = UserDTO.ConvertTo(user);
+                HttpContext.Session.SetString("username",user.Username);
                 return View("Index", vm);
             }
             else
@@ -1563,48 +1639,56 @@ namespace WebApplication2.Controllers
         public IActionResult hakkimizda()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             return View(vm);
         }
         [HttpGet("vizyonumuz")]
         public IActionResult vizyonumuz()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             return View(vm);
         }
         [HttpGet("misyonumuz")]
         public IActionResult misyonumuz()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             return View(vm);
         }
         [HttpGet("iletisim")]
         public IActionResult iletisim()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             return View(vm);
         }
 
@@ -1612,10 +1696,13 @@ namespace WebApplication2.Controllers
         public IActionResult Sikcasorulan()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             return View(vm);
 
         }
@@ -1624,10 +1711,13 @@ namespace WebApplication2.Controllers
         public IActionResult Bilgilerimsay()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             return View(vm);
 
         }
@@ -1636,10 +1726,13 @@ namespace WebApplication2.Controllers
         public IActionResult Bilgileriguncellesay()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             return View(vm);
 
         }
@@ -1651,7 +1744,10 @@ namespace WebApplication2.Controllers
             
 
             Dao dao = new Dao();
-            string oldusername = (string)TempData["veri"];
+
+            string oldusername=HttpContext.Session.GetString("username");
+            //string oldusername = (string)TempData["veri"];
+
             int guncellemesonucu = dao.UpdateCheck(name, surname, username, oldusername, phonenumber);
 
             User user = new User();
@@ -1666,8 +1762,8 @@ namespace WebApplication2.Controllers
                 user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
                     .Where(e => e.Username == username2).FirstOrDefault();
                 
-                
-                vm.User = user;
+                HttpContext.Session.SetString("username",user.Username);
+                vm.User = UserDTO.ConvertTo(user);
                 
                 return View("Bilgilerimsay", vm);
             }
@@ -1679,7 +1775,7 @@ namespace WebApplication2.Controllers
                 user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
                     .Where(e => e.Username == username2).FirstOrDefault();
                 
-                vm.User = user;
+                vm.User = UserDTO.ConvertTo(user);
                 
                 return View("Bilgileriguncellesay", vm);
             }
@@ -1690,10 +1786,13 @@ namespace WebApplication2.Controllers
         public IActionResult Sifredegistirsay()
         {
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             return View(vm);
 
         }
@@ -1703,12 +1802,15 @@ namespace WebApplication2.Controllers
         {
             Dao dao = new Dao();
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             int passwordchangeresult=dao.ChangePassword(username, oldpassword, newpassword, newpassword2);
             user = c.MyUsers.Include(e => e.MemberedGroups).Where(e => e.Username == username).FirstOrDefault();
             ViewBag.passwordchangeresult = passwordchangeresult;
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             return View("Sifredegistirsay", vm);
             
             
@@ -1720,7 +1822,10 @@ namespace WebApplication2.Controllers
         {
             
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Where(u => u.Username == username).FirstOrDefault();//.Find(username);
             Product product = new Product();
             product = c.MyProducts.Find(Convert.ToInt32(pid));
@@ -1758,7 +1863,7 @@ namespace WebApplication2.Controllers
 
 
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             vm.Products2 = c.MyProducts2.Where(u => u.User == user).OrderBy(x=>x.Name).ToList();
             return View("Sepetim", vm);
         }
@@ -1768,11 +1873,14 @@ namespace WebApplication2.Controllers
         {
             Dao dao = new Dao();
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Where(u => u.Username == username).FirstOrDefault();//.Find(username);
             List<Product2> products2 = c.MyProducts2.Where(u => u.User == user).OrderBy(x => x.Name).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             vm.Products2 = products2;
             return View(vm);
 
@@ -1783,7 +1891,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Where(u => u.Username == username).FirstOrDefault();//.Find(username);
             Product2 product2 = new Product2();
             product2 = c.MyProducts2.Find(Convert.ToInt32(pid));
@@ -1799,7 +1910,7 @@ namespace WebApplication2.Controllers
                 c.SaveChanges();
             }
             ViewModel vm = new ViewModel();
-            vm.User = user;
+            vm.User = UserDTO.ConvertTo(user);
             vm.Products2 = c.MyProducts2.Where(u => u.User == user).OrderBy(x => x.Name).ToList();
             return View("Sepetim", vm);
         }
@@ -1809,7 +1920,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups)
                 .Include(e => e.BannedUsers)
                 .Where(e => e.Username == username).FirstOrDefault();
@@ -1832,17 +1946,17 @@ namespace WebApplication2.Controllers
             }
 
             List<User> users;
-
+            
             users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).OrderBy(x => x.Name).ToList();
             users.Remove(user);
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.FriendRequest = req;
-            vm.FriendRequests = friendrequests2;
-            vm.Friendships = friendships;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
+            vm.FriendRequest = FriendRequestDTO.ConvertTo(req);
             return View("Kullanicilar", vm);
         }
 
@@ -1851,7 +1965,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User receiver = new User();
@@ -1871,10 +1988,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.FriendRequests = friendrequests2;
-            vm.Friendships = friendships;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
             return View("Kullanicilar", vm);
         }
 
@@ -1883,7 +2000,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User sender = new User();
@@ -1903,10 +2023,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.FriendRequests = friendrequests2;
-            vm.Friendships = friendships;
+             vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
             return View("Kullanicilar", vm);
         }
 
@@ -1915,7 +2035,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault(); 
 
             User sender = new User();
@@ -1933,9 +2056,9 @@ namespace WebApplication2.Controllers
             c.SaveChanges();
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.FriendRequests = friendrequests2;
+             vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
             return View("Arkadaslikistekleri", vm);
         }
 
@@ -1944,7 +2067,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault(); 
 
             User sender = new User();
@@ -1975,11 +2101,11 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships=c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Friendship = friendship;
-            vm.Friendships = friendships;
-            vm.FriendRequests = friendrequests2;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Friendship = FriendshipDTO.ConvertTo(friendship);
+            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
             return View("Arkadaslar", vm);
         }
 
@@ -1988,7 +2114,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User sender = new User();
@@ -2019,11 +2148,11 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Friendship = friendship;
-            vm.Friendships = friendships;
-            vm.FriendRequests = friendrequests2;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Friendship = FriendshipDTO.ConvertTo(friendship);
+            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
             return View("Kullanicilar", vm);
         }
 
@@ -2032,7 +2161,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User ftd = new User();
@@ -2064,10 +2196,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Friendships = friendships;
-            vm.FriendRequests = friendrequests2;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
             return View("Arkadaslar", vm);
         }
 
@@ -2076,7 +2208,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User ftd = new User();
@@ -2108,10 +2243,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.Friendships = friendships;
-            vm.FriendRequests = friendrequests2;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
             return View("Kullanicilar", vm);
         }
 
@@ -2120,7 +2255,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User sender = new User();
@@ -2135,11 +2273,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            
-            vm.Friendships = friendships;
-            vm.FriendRequests = friendrequests2;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
             return View(vm);
         }
 
@@ -2148,7 +2285,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
 
@@ -2161,9 +2301,9 @@ namespace WebApplication2.Controllers
 
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = user;
-            vm.Users = users;
-            vm.FriendRequests = myfriendrequests;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Users = UserDTO.ConvertTo(users);
+            vm.FriendRequests = FriendRequestDTO.ConvertTo(myfriendrequests);
             return View(vm);
         }
 
@@ -2172,7 +2312,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User messagereceiver = new User();
@@ -2188,9 +2331,9 @@ namespace WebApplication2.Controllers
             m.MessageSender = user;
             m.MessageReceiver = messagereceiver;
 
-            vm.User = user;
-            vm.Message = m;
-            vm.Messages = messages;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Message = MessageDTO.ConvertTo(m);
+            vm.Messages = MessageDTO.ConvertTo(messages);
             
             return View("Mesajlasma",vm);
         }
@@ -2200,7 +2343,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User messagereceiver = new User();
@@ -2223,9 +2369,9 @@ namespace WebApplication2.Controllers
             List<Message> messages;
             messages = c.Messages.ToList();
 
-            vm.User = user;
-            vm.Message = m;
-            vm.Messages = messages;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Message = MessageDTO.ConvertTo(m);
+            vm.Messages = MessageDTO.ConvertTo(messages);
            
             return View("Mesajlasma", vm);
         }
@@ -2235,7 +2381,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
             string friendtosendmessage = (string)TempData["friendtosendmessage"];
             User messagereceiver = new User();
@@ -2249,9 +2398,9 @@ namespace WebApplication2.Controllers
             List<Message> messages;
             messages = c.Messages.ToList();
 
-            vm.User = user;
-            vm.Message = m;
-            vm.Messages = messages;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Message = MessageDTO.ConvertTo(m);
+            vm.Messages = MessageDTO.ConvertTo(messages);
 
             return View("Mesajlasma", vm);
         }
@@ -2262,7 +2411,10 @@ namespace WebApplication2.Controllers
         {
 
             User user = new User();
-            string username = (string)TempData["veri"];
+
+            string username=HttpContext.Session.GetString("username");
+            //string username = (string)TempData["veri"];
+
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             User messagereceiver = new User();
@@ -2286,9 +2438,9 @@ namespace WebApplication2.Controllers
             List<Message> messages;
             messages = c.Messages.ToList();
 
-            vm.User = user;
-            vm.Message = m;
-            vm.Messages = messages;
+            vm.User = UserDTO.ConvertTo(user);
+            vm.Message = MessageDTO.ConvertTo(m);
+            vm.Messages = MessageDTO.ConvertTo(messages);
 
             return View("Mesajlasma", vm);
         }

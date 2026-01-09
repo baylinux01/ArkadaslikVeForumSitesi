@@ -14,7 +14,7 @@
                 @if (Model.Users != null && Model.User != null)
                 {
 
-                    @foreach (User user in Model.Users)
+                    @foreach (UserDTO user in Model.Users)
                     {
                         @if (Model.User.BannedUsers.Contains(user))
                         {

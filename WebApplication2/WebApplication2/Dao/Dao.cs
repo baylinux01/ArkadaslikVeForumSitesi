@@ -92,7 +92,8 @@ namespace WebApplication2.DAO
             user.Surname = surname;
             user.Username = username;
             user.Phonenumber = phonenumber;
-            user.Password = password;
+            user.Password = BCrypt.Net.BCrypt.EnhancedHashPassword(password,
+            Convert.ToInt32(Environment.GetEnvironmentVariable("BCRYPT_DEGREE")));
            
             c.MyUsers.Add(user);
             c.SaveChanges();
@@ -102,7 +103,8 @@ namespace WebApplication2.DAO
         }
         public int EnterCheck(string usernameorphonenumber, string password)
         {
-            List<User> users = c.MyUsers.Include(e=>e.MemberedGroups).Include(e=>e.BannedUsers).ToList();
+            List<User> users = c.MyUsers.Include(e=>e.MemberedGroups)
+                                                    .Include(e=>e.BannedUsers).ToList();
             bool unamesame=false;
             bool phonesame = false;
             bool unameorphonesame = false;
@@ -112,8 +114,8 @@ namespace WebApplication2.DAO
             while(i<users.Count)
             {
                 if ((usernameorphonenumber == users[i].Username 
-                    || usernameorphonenumber == users[i].Phonenumber) && password 
-                    == users[i].Password)
+                    || usernameorphonenumber == users[i].Phonenumber)
+                    && BCrypt.Net.BCrypt.EnhancedVerify(password,users[i].Password))
                 {
                     unameorphoneandpasssame = true;
                     unameorphonesame = true;
@@ -124,7 +126,7 @@ namespace WebApplication2.DAO
                 else if (usernameorphonenumber == users[i].Username
                     || usernameorphonenumber == users[i].Phonenumber)
                 { unameorphonesame = true; }
-                else if ( password== users[i].Password)
+                else if ( BCrypt.Net.BCrypt.EnhancedVerify(password,users[i].Password))
                 { passsame = true; }
                 i++;
             }
@@ -229,12 +231,24 @@ namespace WebApplication2.DAO
         
         public int ChangePassword(string username,string oldpassword,string newpassword,string newpassword2)
         {
-            if (newpassword != newpassword2) return 2;
-            if (!Regex.IsMatch(newpassword, "^[öüÖÜĞğşŞçÇıİa-zA-Z0-9_\\.\\-]+$")) return 3;
+            if (newpassword != newpassword2) 
+            {
+                return 2;
+            }
+            if (!Regex.IsMatch(newpassword, "^[öüÖÜĞğşŞçÇıİa-zA-Z0-9_\\.\\-]+$")) 
+            {
+                return 3;
+            }
+
             User us = c.MyUsers.Include(e => e.MemberedGroups).Include(e=>e.BannedUsers)
                 .Where(p => p.Username == username).FirstOrDefault();
-            if (us.Password != oldpassword) return 4;
-            us.Password = newpassword;
+            
+             if (!BCrypt.Net.BCrypt.EnhancedVerify(oldpassword,us.Password)) 
+             {
+                return 4;
+             }
+            us.Password = BCrypt.Net.BCrypt.EnhancedHashPassword(newpassword
+                    ,Convert.ToInt32(Environment.GetEnvironmentVariable("BCRYPT_DEGREE")));
             c.MyUsers.Update(us);
             c.SaveChanges();
             return 1;

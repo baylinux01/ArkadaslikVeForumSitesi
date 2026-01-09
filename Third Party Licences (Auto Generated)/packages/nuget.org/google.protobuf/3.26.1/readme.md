@@ -3,7 +3,7 @@ Google.Protobuf [3.26.1](https://www.nuget.org/packages/Google.Protobuf/3.26.1)
 
 Used by: WebApplication2
 
-Target frameworks: net9.0
+Target frameworks: net8.0
 
 License: [BSD-3-Clause](../../../../licenses/bsd-3-clause) , has to be approved
 

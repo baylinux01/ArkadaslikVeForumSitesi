@@ -1,0 +1,195 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WebApplication2
+build_property.RootNamespace = WebApplication2
+build_property.ProjectDir = /home/baylinux/Desktop/WebApplication2/WebApplication2/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /home/baylinux/Desktop/WebApplication2/WebApplication2
+build_property._RazorSourceGeneratorDebug = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Alagram.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BbGFncmFtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Alintilasay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BbGludGlsYXNheS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Aramasonuc.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BcmFtYXNvbnVjLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Arkadaslar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BcmthZGFzbGFyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Arkadaslikistekleri.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9BcmthZGFzbGlraXN0ZWtsZXJpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Banlananuyelersay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9CYW5sYW5hbnV5ZWxlcnNheS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Bilgileriguncellesay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9CaWxnaWxlcmlndW5jZWxsZXNheS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Bilgilerimsay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9CaWxnaWxlcmltc2F5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Engellenenkullanicilarsay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9FbmdlbGxlbmVua3VsbGFuaWNpbGFyc2F5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Forum.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Gb3J1bS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Girissayfasi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HaXJpc3NheWZhc2kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Gruplarimsay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HcnVwbGFyaW1zYXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Grupsay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HcnVwc2F5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Gruptaalintilasay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HcnVwdGFhbGludGlsYXNheS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Gruptayorumuduzenlesay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HcnVwdGF5b3J1bXVkdXplbmxlc2F5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Grupuyelerisay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HcnVwdXllbGVyaXNheS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Hakkimizda.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9IYWtraW1pemRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Iletisim.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbGV0aXNpbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Kayitsayfasi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9LYXlpdHNheWZhc2kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Konuacsay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Lb251YWNzYXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Konusay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Lb251c2F5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Kullanicilar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9LdWxsYW5pY2lsYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Mesajlarsay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9NZXNhamxhcnNheS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Mesajlasma.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9NZXNhamxhc21hLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Misyonumuz.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9NaXN5b251bXV6LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Sepetim.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9TZXBldGltLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Sifredegistirsay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9TaWZyZWRlZ2lzdGlyc2F5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Sikcasorulan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9TaWtjYXNvcnVsYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Urunler.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9VcnVubGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Vizyonumuz.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9WaXp5b251bXV6LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Yenigrupkursay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9ZZW5pZ3J1cGt1cnNheS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Home/Yorumuduzenlesay.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Zb3J1bXVkdXplbmxlc2F5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Shared/_Absolute.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19BYnNvbHV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Shared/_Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Gb290ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Shared/_Head.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19IZWFkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Shared/_Header.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19IZWFkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/baylinux/Desktop/WebApplication2/WebApplication2/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-vyp160c36u

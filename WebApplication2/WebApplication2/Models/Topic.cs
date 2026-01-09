@@ -8,6 +8,6 @@ namespace WebApplication2.Models
         public int Id { get; set; }
         public string Title { get; set; }
 
-        public User Owner { get; set; }
+        public User? Owner { get; set; }
     }
 }

@@ -5,18 +5,19 @@ Licenses
 |----------|:----|:----|:----|
 |[BSD-3-Clause](licenses/bsd-3-clause)|yes|no|1|
 |[GPL-2.0](licenses/gpl-2.0)|yes|no|2|
-|[MIT](licenses/mit)|yes|no|67|
+|[MIT](licenses/mit)|yes|no|68|
 |[ms-net-library](licenses/ms-net-library)|yes|no|1|
 |[PostgreSQL](licenses/postgresql)|yes|no|2|
 |[Universal-FOSS-exception-1.0](licenses/universal-foss-exception-1.0)|yes|no|2|
 
-TODO 73
+TODO 74
 --------
 
 |Name|Version|Source|License|Used by|
 |----------|:----|:----|:----|:----|
 |[Azure.Core](packages/nuget.org/azure.core/1.38.0)|1.38.0|[nuget.org](https://www.nuget.org/packages/Azure.Core/1.38.0)|[MIT](licenses/mit)|WebApplication2|
 |[Azure.Identity](packages/nuget.org/azure.identity/1.11.4)|1.11.4|[nuget.org](https://www.nuget.org/packages/Azure.Identity/1.11.4)|[MIT](licenses/mit)|WebApplication2|
+|[BCrypt.Net-Next](packages/nuget.org/bcrypt.net-next/4.0.3)|4.0.3|[nuget.org](https://www.nuget.org/packages/BCrypt.Net-Next/4.0.3)|[MIT](licenses/mit)|WebApplication2|
 |[BouncyCastle.Cryptography](packages/nuget.org/bouncycastle.cryptography/2.3.1)|2.3.1|[nuget.org](https://www.nuget.org/packages/BouncyCastle.Cryptography/2.3.1)|[MIT](licenses/mit)|WebApplication2|
 |[Google.Protobuf](packages/nuget.org/google.protobuf/3.26.1)|3.26.1|[nuget.org](https://www.nuget.org/packages/Google.Protobuf/3.26.1)|[BSD-3-Clause](licenses/bsd-3-clause)|WebApplication2|
 |[Humanizer.Core](packages/nuget.org/humanizer.core/2.14.1)|2.14.1|[nuget.org](https://www.nuget.org/packages/Humanizer.Core/2.14.1)|[MIT](licenses/mit)|WebApplication2|
@@ -68,11 +69,11 @@ TODO 73
 |[System.CodeDom](packages/nuget.org/system.codedom/6.0.0)|6.0.0|[nuget.org](https://www.nuget.org/packages/System.CodeDom/6.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[System.Collections.Immutable](packages/nuget.org/system.collections.immutable/7.0.0)|7.0.0|[nuget.org](https://www.nuget.org/packages/System.Collections.Immutable/7.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[System.Configuration.ConfigurationManager](packages/nuget.org/system.configuration.configurationmanager/8.0.0)|8.0.0|[nuget.org](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/8.0.0)|[MIT](licenses/mit)|WebApplication2|
-|[System.Diagnostics.DiagnosticSource](packages/nuget.org/system.diagnostics.diagnosticsource/8.0.1)|8.0.1|[nuget.org](https://www.nuget.org/packages/System.Diagnostics.DiagnosticSource/8.0.1)|[MIT](licenses/mit)|WebApplication2|
+|[System.Diagnostics.DiagnosticSource](packages/nuget.org/system.diagnostics.diagnosticsource/9.0.10)|9.0.10|[nuget.org](https://www.nuget.org/packages/System.Diagnostics.DiagnosticSource/9.0.10)|[MIT](licenses/mit)|WebApplication2|
 |[System.Diagnostics.EventLog](packages/nuget.org/system.diagnostics.eventlog/8.0.0)|8.0.0|[nuget.org](https://www.nuget.org/packages/System.Diagnostics.EventLog/8.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[System.Formats.Asn1](packages/nuget.org/system.formats.asn1/9.0.10)|9.0.10|[nuget.org](https://www.nuget.org/packages/System.Formats.Asn1/9.0.10)|[MIT](licenses/mit)|WebApplication2|
 |[System.IdentityModel.Tokens.Jwt](packages/nuget.org/system.identitymodel.tokens.jwt/6.35.0)|6.35.0|[nuget.org](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/6.35.0)|[MIT](licenses/mit)|WebApplication2|
-|[System.IO.Pipelines](packages/nuget.org/system.io.pipelines/7.0.0)|7.0.0|[nuget.org](https://www.nuget.org/packages/System.IO.Pipelines/7.0.0)|[MIT](licenses/mit)|WebApplication2|
+|[System.IO.Pipelines](packages/nuget.org/system.io.pipelines/9.0.10)|9.0.10|[nuget.org](https://www.nuget.org/packages/System.IO.Pipelines/9.0.10)|[MIT](licenses/mit)|WebApplication2|
 |[System.Memory.Data](packages/nuget.org/system.memory.data/1.0.2)|1.0.2|[nuget.org](https://www.nuget.org/packages/System.Memory.Data/1.0.2)|[MIT](licenses/mit)|WebApplication2|
 |[System.Reflection.Metadata](packages/nuget.org/system.reflection.metadata/7.0.0)|7.0.0|[nuget.org](https://www.nuget.org/packages/System.Reflection.Metadata/7.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[System.Runtime.Caching](packages/nuget.org/system.runtime.caching/6.0.0)|6.0.0|[nuget.org](https://www.nuget.org/packages/System.Runtime.Caching/6.0.0)|[MIT](licenses/mit)|WebApplication2|
@@ -83,20 +84,21 @@ TODO 73
 |[System.Security.Permissions](packages/nuget.org/system.security.permissions/8.0.0)|8.0.0|[nuget.org](https://www.nuget.org/packages/System.Security.Permissions/8.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[System.Security.Principal.Windows](packages/nuget.org/system.security.principal.windows/5.0.0)|5.0.0|[nuget.org](https://www.nuget.org/packages/System.Security.Principal.Windows/5.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[System.Text.Encoding.CodePages](packages/nuget.org/system.text.encoding.codepages/8.0.0)|8.0.0|[nuget.org](https://www.nuget.org/packages/System.Text.Encoding.CodePages/8.0.0)|[MIT](licenses/mit)|WebApplication2|
-|[System.Text.Encodings.Web](packages/nuget.org/system.text.encodings.web/6.0.0)|6.0.0|[nuget.org](https://www.nuget.org/packages/System.Text.Encodings.Web/6.0.0)|[MIT](licenses/mit)|WebApplication2|
+|[System.Text.Encodings.Web](packages/nuget.org/system.text.encodings.web/9.0.10)|9.0.10|[nuget.org](https://www.nuget.org/packages/System.Text.Encodings.Web/9.0.10)|[MIT](licenses/mit)|WebApplication2|
 |[System.Text.Json](packages/nuget.org/system.text.json/9.0.10)|9.0.10|[nuget.org](https://www.nuget.org/packages/System.Text.Json/9.0.10)|[MIT](licenses/mit)|WebApplication2|
 |[System.Threading.Channels](packages/nuget.org/system.threading.channels/7.0.0)|7.0.0|[nuget.org](https://www.nuget.org/packages/System.Threading.Channels/7.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[System.Windows.Extensions](packages/nuget.org/system.windows.extensions/8.0.0)|8.0.0|[nuget.org](https://www.nuget.org/packages/System.Windows.Extensions/8.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[ZstdSharp.Port](packages/nuget.org/zstdsharp.port/0.8.0)|0.8.0|[nuget.org](https://www.nuget.org/packages/ZstdSharp.Port/0.8.0)|[MIT](licenses/mit)|WebApplication2|
 
 
-Packages 73
+Packages 74
 --------
 
 |Name|Version|Source|License|Used by|
 |----------|:----|:----|:----|:----|
 |[Azure.Core](packages/nuget.org/azure.core/1.38.0)|1.38.0|[nuget.org](https://www.nuget.org/packages/Azure.Core/1.38.0)|[MIT](licenses/mit)|WebApplication2|
 |[Azure.Identity](packages/nuget.org/azure.identity/1.11.4)|1.11.4|[nuget.org](https://www.nuget.org/packages/Azure.Identity/1.11.4)|[MIT](licenses/mit)|WebApplication2|
+|[BCrypt.Net-Next](packages/nuget.org/bcrypt.net-next/4.0.3)|4.0.3|[nuget.org](https://www.nuget.org/packages/BCrypt.Net-Next/4.0.3)|[MIT](licenses/mit)|WebApplication2|
 |[BouncyCastle.Cryptography](packages/nuget.org/bouncycastle.cryptography/2.3.1)|2.3.1|[nuget.org](https://www.nuget.org/packages/BouncyCastle.Cryptography/2.3.1)|[MIT](licenses/mit)|WebApplication2|
 |[Google.Protobuf](packages/nuget.org/google.protobuf/3.26.1)|3.26.1|[nuget.org](https://www.nuget.org/packages/Google.Protobuf/3.26.1)|[BSD-3-Clause](licenses/bsd-3-clause)|WebApplication2|
 |[Humanizer.Core](packages/nuget.org/humanizer.core/2.14.1)|2.14.1|[nuget.org](https://www.nuget.org/packages/Humanizer.Core/2.14.1)|[MIT](licenses/mit)|WebApplication2|
@@ -148,11 +150,11 @@ Packages 73
 |[System.CodeDom](packages/nuget.org/system.codedom/6.0.0)|6.0.0|[nuget.org](https://www.nuget.org/packages/System.CodeDom/6.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[System.Collections.Immutable](packages/nuget.org/system.collections.immutable/7.0.0)|7.0.0|[nuget.org](https://www.nuget.org/packages/System.Collections.Immutable/7.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[System.Configuration.ConfigurationManager](packages/nuget.org/system.configuration.configurationmanager/8.0.0)|8.0.0|[nuget.org](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/8.0.0)|[MIT](licenses/mit)|WebApplication2|
-|[System.Diagnostics.DiagnosticSource](packages/nuget.org/system.diagnostics.diagnosticsource/8.0.1)|8.0.1|[nuget.org](https://www.nuget.org/packages/System.Diagnostics.DiagnosticSource/8.0.1)|[MIT](licenses/mit)|WebApplication2|
+|[System.Diagnostics.DiagnosticSource](packages/nuget.org/system.diagnostics.diagnosticsource/9.0.10)|9.0.10|[nuget.org](https://www.nuget.org/packages/System.Diagnostics.DiagnosticSource/9.0.10)|[MIT](licenses/mit)|WebApplication2|
 |[System.Diagnostics.EventLog](packages/nuget.org/system.diagnostics.eventlog/8.0.0)|8.0.0|[nuget.org](https://www.nuget.org/packages/System.Diagnostics.EventLog/8.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[System.Formats.Asn1](packages/nuget.org/system.formats.asn1/9.0.10)|9.0.10|[nuget.org](https://www.nuget.org/packages/System.Formats.Asn1/9.0.10)|[MIT](licenses/mit)|WebApplication2|
 |[System.IdentityModel.Tokens.Jwt](packages/nuget.org/system.identitymodel.tokens.jwt/6.35.0)|6.35.0|[nuget.org](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt/6.35.0)|[MIT](licenses/mit)|WebApplication2|
-|[System.IO.Pipelines](packages/nuget.org/system.io.pipelines/7.0.0)|7.0.0|[nuget.org](https://www.nuget.org/packages/System.IO.Pipelines/7.0.0)|[MIT](licenses/mit)|WebApplication2|
+|[System.IO.Pipelines](packages/nuget.org/system.io.pipelines/9.0.10)|9.0.10|[nuget.org](https://www.nuget.org/packages/System.IO.Pipelines/9.0.10)|[MIT](licenses/mit)|WebApplication2|
 |[System.Memory.Data](packages/nuget.org/system.memory.data/1.0.2)|1.0.2|[nuget.org](https://www.nuget.org/packages/System.Memory.Data/1.0.2)|[MIT](licenses/mit)|WebApplication2|
 |[System.Reflection.Metadata](packages/nuget.org/system.reflection.metadata/7.0.0)|7.0.0|[nuget.org](https://www.nuget.org/packages/System.Reflection.Metadata/7.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[System.Runtime.Caching](packages/nuget.org/system.runtime.caching/6.0.0)|6.0.0|[nuget.org](https://www.nuget.org/packages/System.Runtime.Caching/6.0.0)|[MIT](licenses/mit)|WebApplication2|
@@ -163,7 +165,7 @@ Packages 73
 |[System.Security.Permissions](packages/nuget.org/system.security.permissions/8.0.0)|8.0.0|[nuget.org](https://www.nuget.org/packages/System.Security.Permissions/8.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[System.Security.Principal.Windows](packages/nuget.org/system.security.principal.windows/5.0.0)|5.0.0|[nuget.org](https://www.nuget.org/packages/System.Security.Principal.Windows/5.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[System.Text.Encoding.CodePages](packages/nuget.org/system.text.encoding.codepages/8.0.0)|8.0.0|[nuget.org](https://www.nuget.org/packages/System.Text.Encoding.CodePages/8.0.0)|[MIT](licenses/mit)|WebApplication2|
-|[System.Text.Encodings.Web](packages/nuget.org/system.text.encodings.web/6.0.0)|6.0.0|[nuget.org](https://www.nuget.org/packages/System.Text.Encodings.Web/6.0.0)|[MIT](licenses/mit)|WebApplication2|
+|[System.Text.Encodings.Web](packages/nuget.org/system.text.encodings.web/9.0.10)|9.0.10|[nuget.org](https://www.nuget.org/packages/System.Text.Encodings.Web/9.0.10)|[MIT](licenses/mit)|WebApplication2|
 |[System.Text.Json](packages/nuget.org/system.text.json/9.0.10)|9.0.10|[nuget.org](https://www.nuget.org/packages/System.Text.Json/9.0.10)|[MIT](licenses/mit)|WebApplication2|
 |[System.Threading.Channels](packages/nuget.org/system.threading.channels/7.0.0)|7.0.0|[nuget.org](https://www.nuget.org/packages/System.Threading.Channels/7.0.0)|[MIT](licenses/mit)|WebApplication2|
 |[System.Windows.Extensions](packages/nuget.org/system.windows.extensions/8.0.0)|8.0.0|[nuget.org](https://www.nuget.org/packages/System.Windows.Extensions/8.0.0)|[MIT](licenses/mit)|WebApplication2|

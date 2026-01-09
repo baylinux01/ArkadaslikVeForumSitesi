@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>BCrypt.Net-Next</id>
+    <version>4.0.3</version>
+    <title>BCrypt .Net</title>
+    <authors>Chris McKee, Ryan D. Emerl, Damien Miller</authors>
+    <licenseUrl>https://github.com/BcryptNet/bcrypt.net/blob/main/licence.txt</licenseUrl>
+    <description>A fixed, enhanced and namespace compatible version of BCrypt.Net port of jBCrypt implemented in C#. It uses a variant of the Blowfish encryption algorithm’s keying schedule, and introduces a work factor, which allows you to determine how expensive the hash function will be, allowing the algorithm to be "future-proof".</description>
+    <copyright>2006-2021 Chris McKee, Ryan D. Emerl, Damien Miller</copyright>
+    <tags>bcrypt BCrypt.Net cryptography hashing password security,hash crypto blowfish gdpr</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework2.0" />
+      <group targetFramework=".NETFramework3.5" />
+      <group targetFramework=".NETFramework4.6.2">
+        <dependency id="System.Memory" version="4.5.4" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.7.2">
+        <dependency id="System.Memory" version="4.5.4" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.8">
+        <dependency id="System.Memory" version="4.5.4" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net5.0" />
+      <group targetFramework="net6.0" />
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="System.Memory" version="4.5.4" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.1" />
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.6.2" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

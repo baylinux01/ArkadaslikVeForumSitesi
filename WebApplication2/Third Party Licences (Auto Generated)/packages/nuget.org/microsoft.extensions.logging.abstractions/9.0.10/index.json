@@ -10,11 +10,15 @@
       "Name": "WebApplication2",
       "InternalOnly": false,
       "TargetFrameworks": [
-        "net9.0"
+        "net8.0"
       ],
       "Dependencies": [
         {
           "Name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+          "Version": "9.0.10"
+        },
+        {
+          "Name": "System.Diagnostics.DiagnosticSource",
           "Version": "9.0.10"
         }
       ]

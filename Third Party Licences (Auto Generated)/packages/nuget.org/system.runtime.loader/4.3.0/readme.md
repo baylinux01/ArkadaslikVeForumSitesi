@@ -3,7 +3,7 @@ System.Runtime.Loader [4.3.0](https://www.nuget.org/packages/System.Runtime.Load
 
 Used by: WebApplication2
 
-Target frameworks: net9.0
+Target frameworks: net8.0
 
 License: [ms-net-library](../../../../licenses/ms-net-library) , has to be approved
 
