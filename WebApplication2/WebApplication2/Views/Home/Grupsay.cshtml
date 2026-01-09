@@ -15,7 +15,7 @@
                     <input class="grupsaykonubutons0" type="submit" value="Grup Üyeleri">
                 </form>
             </div>
-            @if(Model.User == Model.AlagramGroup.Owner)
+            @if(Model.User.Id == Model.AlagramGroup.Owner.Id)
             {
             <div>
                 <form action="banlananuyelersay" class="grupsaykonuforms01">
@@ -31,7 +31,7 @@
             @foreach (AlagramCommentDTO comment in Model.AlagramComments)
             {
                 <div class="grupsaydiv1">
-                    @if(comment.Group==Model.AlagramGroup)
+                    @if(comment.Group.Id==Model.AlagramGroup.Id)
                     {
                         @if (comment.QuotedComment != null)
                         {
@@ -55,10 +55,10 @@
                                     <input class="grupsaykonubutons0" type="submit" value="Alıntıla">
                                 </form>
                             }
-                            @if ((comment.Owner == Model.User || Model.User.IsOwner == true)
+                            @if ((comment.Owner.Id == Model.User.Id || Model.User.IsOwner == true)
                            || (Model.User.IsAdmin == true && comment.Owner.IsAdmin == false && comment.Owner.IsOwner == false))
                             {
-                                @if(comment.Owner == Model.User)
+                                @if(comment.Owner.Id == Model.User.Id)
                                 {
                                     <form action="gruptayorumuduzenlesay" class="grupsaykonuforms0" method="post">
 

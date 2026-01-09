@@ -13,11 +13,16 @@ namespace WebApplication2.Models
         public TopicDTO? Topic { get; set; }
 
         public CommentDTO? QuotedComment { get; set; }
-    
+
         public static CommentDTO? ConvertTo(Comment? u)
         {
             if(u == null) return null;
-            return new CommentDTO(u);
+            return CommentDTO.ConvertTo(u,3);
+        }
+        public static CommentDTO? ConvertTo(Comment? u,int depth)
+        {
+            if(u == null || depth<=0) return null;
+            return new CommentDTO(u,depth);
         }
 
          public static List<CommentDTO>? ConvertTo(List<Comment>? u)
@@ -32,21 +37,33 @@ namespace WebApplication2.Models
             return list;
         }
 
-        public CommentDTO(Comment c): this (c,100)
-        {
-
-        }
-
-        public CommentDTO(Comment c,int depth)
+       
+        
+        private CommentDTO(Comment c,int depth)
         {
             this.Id=c.Id;
-            this.Owner=new UserDTO(c.Owner);
+            this.Owner=UserDTO.ConvertTo(c.Owner,depth-1);
             this.Content=c.Content;
-            this.Topic=new TopicDTO(c.Topic);
+            this.Topic=TopicDTO.ConvertTo(c.Topic,depth-1);
             if(c.QuotedComment!=null && depth>0)
             {
                 this.QuotedComment=new CommentDTO(c.QuotedComment,depth-1);
             }
+        }
+
+         public override bool Equals(object? obj)
+        {
+            if (obj == null || obj.GetType() != typeof(CommentDTO))
+                return false;
+
+            var other = (CommentDTO)obj;
+            return this.Id == other.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            
+            return Id.GetHashCode();
         }
     }
 }

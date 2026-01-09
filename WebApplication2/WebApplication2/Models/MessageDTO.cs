@@ -20,7 +20,13 @@ namespace WebApplication2.Models
         public static MessageDTO? ConvertTo(Message? u)
         {
             if(u == null) return null;
-            return new MessageDTO(u);
+            return MessageDTO.ConvertTo(u,3);
+        }
+
+        public static MessageDTO? ConvertTo(Message? u,int depth)
+        {
+            if(u == null|| depth<=0) return null;
+            return new MessageDTO(u,depth);
         }
 
          public static List<MessageDTO>? ConvertTo(List<Message>? u)
@@ -36,13 +42,28 @@ namespace WebApplication2.Models
         }
 
 
-        public MessageDTO(Message m)
+        private MessageDTO(Message m,int depth)
         {
             this.Id=m.Id;
-            this.MessageSender=new UserDTO(m.MessageSender);
-            this.MessageReceiver=new UserDTO(m.MessageReceiver);
+            this.MessageSender=UserDTO.ConvertTo(m.MessageSender,depth-1);
+            this.MessageReceiver=UserDTO.ConvertTo(m.MessageReceiver,depth-1);
             this.MessageContent=m.MessageContent;
             this.IsRead=m.IsRead;
+        }
+
+         public override bool Equals(object? obj)
+        {
+            if (obj == null || obj.GetType() != typeof(MessageDTO))
+                return false;
+
+            var other = (MessageDTO)obj;
+            return this.Id == other.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            
+            return Id.GetHashCode();
         }
 
     }

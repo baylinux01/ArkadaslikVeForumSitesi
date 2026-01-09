@@ -14,7 +14,13 @@ namespace WebApplication2.Models
         public static TopicDTO? ConvertTo(Topic? u)
         {
             if(u == null) return null;
-            return new TopicDTO(u);
+            return TopicDTO.ConvertTo(u,3);
+        }
+
+         public static TopicDTO? ConvertTo(Topic? u,int depth)
+        {
+            if(u == null||depth<=0) return null;
+            return new TopicDTO(u,depth);
         }
 
          public static List<TopicDTO>? ConvertTo(List<Topic>? u)
@@ -29,11 +35,26 @@ namespace WebApplication2.Models
             return list;
         }
 
-        public TopicDTO(Topic t)
+        private TopicDTO(Topic t,int depth)
         {
             this.Id=t.Id;
             this.Title=t.Title;
-            this.Owner=new UserDTO(t.Owner);
+            this.Owner=UserDTO.ConvertTo(t.Owner,depth-1);
+        }
+        
+         public override bool Equals(object? obj)
+        {
+            if (obj == null || obj.GetType() != typeof(TopicDTO))
+                return false;
+
+            var other = (TopicDTO)obj;
+            return this.Id == other.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            
+            return Id.GetHashCode();
         }
     }
 }

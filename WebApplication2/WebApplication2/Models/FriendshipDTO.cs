@@ -12,7 +12,13 @@ namespace WebApplication2.Models
         public static FriendshipDTO? ConvertTo(Friendship? u)
         {
             if(u == null) return null;
-            return new FriendshipDTO(u);
+            return FriendshipDTO.ConvertTo(u,3);
+        }
+
+        public static FriendshipDTO? ConvertTo(Friendship? u,int depth)
+        {
+            if(u == null|| depth<=0) return null;
+            return new FriendshipDTO(u,depth);
         }
 
          public static List<FriendshipDTO>? ConvertTo(List<Friendship>? u)
@@ -27,11 +33,29 @@ namespace WebApplication2.Models
             return list;
         }
 
-        public FriendshipDTO(Friendship f)
+        private FriendshipDTO(Friendship f,int depth)
         {
+            if(depth<=0)
+            {
+                return;
+            }
             this.Id=f.Id;
-            this.Friend1=new UserDTO(f.Friend1);
-            this.Friend2=new UserDTO(f.Friend2);
+            this.Friend1=UserDTO.ConvertTo(f.Friend1,depth-1);
+            this.Friend2=UserDTO.ConvertTo(f.Friend2,depth-1);
+        }
+         public override bool Equals(object? obj)
+        {
+            if (obj == null || obj.GetType() != typeof(FriendshipDTO))
+                return false;
+
+            var other = (FriendshipDTO)obj;
+            return this.Id == other.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            
+            return Id.GetHashCode();
         }
     }
 }

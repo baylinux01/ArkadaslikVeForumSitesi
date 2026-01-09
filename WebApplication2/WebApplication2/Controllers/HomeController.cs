@@ -14,11 +14,13 @@ namespace WebApplication2.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly Context c;
+        private readonly ConverterToDTO conDTO;
 
-        public HomeController(ILogger<HomeController> logger,Context c)
+        public HomeController(ILogger<HomeController> logger,Context c,ConverterToDTO conDTO)
         {
             _logger = logger;
             this.c=c;
+            this.conDTO=conDTO;
         }
 
         
@@ -35,7 +37,7 @@ namespace WebApplication2.Controllers
                                         .FirstOrDefault();
             
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             return View(vm);
         }
 
@@ -161,9 +163,9 @@ namespace WebApplication2.Controllers
             c.SaveChanges();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
             return View("engellenenkullanicilarsay", vm);
         }
 
@@ -184,10 +186,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Friendships = conDTO.ConvertTo(friendships);
+            vm.FriendRequests = conDTO.ConvertTo(friendrequests2);
             return View(vm);
         }
 
@@ -218,9 +220,9 @@ namespace WebApplication2.Controllers
             c.SaveChanges();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.AlagramGroup = conDTO.ConvertTo(group);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
             return View("banlananuyelersay", vm);
         }
 
@@ -258,9 +260,9 @@ namespace WebApplication2.Controllers
             c.SaveChanges();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.AlagramGroup = conDTO.ConvertTo(group);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
             return View("grupuyelerisay",vm);
         }
 
@@ -303,11 +305,11 @@ namespace WebApplication2.Controllers
 
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.AlagramComments=AlagramCommentDTO.ConvertTo(allComments);
-            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.AlagramComments=conDTO.ConvertTo(allComments);
+            vm.AlagramGroup = conDTO.ConvertTo(group);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
             return View("alagram",vm);
         }
 
@@ -332,8 +334,8 @@ namespace WebApplication2.Controllers
                     .Where(p => p.Name.Contains(gruparamaveri)).ToList();
             }
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
             return View("alagram",vm);
         }
 
@@ -355,9 +357,9 @@ namespace WebApplication2.Controllers
                 .Where(p => p.Id == Convert.ToInt32(groupId)).FirstOrDefault();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.AlagramGroup = conDTO.ConvertTo(group);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
             return View(vm);
         }
         //[Route("grupuyelerisay2")]
@@ -401,9 +403,9 @@ namespace WebApplication2.Controllers
                 .Where(p => p.Id == Convert.ToInt32(groupId)).FirstOrDefault();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.AlagramGroup = conDTO.ConvertTo(group);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
             return View(vm);
         }
 
@@ -442,12 +444,12 @@ namespace WebApplication2.Controllers
             List<AlagramComment> comments = c.AlagramComments.ToList();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.AlagramComment=AlagramCommentDTO.ConvertTo(comment);
-            vm.AlagramComments=AlagramCommentDTO.ConvertTo(comments);
-            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.AlagramComment=conDTO.ConvertTo(comment);
+            vm.AlagramComments=conDTO.ConvertTo(comments);
+            vm.AlagramGroup = conDTO.ConvertTo(group);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
             
 
             return View("grupsay", vm);
@@ -478,12 +480,12 @@ namespace WebApplication2.Controllers
             List<AlagramComment> comments = c.AlagramComments.ToList();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.AlagramComment=AlagramCommentDTO.ConvertTo(comment);
-            vm.AlagramComments=AlagramCommentDTO.ConvertTo(comments);
-            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.AlagramComment=conDTO.ConvertTo(comment);
+            vm.AlagramComments=conDTO.ConvertTo(comments);
+            vm.AlagramGroup = conDTO.ConvertTo(group);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
 
             return View(vm);
         }
@@ -513,12 +515,12 @@ namespace WebApplication2.Controllers
             List<AlagramComment> comments = c.AlagramComments.ToList();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.AlagramComment=AlagramCommentDTO.ConvertTo(comment);
-            vm.AlagramComments=AlagramCommentDTO.ConvertTo(comments);
-            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.AlagramComment=conDTO.ConvertTo(comment);
+            vm.AlagramComments=conDTO.ConvertTo(comments);
+            vm.AlagramGroup = conDTO.ConvertTo(group);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
 
             return View(vm);
         }
@@ -564,12 +566,12 @@ namespace WebApplication2.Controllers
 
             List<AlagramComment> comments = c.AlagramComments.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.AlagramComment=AlagramCommentDTO.ConvertTo(comment);
-            vm.AlagramComments=AlagramCommentDTO.ConvertTo(comments);
-            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.AlagramComment=conDTO.ConvertTo(comment);
+            vm.AlagramComments=conDTO.ConvertTo(comments);
+            vm.AlagramGroup = conDTO.ConvertTo(group);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
 
             return View("grupsay", vm);
         }
@@ -614,12 +616,12 @@ namespace WebApplication2.Controllers
 
             List<AlagramComment> comments = c.AlagramComments.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.AlagramComment=AlagramCommentDTO.ConvertTo(comment);
-            vm.AlagramComments=AlagramCommentDTO.ConvertTo(comments);
-            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.AlagramComment=conDTO.ConvertTo(comment);
+            vm.AlagramComments=conDTO.ConvertTo(comments);
+            vm.AlagramGroup = conDTO.ConvertTo(group);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
 
             return View("grupsay", vm);
         }
@@ -657,12 +659,12 @@ namespace WebApplication2.Controllers
             List<AlagramComment> comments = c.AlagramComments.ToList();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.AlagramComment=AlagramCommentDTO.ConvertTo(comment);
-            vm.AlagramComments=AlagramCommentDTO.ConvertTo(comments);
-            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.AlagramComment=conDTO.ConvertTo(comment);
+            vm.AlagramComments=conDTO.ConvertTo(comments);
+            vm.AlagramGroup = conDTO.ConvertTo(group);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
 
             return View("grupsay", vm);
 
@@ -694,11 +696,11 @@ namespace WebApplication2.Controllers
             List<AlagramComment> comments = c.AlagramComments.ToList();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.AlagramComments=AlagramCommentDTO.ConvertTo(comments);
-            vm.AlagramGroup = AlagramGroupDTO.ConvertTo(group);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.AlagramComments=conDTO.ConvertTo(comments);
+            vm.AlagramGroup = conDTO.ConvertTo(group);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
             return View(vm);
         }
 
@@ -754,8 +756,8 @@ namespace WebApplication2.Controllers
             //List<AlagramGroup> groups = c.AlagramGroups.ToList();
             List<AlagramGroup> groups = c.AlagramGroups.Include(p => p.Members).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
             return View("alagram", vm);
         }
 
@@ -777,8 +779,8 @@ namespace WebApplication2.Controllers
             //List<AlagramGroup> groups = c.AlagramGroups.ToList();
             List<AlagramGroup> groups = c.AlagramGroups.Include(p => p.Members).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
             return View("alagram", vm);
         }
 
@@ -794,7 +796,7 @@ namespace WebApplication2.Controllers
             List<AlagramGroup> groups = c.AlagramGroups.Include(p => p.Members).Include(e=>e.BannedUsers).ToList();
             ViewModel vm = new ViewModel();
             vm.User = UserDTO.ConvertTo(user);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
 
             ViewBag.samegroupname = false;
             foreach (AlagramGroup group in groups)
@@ -818,12 +820,12 @@ namespace WebApplication2.Controllers
                 user.MemberedGroups.Add(g);
                 c.MyUsers.Update(user);
                 c.SaveChanges();
-                vm.AlagramGroup = AlagramGroupDTO.ConvertTo(g);
+                vm.AlagramGroup = conDTO.ConvertTo(g);
             }
             //List<AlagramGroup> groups1 = c.AlagramGroups.ToList();
             List<AlagramGroup> groups1 = c.AlagramGroups.Include(p => p.Members).Include(e=>e.BannedUsers).ToList();
             
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups1);
+            vm.AlagramGroups = conDTO.ConvertTo(groups1);
 
             return View("alagram", vm);
         }
@@ -840,8 +842,8 @@ namespace WebApplication2.Controllers
             //List<AlagramGroup> groups = c.AlagramGroups.ToList();
             List<AlagramGroup> groups = c.AlagramGroups.Include(p => p.Members).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
             return View(vm);
         }
 
@@ -857,8 +859,8 @@ namespace WebApplication2.Controllers
             //List<AlagramGroup> groups = c.AlagramGroups.ToList();
             List<AlagramGroup> groups = c.AlagramGroups.Include(p => p.Members).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
             return View(vm);
         }
 
@@ -874,8 +876,8 @@ namespace WebApplication2.Controllers
             //List<AlagramGroup> groups = c.AlagramGroups.ToList();
             List<AlagramGroup> groups = c.AlagramGroups.Include(p => p.Members).Include(e=>e.BannedUsers).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.AlagramGroups = AlagramGroupDTO.ConvertTo(groups);
+            vm.User = conDTO.ConvertTo(user);
+            vm.AlagramGroups = conDTO.ConvertTo(groups);
             return View(vm);
         }
 
@@ -895,10 +897,10 @@ namespace WebApplication2.Controllers
             users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).OrderBy(x => x.Name).ToList();
             users.Remove(user);
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Messages = MessageDTO.ConvertTo(messages);
-            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Messages = conDTO.ConvertTo(messages);
+            vm.Friendships = conDTO.ConvertTo(friendships);
             return View(vm);
         }
 
@@ -939,10 +941,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Friendships = conDTO.ConvertTo(friendships);
+            vm.FriendRequests = conDTO.ConvertTo(friendrequests2);
             return View("kullanicilar",vm);
 
         }
@@ -1049,10 +1051,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users2);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests);
-            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users2);
+            vm.FriendRequests = conDTO.ConvertTo(friendrequests);
+            vm.Friendships = conDTO.ConvertTo(friendships);
             return View("Kullanicilar",vm);
         }
 
@@ -1088,12 +1090,12 @@ namespace WebApplication2.Controllers
 
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Comment=CommentDTO.ConvertTo(comment);
-            vm.Comments=CommentDTO.ConvertTo(comments);
-            vm.Topic = TopicDTO.ConvertTo(topic);
-            vm.Topics = TopicDTO.ConvertTo(topics);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Comment=conDTO.ConvertTo(comment);
+            vm.Comments=conDTO.ConvertTo(comments);
+            vm.Topic = conDTO.ConvertTo(topic);
+            vm.Topics = conDTO.ConvertTo(topics);
             
             return View("konusay", vm);
         }
@@ -1120,12 +1122,12 @@ namespace WebApplication2.Controllers
 
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Comment=CommentDTO.ConvertTo(comment);
-            vm.Comments=CommentDTO.ConvertTo(comments);
-            vm.Topic = TopicDTO.ConvertTo(topic);
-            vm.Topics = TopicDTO.ConvertTo(topics);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Comment=conDTO.ConvertTo(comment);
+            vm.Comments=conDTO.ConvertTo(comments);
+            vm.Topic = conDTO.ConvertTo(topic);
+            vm.Topics = conDTO.ConvertTo(topics);
             return View(vm);
         }
 
@@ -1151,12 +1153,12 @@ namespace WebApplication2.Controllers
 
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Comment=CommentDTO.ConvertTo(comment);
-            vm.Comments=CommentDTO.ConvertTo(comments);
-            vm.Topic = TopicDTO.ConvertTo(topic);
-            vm.Topics = TopicDTO.ConvertTo(topics);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Comment=conDTO.ConvertTo(comment);
+            vm.Comments=conDTO.ConvertTo(comments);
+            vm.Topic = conDTO.ConvertTo(topic);
+            vm.Topics = conDTO.ConvertTo(topics);
             return View(vm);
         }
 
@@ -1188,12 +1190,12 @@ namespace WebApplication2.Controllers
 
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Comment=CommentDTO.ConvertTo(comment);
-            vm.Comments=CommentDTO.ConvertTo(comments);
-            vm.Topic = TopicDTO.ConvertTo(topic);
-            vm.Topics = TopicDTO.ConvertTo(topics);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Comment=conDTO.ConvertTo(comment);
+            vm.Comments=conDTO.ConvertTo(comments);
+            vm.Topic = conDTO.ConvertTo(topic);
+            vm.Topics = conDTO.ConvertTo(topics);
             return View("konusay", vm);
         }
 
@@ -1222,12 +1224,12 @@ namespace WebApplication2.Controllers
 
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Comment=CommentDTO.ConvertTo(comment);
-            vm.Comments=CommentDTO.ConvertTo(comments);
-            vm.Topic = TopicDTO.ConvertTo(topic);
-            vm.Topics = TopicDTO.ConvertTo(topics);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Comment=conDTO.ConvertTo(comment);
+            vm.Comments=conDTO.ConvertTo(comments);
+            vm.Topic = conDTO.ConvertTo(topic);
+            vm.Topics = conDTO.ConvertTo(topics);
             return View("konusay", vm);
         }
 
@@ -1261,12 +1263,12 @@ namespace WebApplication2.Controllers
            
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Comment=CommentDTO.ConvertTo(comment);
-            vm.Comments=CommentDTO.ConvertTo(comments);
-            vm.Topic = TopicDTO.ConvertTo(topic);
-            vm.Topics = TopicDTO.ConvertTo(topics);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Comment=conDTO.ConvertTo(comment);
+            vm.Comments=conDTO.ConvertTo(comments);
+            vm.Topic = conDTO.ConvertTo(topic);
+            vm.Topics = conDTO.ConvertTo(topics);
             return View("konusay",vm);
         }
 
@@ -1287,11 +1289,11 @@ namespace WebApplication2.Controllers
             List<Topic> topics = c.Topics.ToList();
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Comments=CommentDTO.ConvertTo(comments);
-            vm.Topic = TopicDTO.ConvertTo(topic);
-            vm.Topics = TopicDTO.ConvertTo(topics);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Comments=conDTO.ConvertTo(comments);
+            vm.Topic = conDTO.ConvertTo(topic);
+            vm.Topics = conDTO.ConvertTo(topics);
             return View(vm);
         }
 
@@ -1313,11 +1315,11 @@ namespace WebApplication2.Controllers
             List<Topic> topics = c.Topics.ToList();
             List<Comment> comments = c.Comments.Where(p => p.Topic == topic).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Comments=CommentDTO.ConvertTo(comments);
-            vm.Topic = TopicDTO.ConvertTo(topic);
-            vm.Topics = TopicDTO.ConvertTo(topics);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Comments=conDTO.ConvertTo(comments);
+            vm.Topic = conDTO.ConvertTo(topic);
+            vm.Topics = conDTO.ConvertTo(topics);
             return View("Konusay",vm);
         }
         [Route("forum")]
@@ -1333,9 +1335,9 @@ namespace WebApplication2.Controllers
             users.Remove(user);
             List<Topic> topics = c.Topics.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Topics = TopicDTO.ConvertTo(topics);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Topics = conDTO.ConvertTo(topics);
             return View(vm);
         }
 
@@ -1350,7 +1352,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             return View(vm);
         }
 
@@ -1371,9 +1373,9 @@ namespace WebApplication2.Controllers
                 List<User> users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).ToList();
                 users.Remove(user);
                 
-                vm.User = UserDTO.ConvertTo(user);
-                vm.Users = UserDTO.ConvertTo(users);
-                vm.Topics = TopicDTO.ConvertTo(topics);
+                vm.User = conDTO.ConvertTo(user);
+                vm.Users = conDTO.ConvertTo(users);
+                vm.Topics = conDTO.ConvertTo(topics);
             }
             if(konubasligi!=null)
             {
@@ -1391,10 +1393,10 @@ namespace WebApplication2.Controllers
                 List<User> users = c.MyUsers.ToList();
                 users.Remove(user);
                 
-                vm.User = UserDTO.ConvertTo(user);
-                vm.Users = UserDTO.ConvertTo(users);
-                vm.Topic = TopicDTO.ConvertTo(topic);
-                vm.Topics = TopicDTO.ConvertTo(topics);
+                vm.User = conDTO.ConvertTo(user);
+                vm.Users = conDTO.ConvertTo(users);
+                vm.Topic = conDTO.ConvertTo(topic);
+                vm.Topics = conDTO.ConvertTo(topics);
                 
             }
 
@@ -1425,9 +1427,9 @@ namespace WebApplication2.Controllers
             List<User> users = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).ToList();
             users.Remove(user);
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Topics = TopicDTO.ConvertTo(topics);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Topics = conDTO.ConvertTo(topics);
             return View("forum", vm);
         }
 
@@ -1448,9 +1450,9 @@ namespace WebApplication2.Controllers
             c.SaveChanges();
             List<Topic> topics = c.Topics.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Topic = TopicDTO.ConvertTo(topic);
-            vm.Topics = TopicDTO.ConvertTo(topics);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Topic = conDTO.ConvertTo(topic);
+            vm.Topics = conDTO.ConvertTo(topics);
             return View("forum", vm);
         }
 
@@ -1499,7 +1501,7 @@ namespace WebApplication2.Controllers
             
             
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             vm.Products = products;
             return View(vm);
         }
@@ -1530,10 +1532,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Friendships = conDTO.ConvertTo(friendships);
+            vm.FriendRequests = conDTO.ConvertTo(friendrequests2);
             return View("Kullanicilar",vm);
         }
 
@@ -1559,10 +1561,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Friendships = conDTO.ConvertTo(friendships);
+            vm.FriendRequests = conDTO.ConvertTo(friendrequests2);
             return View(vm);
         }
 
@@ -1578,7 +1580,7 @@ namespace WebApplication2.Controllers
             List<Product> products;
             products = c.MyProducts.OrderBy(x => x.Name).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             vm.Products = products;
             return View(vm);
         }
@@ -1598,7 +1600,7 @@ namespace WebApplication2.Controllers
                     || p.Phonenumber == usernameorphonenumber)).FirstOrDefault();
                 ViewBag.enterresult = enterresult;
                 ViewModel vm = new ViewModel();
-                vm.User = UserDTO.ConvertTo(user);
+                vm.User = conDTO.ConvertTo(user);
                 HttpContext.Session.SetString("username",user.Username);
                 return View("Index", vm);
             }
@@ -1646,7 +1648,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             return View(vm);
         }
         [HttpGet("vizyonumuz")]
@@ -1660,7 +1662,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             return View(vm);
         }
         [HttpGet("misyonumuz")]
@@ -1674,7 +1676,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             return View(vm);
         }
         [HttpGet("iletisim")]
@@ -1688,7 +1690,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             return View(vm);
         }
 
@@ -1702,7 +1704,7 @@ namespace WebApplication2.Controllers
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             return View(vm);
 
         }
@@ -1717,7 +1719,7 @@ namespace WebApplication2.Controllers
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             return View(vm);
 
         }
@@ -1732,7 +1734,7 @@ namespace WebApplication2.Controllers
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             return View(vm);
 
         }
@@ -1763,7 +1765,7 @@ namespace WebApplication2.Controllers
                     .Where(e => e.Username == username2).FirstOrDefault();
                 
                 HttpContext.Session.SetString("username",user.Username);
-                vm.User = UserDTO.ConvertTo(user);
+                vm.User = conDTO.ConvertTo(user);
                 
                 return View("Bilgilerimsay", vm);
             }
@@ -1775,7 +1777,7 @@ namespace WebApplication2.Controllers
                 user = c.MyUsers.Include(p => p.MemberedGroups).Include(e=>e.BannedUsers)
                     .Where(e => e.Username == username2).FirstOrDefault();
                 
-                vm.User = UserDTO.ConvertTo(user);
+                vm.User = conDTO.ConvertTo(user);
                 
                 return View("Bilgileriguncellesay", vm);
             }
@@ -1792,7 +1794,7 @@ namespace WebApplication2.Controllers
 
             user = c.MyUsers.Include(e => e.MemberedGroups).Include(e => e.BannedUsers).Where(e => e.Username == username).FirstOrDefault();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             return View(vm);
 
         }
@@ -1810,7 +1812,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Include(e => e.MemberedGroups).Where(e => e.Username == username).FirstOrDefault();
             ViewBag.passwordchangeresult = passwordchangeresult;
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             return View("Sifredegistirsay", vm);
             
             
@@ -1863,7 +1865,7 @@ namespace WebApplication2.Controllers
 
 
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             vm.Products2 = c.MyProducts2.Where(u => u.User == user).OrderBy(x=>x.Name).ToList();
             return View("Sepetim", vm);
         }
@@ -1880,7 +1882,7 @@ namespace WebApplication2.Controllers
             user = c.MyUsers.Where(u => u.Username == username).FirstOrDefault();//.Find(username);
             List<Product2> products2 = c.MyProducts2.Where(u => u.User == user).OrderBy(x => x.Name).ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             vm.Products2 = products2;
             return View(vm);
 
@@ -1910,7 +1912,7 @@ namespace WebApplication2.Controllers
                 c.SaveChanges();
             }
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
+            vm.User = conDTO.ConvertTo(user);
             vm.Products2 = c.MyProducts2.Where(u => u.User == user).OrderBy(x => x.Name).ToList();
             return View("Sepetim", vm);
         }
@@ -1952,11 +1954,11 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
-            vm.FriendRequest = FriendRequestDTO.ConvertTo(req);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Friendships = conDTO.ConvertTo(friendships);
+            vm.FriendRequests = conDTO.ConvertTo(friendrequests2);
+            vm.FriendRequest = conDTO.ConvertTo(req);
             return View("Kullanicilar", vm);
         }
 
@@ -1988,10 +1990,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Friendships = conDTO.ConvertTo(friendships);
+            vm.FriendRequests = conDTO.ConvertTo(friendrequests2);
             return View("Kullanicilar", vm);
         }
 
@@ -2023,10 +2025,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-             vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
+             vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Friendships = conDTO.ConvertTo(friendships);
+            vm.FriendRequests = conDTO.ConvertTo(friendrequests2);
             return View("Kullanicilar", vm);
         }
 
@@ -2056,9 +2058,9 @@ namespace WebApplication2.Controllers
             c.SaveChanges();
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             ViewModel vm = new ViewModel();
-             vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
+             vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.FriendRequests = conDTO.ConvertTo(friendrequests2);
             return View("Arkadaslikistekleri", vm);
         }
 
@@ -2101,11 +2103,11 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships=c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Friendship = FriendshipDTO.ConvertTo(friendship);
-            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Friendship = conDTO.ConvertTo(friendship);
+            vm.Friendships = conDTO.ConvertTo(friendships);
+            vm.FriendRequests = conDTO.ConvertTo(friendrequests2);
             return View("Arkadaslar", vm);
         }
 
@@ -2148,11 +2150,11 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Friendship = FriendshipDTO.ConvertTo(friendship);
-            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Friendship = conDTO.ConvertTo(friendship);
+            vm.Friendships = conDTO.ConvertTo(friendships);
+            vm.FriendRequests = conDTO.ConvertTo(friendrequests2);
             return View("Kullanicilar", vm);
         }
 
@@ -2196,10 +2198,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Friendships = conDTO.ConvertTo(friendships);
+            vm.FriendRequests = conDTO.ConvertTo(friendrequests2);
             return View("Arkadaslar", vm);
         }
 
@@ -2243,10 +2245,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Friendships = conDTO.ConvertTo(friendships);
+            vm.FriendRequests = conDTO.ConvertTo(friendrequests2);
             return View("Kullanicilar", vm);
         }
 
@@ -2273,10 +2275,10 @@ namespace WebApplication2.Controllers
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             List<Friendship> friendships = c.Friendships.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.Friendships = FriendshipDTO.ConvertTo(friendships);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(friendrequests2);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.Friendships = conDTO.ConvertTo(friendships);
+            vm.FriendRequests = conDTO.ConvertTo(friendrequests2);
             return View(vm);
         }
 
@@ -2301,9 +2303,9 @@ namespace WebApplication2.Controllers
 
             List<FriendRequest> friendrequests2 = c.FriendRequests.ToList();
             ViewModel vm = new ViewModel();
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Users = UserDTO.ConvertTo(users);
-            vm.FriendRequests = FriendRequestDTO.ConvertTo(myfriendrequests);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Users = conDTO.ConvertTo(users);
+            vm.FriendRequests = conDTO.ConvertTo(myfriendrequests);
             return View(vm);
         }
 
@@ -2331,9 +2333,9 @@ namespace WebApplication2.Controllers
             m.MessageSender = user;
             m.MessageReceiver = messagereceiver;
 
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Message = MessageDTO.ConvertTo(m);
-            vm.Messages = MessageDTO.ConvertTo(messages);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Message = conDTO.ConvertTo(m);
+            vm.Messages = conDTO.ConvertTo(messages);
             
             return View("Mesajlasma",vm);
         }
@@ -2369,9 +2371,9 @@ namespace WebApplication2.Controllers
             List<Message> messages;
             messages = c.Messages.ToList();
 
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Message = MessageDTO.ConvertTo(m);
-            vm.Messages = MessageDTO.ConvertTo(messages);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Message = conDTO.ConvertTo(m);
+            vm.Messages = conDTO.ConvertTo(messages);
            
             return View("Mesajlasma", vm);
         }
@@ -2398,9 +2400,9 @@ namespace WebApplication2.Controllers
             List<Message> messages;
             messages = c.Messages.ToList();
 
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Message = MessageDTO.ConvertTo(m);
-            vm.Messages = MessageDTO.ConvertTo(messages);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Message = conDTO.ConvertTo(m);
+            vm.Messages = conDTO.ConvertTo(messages);
 
             return View("Mesajlasma", vm);
         }
@@ -2438,13 +2440,21 @@ namespace WebApplication2.Controllers
             List<Message> messages;
             messages = c.Messages.ToList();
 
-            vm.User = UserDTO.ConvertTo(user);
-            vm.Message = MessageDTO.ConvertTo(m);
-            vm.Messages = MessageDTO.ConvertTo(messages);
+            vm.User = conDTO.ConvertTo(user);
+            vm.Message = conDTO.ConvertTo(m);
+            vm.Messages = conDTO.ConvertTo(messages);
 
             return View("Mesajlasma", vm);
         }
 
+        public IActionResult OkunanMesajlariOkunduYap(int mId)
+        {
+            Message m=c.Messages.Where(x => x.Id==mId).FirstOrDefault();
+            m.IsRead=true;
+            c.Messages.Update(m);
+            c.SaveChanges();
+            return Ok();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

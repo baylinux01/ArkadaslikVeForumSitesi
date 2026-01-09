@@ -24,9 +24,9 @@
                 @if ( Model.User != null && Model.FriendRequests!=null)
                 {
 
-                    @foreach (FriendRequest req in Model.FriendRequests)
+                    @foreach (FriendRequestDTO req in Model.FriendRequests)
                     { 
-                        if(req.Receiver==Model.User)
+                        if(req.Receiver.Username==Model.User.Username)
                         {
                             <tr>
                                 <td>@req.Sender.Name</td>

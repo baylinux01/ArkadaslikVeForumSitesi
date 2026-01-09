@@ -27,7 +27,7 @@
         <div id="alagramsaydiv2">
             @if (Model.AlagramGroups != null)
             {
-                @foreach (AlagramGroup group in Model.AlagramGroups)
+                @foreach (AlagramGroupDTO group in Model.AlagramGroups)
                 {
                     <div class="alagramsaykonudivs">
                         @if (group.Members.Contains(Model.User))

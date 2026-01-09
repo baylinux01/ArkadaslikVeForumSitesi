@@ -5,19 +5,25 @@
 <div class="mesajlasmasay_resim_div">
 <div class="arson_d1">
         <div id="mesajlasmasaydiv0">
+
             @foreach (MessageDTO m in Model.Messages)
             {
-                @if ((m.MessageSender == Model.User && m.MessageReceiver == Model.Message.MessageReceiver)
-               || (m.MessageSender == Model.Message.MessageReceiver && m.MessageReceiver == Model.User))
+                @if ((m.MessageSender.Id == Model.User.Id && m.MessageReceiver.Id == Model.Message.MessageReceiver.Id)
+               || (m.MessageSender.Id == Model.Message.MessageReceiver.Id && m.MessageReceiver.Id == Model.User.Id))
                 {
                     <div>@m.MessageSender.Name @m.MessageSender.Surname: @m.MessageContent</div>
-                    @if (m.MessageSender == Model.Message.MessageReceiver && m.MessageReceiver == Model.User)
+                    @if (m.MessageSender.Id == Model.Message.MessageReceiver.Id && m.MessageReceiver.Id == Model.User.Id)
                     {
+                        
 
-                        Context c = new Context();
+                        <script>
+                            
+                            fetch('/Home/OkunanMesajlariOkunduYap?mId=@m.Id', { method: 'POST' });
+                        </script>
+                        @* Context c = new Context();
                         m.IsRead = true;
                         c.Messages.Update(c.Messages.Where(x => x.Id==m.Id).FirstOrDefault());
-                        c.SaveChanges();
+                        c.SaveChanges(); *@
 
                     }
                 }

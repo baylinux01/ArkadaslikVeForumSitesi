@@ -40,12 +40,18 @@ namespace WebApplication2.Models
 
         public List<UserDTO>? BanningUsers { get; set; }
 
+        public static int depth{get;set;}=3;
         
 
         public static UserDTO? ConvertTo(User? u)
         {
             if(u == null) return null;
-            return new UserDTO(u);
+            return new UserDTO(u,UserDTO.depth-1);
+        }
+        public static UserDTO? ConvertTo(User? u,int depth)
+        {
+            if(u == null|| depth<=0) return null;
+            return new UserDTO(u,depth);
         }
 
          public static List<UserDTO>? ConvertTo(List<User>? u)
@@ -61,14 +67,13 @@ namespace WebApplication2.Models
         }
 
 
-        public UserDTO(User u) : this(u,3)
+        private UserDTO(User u,int depth)
         {
-                
-
-        }
-
-        public UserDTO(User u,int depth)
-        {
+            if(u==null || depth<=0)
+            {
+                return;
+            }
+            
             this.MemberedGroups=new List<AlagramGroupDTO>();
             this.BanningGroups=new List<AlagramGroupDTO>();
 
@@ -87,47 +92,56 @@ namespace WebApplication2.Models
             {
                 foreach(AlagramGroup ag in u.MemberedGroups)
                 {
-                    this.MemberedGroups.Add(new AlagramGroupDTO(ag));
+                    this.MemberedGroups.Add(AlagramGroupDTO.ConvertTo(ag,depth-1));
                 }
             }
             if(u.BanningGroups!=null)
             {
                 foreach(AlagramGroup ag in u.BanningGroups)
                 {
-                    this.BanningGroups.Add(new AlagramGroupDTO(ag));
+                    this.BanningGroups.Add(AlagramGroupDTO.ConvertTo(ag,depth-1));
                 }
             }
             
                 
-                if(u.BannedUsers!=null && u.BannedUsers.Count>0
-                &&depth>0)
+            if(u.BannedUsers!=null && u.BannedUsers.Count>0)
+            {
+                foreach(User ag in u.BannedUsers)
                 {
-                    foreach(User ag in u.BannedUsers)
+                    if(ag!=null)
                     {
-                        if(ag!=null && depth>0)
-                        {
-                            this.BannedUsers.Add(new UserDTO(ag,depth-1));
-                        }
+                        this.BannedUsers.Add(UserDTO.ConvertTo(ag,depth-1));
                     }
                 }
-                if(u.BanningUsers!=null && u.BanningUsers.Count>0
-                && depth>0)
+            }
+            if(u.BanningUsers!=null && u.BanningUsers.Count>0)
+            {
+                foreach(User ag in u.BanningUsers)
                 {
-                    foreach(User ag in u.BanningUsers)
+                    if(ag!=null)
                     {
-                        if(ag!=null && depth>0)
-                        {
-                            this.BanningUsers.Add(new UserDTO(ag,depth-1));
-                        }
+                        this.BanningUsers.Add(UserDTO.ConvertTo(ag,depth-1));
                     }
                 }
+            }
             
+        }
 
+        public override bool Equals(object? obj)
+        {
+            if (obj == null || obj.GetType() != typeof(UserDTO))
+                return false;
 
+            var other = (UserDTO)obj;
+            return this.Id == other.Id || this.Username == other.Username;
+        }
 
+        public override int GetHashCode()
+        {
+            
+            return Id != 0 ? Id.GetHashCode() : Username.GetHashCode();
         }
 
 
-    
     }
 }

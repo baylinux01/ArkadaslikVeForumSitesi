@@ -20,7 +20,7 @@
 
                     @foreach (FriendshipDTO f in Model.Friendships)
                     {
-                        if (f.Friend1 == Model.User)
+                        if (f.Friend1.Username == Model.User.Username)
                         {
                             Context c = new Context();
                             UserDTO user = Model.User;
@@ -52,7 +52,7 @@
 
                             </tr>
                         }
-                        @if (f.Friend2 == Model.User)
+                        @if (f.Friend2.Username == Model.User.Username)
                         {
                             Context c = new Context();
                             UserDTO user = Model.User;

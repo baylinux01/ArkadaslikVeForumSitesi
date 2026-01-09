@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using WebApplication2.Models;
 
 namespace WebApplication2;
 
@@ -21,12 +22,14 @@ public class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
         
-       
-        // Alt satırdaki AddDbContext<>() metodu aşağıdaki AddScoped<>() ile benzer iş yapıyor
+       //builder.Services.Add ile başlayan metodlar DI için kullanılır
+        //Mesela alt satırdaki AddDbContext<>() metodu ile aşağıdaki AddScoped<>() 
+        //aynı işi farklı yöntemlerle yaparlar
+        //Aynı şekilde builder.Services.AddSingleton da öyle.
         //Çakışma olmaması için yorum satırına aldım
         //builder.Services.AddScoped<Context>();
         //Ama normalde AddScoped<>() Dependency Injection için kullanılıyor
-
+        builder.Services.AddScoped<ConverterToDTO>();
         builder.Services.AddDbContext<Context>(options => 
         options.UseMySql(MYSQL_CONNECTION_STRING
                                 ,ServerVersion.AutoDetect(MYSQL_CONNECTION_STRING)));
